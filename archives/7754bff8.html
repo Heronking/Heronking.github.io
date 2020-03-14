@@ -15,15 +15,15 @@
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="今天终于把博客整完了，可能还有很多bug，不过以后再说好了。我这里用的是GitHubPages + Yilia搭的，基本没有改动。en….因为我还啥也不懂 这里主要是做个记录">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://heronking.github.io/GithubPages-yilia%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/1.png">
+<meta property="og:image" content="https://heronking.github.io/archives/7754bff8/1.png">
 <meta property="article:published_time" content="2020-03-14T09:14:22.000Z">
-<meta property="article:modified_time" content="2020-03-14T11:21:57.292Z">
+<meta property="article:modified_time" content="2020-03-14T11:49:03.683Z">
 <meta property="article:author" content="玲猪猪的营养师">
 <meta property="article:tag" content="github pages">
 <meta property="article:tag" content="hexo博客搭建">
 <meta property="article:tag" content="yilia主题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://heronking.github.io/GithubPages-yilia%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/1.png">
+<meta name="twitter:image" content="https://heronking.github.io/archives/7754bff8/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
 <h2 id="然后装node-js"><a href="#然后装node-js" class="headerlink" title="然后装node.js"></a>然后装node.js</h2><p>只需要在官网下载好了就行！<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">node.js</a>，可以选择安装位置！</p>
 <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>首先在你想存博客源码的地方创建个文件夹，我这里命名为hexo。然后点进去，右键！如果你的git装好了，那么右键下应该有<code>Git Bash Here</code>，然后点击这个，会出现命令行操作框，接下来的步骤就按照hexo官网来写就行了<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo安装</a>。</p>
 <p>还是好好读一下官方文档，自己琢磨明白</p>
-<h2 id="接下来在GitHub上创建GitHubPages"><a href="#接下来在GitHub上创建GitHubPages" class="headerlink" title="接下来在GitHub上创建GitHubPages"></a>接下来在GitHub上创建GitHubPages</h2><p>创建一个仓库，命名格式是<code>你的GitHub用户名.github.io</code>首字母好像不区分大小，亲测。创建完了以后看一下setting里面，出现了这个：<br><img src="/GithubPages-yilia%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/1.png" alt="GitHubPages提示你ok了"></p>
+<h2 id="接下来在GitHub上创建GitHubPages"><a href="#接下来在GitHub上创建GitHubPages" class="headerlink" title="接下来在GitHub上创建GitHubPages"></a>接下来在GitHub上创建GitHubPages</h2><p>创建一个仓库，命名格式是<code>你的GitHub用户名.github.io</code>首字母好像不区分大小，亲测。创建完了以后看一下setting里面，出现了这个：<br><img src="/archives/7754bff8/1.png" alt="这样就行了"></p>
 <p>然后回到hexo文件夹下面，这个文件夹是你的博客根目录，打开<code>_config.yml</code>，修改文件末尾代码为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;+你刚刚在github上弄好的仓库名+.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
@@ -463,6 +463,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github pages</a>
               </li>
              
@@ -472,10 +476,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">yilia主题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo文档</a>
               </li>
             
             <div class="clearfix"></div>
