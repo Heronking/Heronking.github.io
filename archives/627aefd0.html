@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>Archives: 2020 | 这是个刚搭好的博客</title>
+  <title>重载overload和重写override | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo,博客,湘潭大学,java,开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是个刚搭好的博客">
-<meta property="og:url" content="https://heronking.github.io/archives/2020/index.html">
+  <meta name="description" content="一些关于重载和重写（覆盖）的注意事项，区别用法啥的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重载overload和重写override">
+<meta property="og:url" content="https://heronking.github.io/archives/627aefd0.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="hexo,博客,湘潭大学,java,开源">
+<meta property="og:description" content="一些关于重载和重写（覆盖）的注意事项，区别用法啥的。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-15T07:09:31.000Z">
+<meta property="article:modified_time" content="2020-03-15T08:01:02.338Z">
 <meta property="article:author" content="玲猪猪的营养师">
-<meta property="article:tag" content="“程序员">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="代码">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="开源">
-<meta property="article:tag" content="个人”">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
@@ -160,36 +158,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-重载overload和重写override" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      重载overload和重写override
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/627aefd0.html" class="archive-article-date">
+
+        
+        <a href="/archives/627aefd0.html" class="archive-article-date">
   	<time datetime="2020-03-15T07:09:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/627aefd0.html">重载overload和重写override</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一些关于重载和重写（覆盖）的注意事项，区别用法啥的。</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p>​    重载发生在同一个类当中。如果多个方法有<strong>相同的名字，不同的参数</strong>，这样就出现了方法的重载。当然，这里不同的参数是指，参数的个数、类型、顺序至少有一个不同，顺序指的是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">float</span> b)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">(<span class="keyword">float</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line">a(<span class="number">1</span>, <span class="number">0.5</span>);<span class="comment">//调用第一个</span></span><br><span class="line">a(<span class="number">0.5</span>, <span class="number">1</span>);<span class="comment">//调用第二个</span></span><br></pre></td></tr></table></figure>
+
+<p>顺序不同本质上也是参数类型不同吧。</p>
+<p><strong>需要注意的是</strong>，如果只有 <em>返回值类型</em> 或者 <em>访问修饰符</em> 不同是<strong>不能构成重载的</strong>。</p>
+<p>在《Java核心技术》有提到：</p>
+<blockquote>
+<p>Java允许重载任何方法。要完整地描述一个方法，需要指出方法名以及参数类型，这叫做<strong>方法的签名</strong>。返回值类型不是方法签名的一部分。也就是说，不能有<strong>两个名字相同、参数类型也相同的方法</strong>，即使他们返回不同的类型值。</p>
+</blockquote>
+<p>所以，重载的作用就是对不同数据类型的数据实现相似的操作。</p>
+<h3 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h3><p>重写的意思是：子类对<strong>父类允许访问的方法</strong>的实现过程进行的重新编写。当子类中的方法与父类中方法的<strong>名称、参数个数、类型</strong>都一样的时候，那么重写就发生了。</p>
+<p>这里要<strong>注意的是</strong>，重写的方法返回值范围要 <strong>≤</strong> 父类，抛出的异常范围也要 <strong>≤</strong> 父类，而<strong>访问修饰符的范围</strong>要 <strong>≥</strong> 父类。如果父类的方法是 <code>private</code>，那么子类不能重写该方法。</p>
+<h4 id="那么由此可以得出，构造方法不能被override-重写或者覆盖-，但是可以被overload（重载）"><a href="#那么由此可以得出，构造方法不能被override-重写或者覆盖-，但是可以被overload（重载）" class="headerlink" title="那么由此可以得出，构造方法不能被override(重写或者覆盖)，但是可以被overload（重载）"></a>那么由此可以得出，构造方法不能被override(重写或者覆盖)，但是可以被overload（重载）</h4><p>为什么？？因为构造方法不能被继承啊~</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -205,225 +217,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/627aefd0.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/1d451465.html" class="archive-article-date">
-  	<time datetime="2020-03-15T06:00:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/archives/1d451465.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java和c++的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/1d451465.html">java和c++的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#重载"><span class="toc-number">1.</span> <span class="toc-text">重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重写"><span class="toc-number">2.</span> <span class="toc-text">重写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#那么由此可以得出，构造方法不能被override-重写或者覆盖-，但是可以被overload（重载）"><span class="toc-number">2.1.</span> <span class="toc-text">那么由此可以得出，构造方法不能被override(重写或者覆盖)，但是可以被overload（重载）</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/5cc69699.html" class="archive-article-date">
-  	<time datetime="2020-03-15T04:07:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/5cc69699.html">关于JVM，JDK和JRE</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/897429d0.html" class="archive-article-date">
-  	<time datetime="2020-03-14T12:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/897429d0.html">解决hexo上传本地图片失败的问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo图片</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/7754bff8.html" class="archive-article-date">
-  	<time datetime="2020-03-14T09:14:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/7754bff8.html">GithubPages+yilia主题博客搭建记录</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">github pages</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo博客搭建</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">yilia主题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/16107.html" class="archive-article-date">
-  	<time datetime="2020-03-13T11:53:49.303Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/16107.html">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo文档</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -455,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
