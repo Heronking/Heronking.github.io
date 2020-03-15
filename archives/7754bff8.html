@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://heronking.github.io/archives/7754bff8/1.png">
 <meta property="article:published_time" content="2020-03-14T09:14:22.000Z">
-<meta property="article:modified_time" content="2020-03-14T12:36:01.086Z">
+<meta property="article:modified_time" content="2020-03-15T06:40:39.517Z">
 <meta property="article:author" content="玲猪猪的营养师">
 <meta property="article:tag" content="github pages">
 <meta property="article:tag" content="hexo博客搭建">
@@ -193,7 +193,7 @@
 <p>然后回到hexo文件夹下面，这个文件夹是你的博客根目录，打开<code>_config.yml</code>，修改文件末尾代码为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;+你刚刚在github上弄好的仓库名+.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 
-<p>这里用的https的地址，如果你用ssh地址，就改为<br><code>repo: git@github.com:&lt;Github账号名称&gt;/&lt;仓库名&gt;.git</code><br>最后打开<code>git bash</code>，把hexo推送到你的GitHubPages上，一次输入：</p>
+<p>这里用的https的地址，如果你用ssh地址，就改为<br><code>repo: git@github.com:&lt;Github账号名称&gt;/&lt;仓库名&gt;.git</code><br>最后打开<code>git bash</code>，把hexo推送到你的GitHubPages上，依次输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
 <p>如果返回的是<code>INFO Deploy done: git</code>那就是推送成功了</p>
