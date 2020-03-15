@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>对多态的理解 | 这是个刚搭好的博客</title>
+  <title>接口和抽象类 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java面向对象编程的三大特性：封装、继承、多态这里面多态比较难以理解，记录一下自己现在的思路。">
+  <meta name="description" content="这里记一些接口和抽象类的异同点这两者本身的设计目的就是不一样的！我是直接从用法上理解的，设计完了用来干嘛，理解了也就知道了两者的异同。 先理解一下什么是抽象类和接口">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对多态的理解">
-<meta property="og:url" content="https://heronking.github.io/archives/f018dd97.html">
+<meta property="og:title" content="接口和抽象类">
+<meta property="og:url" content="https://heronking.github.io/archives/e6551811.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="Java面向对象编程的三大特性：封装、继承、多态这里面多态比较难以理解，记录一下自己现在的思路。">
+<meta property="og:description" content="这里记一些接口和抽象类的异同点这两者本身的设计目的就是不一样的！我是直接从用法上理解的，设计完了用来干嘛，理解了也就知道了两者的异同。 先理解一下什么是抽象类和接口">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-15T08:14:02.000Z">
-<meta property="article:modified_time" content="2020-03-15T09:34:19.122Z">
+<meta property="article:published_time" content="2020-03-15T10:42:23.000Z">
+<meta property="article:modified_time" content="2020-03-15T13:47:51.691Z">
 <meta property="article:author" content="玲猪猪的营养师">
 <meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
@@ -157,57 +159,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-对多态的理解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-接口和抽象类" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      对多态的理解
+      接口和抽象类
     </h1>
   
 
         
-        <a href="/archives/f018dd97.html" class="archive-article-date">
-  	<time datetime="2020-03-15T08:14:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
+        <a href="/archives/e6551811.html" class="archive-article-date">
+  	<time datetime="2020-03-15T10:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java面向对象编程的三大特性：封装、继承、多态<br>这里面多态比较难以理解，记录一下自己现在的思路。</p>
+        <p>这里记一些接口和抽象类的异同点<br>这两者本身的设计目的就是不一样的！我是直接从用法上理解的，设计完了用来干嘛，理解了也就知道了两者的异同。</p>
+<p><strong>先理解一下什么是抽象类和接口</strong></p>
 <a id="more"></a>
 
-<p>先说实现多态的<strong>三个前提</strong>，参考自 <a href="https://www.zhihu.com/question/30082151" target="_blank" rel="noopener">知乎上的回答</a>：</p>
-<ol>
-<li><p><strong>存在继承关系</strong></p>
-</li>
-<li><p><strong>子类重写(覆盖)了父类的方法</strong></p>
-</li>
-<li><p><strong>父类的引用指向的是子类对象</strong></p>
-<p>这是啥意思呢？</p>
-</li>
-</ol>
-<p>这里举个栗子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    String parent = <span class="string">"parent"</span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"这里是parent!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;	<span class="comment">//这里是继承</span></span><br><span class="line">    String child = <span class="string">"child"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;	<span class="comment">//这里是重写</span></span><br><span class="line">        print(<span class="string">"这里是child!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">childFun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"child"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Parent oo = <span class="keyword">new</span> Child();	<span class="comment">//这里是父类引用指向子类对象</span></span><br><span class="line"></span><br><span class="line">这个时候用这个对象调用一下方法。</span><br><span class="line">oo.fun();	<span class="comment">//输出：这里是child！</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看到，父类引用指向子类对象是，实现的方法是子类重写的方法，该过程是动态绑定的，什么子类重写就实现什么子类的方法，这个就叫多态！</p>
-<h4 id="需要注意的事项"><a href="#需要注意的事项" class="headerlink" title="需要注意的事项~"></a>需要注意的事项~</h4><ol>
-<li><p>如果是静态方法，静态方法还是执行父类的！因为静态方法不能被重写。</p>
-</li>
-<li><p>多态的限制：<strong>无法访问到子类特有的成员和方法</strong></p>
-<p>接上面的栗子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(oo.child);	<span class="comment">//报错</span></span><br><span class="line">oo.childFun();	<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
-
-<p>报错的原因就是多态的限制，实现了多态的 <code>oo对象</code> ，在世人眼中已经不再是那个 <code>child</code> 了，<code>oo对象</code>已经冒名顶替了 <code>parent</code>，它就是替父从军的花木兰，并且正在打仗，不能暴露身份。</p>
-<p>父类引用指向子类对象，也就是多态中的<strong>向上转型</strong>。</p>
-<p><strong>那么，如果非要访问子类的特有方法该咋办？</strong></p>
-<p>很简单，有向上转型就有<strong>向下转型</strong>，这里只需要强制类型转换就行了<br>就像这样 <code>Child newOO = (Child) oo;</code> ，这里的 <code>newOO</code> 就变成了 <code>Child</code> 的实例对象了。也就是替父从军的花木兰回到家里要恢复了身份。</p>
-</li>
-</ol>
-<p>在Java中有两种方式来实现多态，<strong>继承：有子类对方法进行了重写。接口：实现接口并且重写接口中的方法</strong>。</p>
+<h5 id="对于抽象类"><a href="#对于抽象类" class="headerlink" title="对于抽象类"></a>对于抽象类</h5><p>​    个人理解抽象类设计出来是为了，<strong>代码复用</strong>。</p>
+<p>​    当我们设计类的时候，发现有很多不同的类都需要用到某些<strong>相同的方法</strong>，而且其中<strong>一部分</strong>的方法实现的都是一样的。<br>​    比如，创建 <code>class 橘猫</code> 、<code>class 黑猫</code> 、<code>class 蓝猫</code>  它们都要用到同样的方法 <code>void eat(){}//吃东西</code>、 <code>void meow(){}//喵喵叫</code>、<code>void like()//喜欢做的事</code>  ，这个时候我们可以想到，设计一个 <code>class 猫</code>，然后把这些相同的方法都放到里面。<br>​    但是这些看似相同的方法，不同的类可能有不同的实现。<br>​    比如，橘猫的 <code>like()</code> 实现是喜欢吃东西，而黑猫的实现是喜欢做警察，蓝猫的实现是喜欢三千问。<br>​    这样一来，如果把<code>like()</code> 也放进 <code>猫</code> 里面，那么就没办法实现不同的猫各自喜欢不同的事了。</p>
+<p>​    所以，就引入了抽象类 <code>(abstract class)</code> 的概念。<br>​    我们把 <code>void like()</code> 写成抽象方法， <code>class 猫</code> 就成了一个抽象类，而那些大家都会用到的相同方法，比如 <code>eat() 和 meow()</code> ，我们只需要继承 <code>猫</code> 就行了，而不需要重复的写，这样就实现了<strong>代码复用</strong> 。那些我们想要在不同类各自不同实现的方法，我们只需要把抽象方法实现就可以了！<br>​    当然，继承一个抽象类以后，里面所有的方法都要强制实现，所以抽象方法不能是<code>static 和 private</code>。</p>
+<h5 id="对于接口"><a href="#对于接口" class="headerlink" title="对于接口"></a>对于接口</h5><p>​    同样是个人理解，接口的作用是，<strong>对类的一种延申和扩展</strong>。如果给不同的类添加相同的接口，那么这些不同的类就拥有了相同的方法，但是，接口不会限制这些方法的实现方式。</p>
+<p>​    举个栗子！我们要给猫咪设计一个技能 <code>void 抓老鼠()</code> ，显然，不是每一只猫咪都会抓老鼠（🤣），所以我们不能把 <code>抓老鼠()</code> 放到 <code>class 猫</code> 里面。而且不同的猫咪<code>抓老鼠()</code> 的方式可能不一样。比如说黑猫使用枪抓老鼠，蓝猫抓老鼠会首先和老鼠做朋友。</p>
+<p>​    于是，接口  <code>interface</code> 就出现了！简单直接，<code>interface 抓老鼠 { void 抓老鼠();}</code> </p>
+<h5 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h5><p>​    继承<strong>抽象类</strong>是让某个类属于xxx的，如果继承了抽象类，那么该类就是这个抽象类一个种族的。<br>​    <strong>接口</strong>的实现让某个类 <strong>有</strong> xxx 方法</p>
+<hr>
+<h5 id="接下来说一下他们俩的异同点"><a href="#接下来说一下他们俩的异同点" class="headerlink" title="接下来说一下他们俩的异同点"></a>接下来说一下他们俩的异同点</h5><ul>
+<li>都不能被实例化！如果需要实例化，这就涉及到了 <a href="https://heronking.github.io/archives/f018dd97.html">多态</a>。</li>
+<li>都能包含抽象方法。但是抽象类可以有实现的方法，甚至可以没有抽象方法。而接口里面必须都是抽象方法，不能实现。如果一个类里面有抽象方法，那么它一定是抽象类。</li>
+<li>一个普通类可以实现多个接口，但是只能继承一个抽象类。</li>
+<li>接口的方法默认是 <code>public</code>。抽象方法可以有 <code>public、protected 和 default</code>，不能是 <code>private</code>。</li>
+<li>从设计层面上来说，抽象是对类的抽象，是一种模板的涉及，而接口是对行为的抽象，这是一种行为的规范。</li>
+</ul>
 
       
 
@@ -222,6 +212,14 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -277,7 +275,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/f018dd97.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/e6551811.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +289,9 @@
   
 <nav id="article-nav">
   
-    <a href="/archives/e6551811.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          接口和抽象类
-        
-      </div>
-    </a>
   
-  
-    <a href="/archives/627aefd0.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">重载overload和重写override</div>
+    <a href="/archives/f018dd97.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对多态的理解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -329,7 +318,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#需要注意的事项"><span class="toc-number">1.</span> <span class="toc-text">需要注意的事项~</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#对于抽象类"><span class="toc-number">1.</span> <span class="toc-text">对于抽象类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对于接口"><span class="toc-number">2.</span> <span class="toc-text">对于接口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#总结一下："><span class="toc-number">3.</span> <span class="toc-text">总结一下：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接下来说一下他们俩的异同点"><span class="toc-number">4.</span> <span class="toc-text">接下来说一下他们俩的异同点</span></a></li></ol>
                     </div>
                 </span>
             </div>
