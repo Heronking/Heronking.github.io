@@ -183,35 +183,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Java面向对象编程的三大特性：封装、继承、多态<br>这里面多态比较难以理解，记录一下自己现在的思路。</p>
-<p>先说实现多态的<strong>三个前提</strong>，参考自 <a href="https://www.zhihu.com/question/30082151" target="_blank" rel="noopener">知乎上的回答</a>：</p>
-<ol>
-<li><p><strong>存在继承关系</strong></p>
-</li>
-<li><p><strong>子类重写(覆盖)了父类的方法</strong></p>
-</li>
-<li><p><strong>父类的引用指向的是子类对象</strong></p>
-<p>这是啥意思呢？</p>
-</li>
-</ol>
-<p>这里举个栗子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">    String parent = <span class="string">"parent"</span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"这里是parent!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;	<span class="comment">//这里是继承</span></span><br><span class="line">    String child = <span class="string">"child"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;	<span class="comment">//这里是重写</span></span><br><span class="line">        print(<span class="string">"这里是child!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">childFun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        print(<span class="string">"child"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Parent oo = <span class="keyword">new</span> Child();	<span class="comment">//这里是父类引用指向子类对象</span></span><br><span class="line"></span><br><span class="line">这个时候用这个对象调用一下方法。</span><br><span class="line">oo.fun();	<span class="comment">//输出：这里是child！</span></span><br></pre></td></tr></table></figure>
-
-<p>可以看到，父类引用指向子类对象是，实现的方法是子类重写的方法，该过程是动态绑定的，什么子类重写就实现什么子类的方法，这个就叫多态！</p>
-<h4 id="需要注意的事项"><a href="#需要注意的事项" class="headerlink" title="需要注意的事项~"></a>需要注意的事项~</h4><ol>
-<li><p>如果是静态方法，静态方法还是执行父类的！因为静态方法不能被重写。</p>
-</li>
-<li><p>多态的限制：<strong>无法访问到子类特有的成员和方法</strong></p>
-<p>接上面的栗子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(oo.child);	<span class="comment">//报错</span></span><br><span class="line">oo.childFun();	<span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
-
-<p>报错的原因就是多态的限制，实现了多态的 <code>oo对象</code> ，在世人眼中已经不再是那个 <code>child</code> 了，<code>oo对象</code>已经冒名顶替了 <code>parent</code>，它就是替父从军的花木兰，并且正在打仗，不能暴露身份。</p>
-<p>父类引用指向子类对象，也就是多态中的<strong>向上转型</strong>。</p>
-<p><strong>那么，如果非要访问子类的特有方法该咋办？</strong></p>
-<p>很简单，有向上转型就有<strong>向下转型</strong>，这里只需要强制类型转换就行了<br>就像这样 <code>Child newOO = (Child) oo;</code> ，这里的 <code>newOO</code> 就变成了 <code>Child</code> 的实例对象了。也就是替父从军的花木兰回到家里要恢复了身份。</p>
-</li>
-</ol>
-<p>在Java中有两种方式来实现多态，<strong>继承：有子类对方法进行了重写。接口：实现接口并且重写接口中的方法</strong>。</p>
-
+        
+          <a class="article-more-a" href="/archives/f018dd97.html#more">more >></a>
+        
       
 
       
