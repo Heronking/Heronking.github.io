@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>Tag: hexo图片 | 这是个刚搭好的博客</title>
+  <title>关于JVM，JDK和JRE | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo,博客,湘潭大学,java,开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是个刚搭好的博客">
-<meta property="og:url" content="https://heronking.github.io/tags/hexo%E5%9B%BE%E7%89%87/index.html">
+  <meta name="description" content="关于JVMJVM就是java虚拟机，也就是一种解释器，用来运行java字节码的虚拟机。JVM屏蔽了于操作系统平台相关的信息，同一个java程序编译生成的字节码，不加修改地在不同的操作系统上运行时，JVM会给出相同的结果。这就是Java能实现编译一次，到处运行的原因。 JVM主要由，一套字节码指令集，一组寄存器，一个栈，一个垃圾回收堆和一个存储方法域等组成。 java程序的运行过程一般是3步：.ja">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于JVM，JDK和JRE">
+<meta property="og:url" content="https://heronking.github.io/archives/5cc69699.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="hexo,博客,湘潭大学,java,开源">
+<meta property="og:description" content="关于JVMJVM就是java虚拟机，也就是一种解释器，用来运行java字节码的虚拟机。JVM屏蔽了于操作系统平台相关的信息，同一个java程序编译生成的字节码，不加修改地在不同的操作系统上运行时，JVM会给出相同的结果。这就是Java能实现编译一次，到处运行的原因。 JVM主要由，一套字节码指令集，一组寄存器，一个栈，一个垃圾回收堆和一个存储方法域等组成。 java程序的运行过程一般是3步：.ja">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-15T04:07:28.000Z">
+<meta property="article:modified_time" content="2020-03-15T05:51:51.374Z">
 <meta property="article:author" content="玲猪猪的营养师">
-<meta property="article:tag" content="“程序员">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="代码">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="开源">
-<meta property="article:tag" content="个人”">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
@@ -160,60 +157,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于JVM，JDK和JRE" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/897429d0.html" class="archive-article-date">
-  	<time datetime="2020-03-14T12:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/897429d0.html">解决hexo上传本地图片失败的问题</a>
+    <h1 class="article-title" itemprop="name">
+      关于JVM，JDK和JRE
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/archives/5cc69699.html" class="archive-article-date">
+  	<time datetime="2020-03-15T04:07:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="关于JVM"><a href="#关于JVM" class="headerlink" title="关于JVM"></a>关于JVM</h3><p>JVM就是<code>java虚拟机</code>，也就是一种解释器，用来运行java字节码的虚拟机。JVM屏蔽了于操作系统平台相关的信息，同一个java程序编译生成的字节码，不加修改地在不同的操作系统上运行时，JVM会给出相同的结果。这就是Java能实现<strong>编译一次，到处运行</strong>的原因。</p>
+<p>JVM主要由，<strong>一套字节码指令集，一组寄存器，一个栈，一个垃圾回收堆和一个存储方法域等</strong>组成。</p>
+<p>java程序的运行过程一般是3步：<br><code>.java文件</code> 通过 <code>JDK中的javac编译</code> ➡  <code>JVM可理解的字节码</code> 通过 <code>JVM</code> ➡  <code>机器可执行的二进制机器码</code> </p>
+<h4 id="什么是字节码呢？"><a href="#什么是字节码呢？" class="headerlink" title="什么是字节码呢？"></a>什么是字节码呢？</h4><blockquote>
+<p>在Java中，JVM可以理解的代码就是字节码（即扩展名为<code>.class</code>的文件），这个文件只面向虚拟机。通过字节码的方式，Java在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言可移植的特点。字节码不会针对一种特定的机器，所以，这使得Java程序无须重新编译就能再不同的操作系统上运行。</p>
+</blockquote>
+<h3 id="关于JDK和JRE"><a href="#关于JDK和JRE" class="headerlink" title="关于JDK和JRE"></a>关于JDK和JRE</h3><p><strong>JDK</strong>就是<strong>java开发工具包</strong>，用来编译、调试java程序的。什么<code>javac(编译器)、javadoc和jdb</code>啥的，都在这个里面。JDK可以用来创建和编译java程序。</p>
+<p><strong>JRE</strong>是java运行时的环境，所有的java程序都要在JRE下才能够运行，JRE包括了JVM，java类库，java命令和一些基础构建。如果只有JRE是不能创建新程序的，但是如果只是为了运行java程序，那么有JRE就够了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo图片</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/5cc69699.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/archives/897429d0.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决hexo上传本地图片失败的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于JVM"><span class="toc-number">1.</span> <span class="toc-text">关于JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是字节码呢？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是字节码呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于JDK和JRE"><span class="toc-number">2.</span> <span class="toc-text">关于JDK和JRE</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -245,9 +348,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
