@@ -16,7 +16,7 @@
 <meta property="og:description" content="在java的静态也就是 static 关键字，用来修饰成员变量和成员方法，比如 static int a; ，也可以用来做静态代码块，比如： 1234static &amp;#123;    ....    ....&amp;#125;  不过，在java中一般没有全局变量这种概念，因为变量啥的都是放在类里面的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-16T06:34:16.000Z">
-<meta property="article:modified_time" content="2020-03-16T09:21:13.181Z">
+<meta property="article:modified_time" content="2020-03-16T09:30:57.351Z">
 <meta property="article:author" content="玲猪猪的营养师">
 <meta property="article:tag" content="随笔">
 <meta property="article:tag" content="记">
@@ -194,10 +194,10 @@
 <li>子类实例成员和实例代码块，从上到下依次执行。每次都执行</li>
 <li>子类构造方法。每次都执行</li>
 </ul>
-<p><strong>需要注意的是，静态成员只会执行一次，而且是在类被加载到内存的时候就会执行，不需要等到创建实例对象。所以静态成员是直接属于类的，而不是属于实例对象</strong>。</p>
-<h4 id="写一下关于静态变量和非静态成员的存储位置"><a href="#写一下关于静态变量和非静态成员的存储位置" class="headerlink" title="写一下关于静态变量和非静态成员的存储位置"></a>写一下关于静态变量和非静态成员的存储位置</h4><p>静态成员是属于类本身的，在这个类被JVM加载的时候，静态成员会跟着类一起被加载到一个叫做 <a href="https://heronking.github.io/archives/eae4d02d.html">方法区</a> 的位置，分配内存，不会被自动回收，会一直占用内存直到程序结束，JVM关闭。‘</p>
+<p><strong>需要注意的是</strong>，静态成员只会执行一次，而且是在类被加载到内存的时候就会执行，不需要等到创建实例对象。所以静态成员是直接属于类的，而不是属于实例对象。</p>
+<h3 id="写一下关于静态变量和非静态成员的存储位置"><a href="#写一下关于静态变量和非静态成员的存储位置" class="headerlink" title="写一下关于静态变量和非静态成员的存储位置"></a>写一下关于静态变量和非静态成员的存储位置</h3><p>静态成员是属于类本身的，在这个类被JVM加载的时候，静态成员会跟着类一起被加载到一个叫做 <a href="https://heronking.github.io/archives/eae4d02d.html">方法区</a> 的位置，分配内存，不会被自动回收，会一直占用内存直到程序结束，JVM关闭。‘</p>
 <p>非静态成员属于实例化对象，在对象被实例化的时候，也就是 <strong>new</strong> 的时候，JVM会从堆中动态分配内存给对象。非静态成员必须通过对象来访问，并随着对象一起被JVM回收。</p>
-<h4 id="关于静态方法和实例方法的区别"><a href="#关于静态方法和实例方法的区别" class="headerlink" title="关于静态方法和实例方法的区别"></a>关于静态方法和实例方法的区别</h4><ul>
+<h3 id="关于静态方法和实例方法的区别"><a href="#关于静态方法和实例方法的区别" class="headerlink" title="关于静态方法和实例方法的区别"></a>关于静态方法和实例方法的区别</h3><ul>
 <li><p>在本类外调用静态方法时，可以使用 <code>类名.静态方法名()   或者  对象名.方法名()</code> 的方式。而实例方法只能使用后者的方式。</p>
 </li>
 <li><p>在静态方法中，只能访问本类的静态成员，不允许访问实例成员，否则报错。实例方法没有限制</p>
@@ -334,7 +334,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#写一下关于静态变量和非静态成员的存储位置"><span class="toc-number">1.</span> <span class="toc-text">写一下关于静态变量和非静态成员的存储位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于静态方法和实例方法的区别"><span class="toc-number">2.</span> <span class="toc-text">关于静态方法和实例方法的区别</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#写一下关于静态变量和非静态成员的存储位置"><span class="toc-number">1.</span> <span class="toc-text">写一下关于静态变量和非静态成员的存储位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于静态方法和实例方法的区别"><span class="toc-number">2.</span> <span class="toc-text">关于静态方法和实例方法的区别</span></a></li></ol>
                     </div>
                 </span>
             </div>
