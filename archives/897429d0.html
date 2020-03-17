@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="第一次用hexo写博客，然后遇到了本地图片显示不了的问题就像这样一般情况下是没什么问题的，按照教程一步步来">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/897429d0.htm/D:%5CHEXO%5Csource_posts%5C%E8%A7%A3%E5%86%B3hexo%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%5C1.png">
-<meta property="og:updated_time" content="2020-03-14T12:48:32.047Z">
+<meta property="og:image" content="https://heronking.github.io/archives/897429d0/D:%5CHEXO%5Csource_posts%5C%E8%A7%A3%E5%86%B3hexo%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%5C1.png">
+<meta property="og:updated_time" content="2020-03-17T15:00:08.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决hexo上传本地图片失败的问题">
 <meta name="twitter:description" content="第一次用hexo写博客，然后遇到了本地图片显示不了的问题就像这样一般情况下是没什么问题的，按照教程一步步来">
-<meta name="twitter:image" content="https://heronking.github.io/archives/897429d0.htm/D:%5CHEXO%5Csource_posts%5C%E8%A7%A3%E5%86%B3hexo%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%5C1.png">
+<meta name="twitter:image" content="https://heronking.github.io/archives/897429d0/D:%5CHEXO%5Csource_posts%5C%E8%A7%A3%E5%86%B3hexo%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%5C1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第一次用hexo写博客，然后遇到了本地图片显示不了的问题<br>就像这样<img src="/archives/897429d0.htm/D:%5CHEXO%5Csource_posts%5C%E8%A7%A3%E5%86%B3hexo%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%5C1.png" alt="显示失败"><br>一般情况下是没什么问题的，按照教程一步步来</p>
+        <p>第一次用hexo写博客，然后遇到了本地图片显示不了的问题<br>就像这样<img src="/archives/897429d0/D:%5CHEXO%5Csource_posts%5C%E8%A7%A3%E5%86%B3hexo%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%5C1.png" alt="显示失败"><br>一般情况下是没什么问题的，按照教程一步步来</p>
 <a id="more"></a>
 
 <ul>
@@ -189,8 +189,8 @@
 </ul>
 <p>这是一般情况</p>
 <p>但是呢，如果你的hexo装了<a href="https://github.com/rozbo/hexo-abbrlink" target="_blank" rel="noopener">abbrlink</a>，那么上传的图片就会显示不出来。这个插件会和<code>asset-image</code>冲突，原因是abbrlink会把博客的帖子的标题转换成一个唯一的静态代码，由于这里用的相对路径上传本地图片，<code>asset-image</code>在上传的图片自然就没办法被找到了！</p>
-<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><p>我找到了abbrlink作者大大的发帖记录，最后在 <a href="https://github.com/rozbo/hexo-abbrlink/issues/19" target="_blank" rel="noopener">这里</a> 找到了办法~<br>只需要把这位大佬的改好的 <a href="https://github.com/foreveryang321/hexo-asset-image" target="_blank" rel="noopener">代码</a> 放到自己的<code>asset-image</code>中即可！</p>
-<p>嗯，只用改<code>index.js</code>和<code>package.json</code></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>我找到了abbrlink作者大大的发帖记录，最后在 <a href="https://github.com/rozbo/hexo-abbrlink/issues/19" target="_blank" rel="noopener">这里</a> 找到了办法~<br>只需要把这位大佬的改好的 <a href="https://github.com/foreveryang321/hexo-asset-image" target="_blank" rel="noopener">插件</a> 装好就行，咒语：</p>
+<p><code>$ npm install https://github.com/foreveryang321/hexo-asset-image.git --save</code></p>
 
       
 
@@ -312,7 +312,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#解决办法"><span class="toc-number">1.</span> <span class="toc-text">解决办法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决办法"><span class="toc-number">1.</span> <span class="toc-text">解决办法</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/70ca885c.htm/1.jpg">
-<meta property="og:image" content="https://heronking.github.io/archives/70ca885c.htm/2.jpg">
+<meta property="og:image" content="https://heronking.github.io/archives/70ca885c/1.jpg">
+<meta property="og:image" content="https://heronking.github.io/archives/70ca885c/2.jpg">
 <meta property="og:updated_time" content="2020-03-17T13:59:53.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程的基本状态与生命周期">
 <meta name="twitter:description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态">
-<meta name="twitter:image" content="https://heronking.github.io/archives/70ca885c.htm/1.jpg">
+<meta name="twitter:image" content="https://heronking.github.io/archives/70ca885c/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -221,9 +221,9 @@
 </blockquote>
 <p><strong>源码在Thread类的State中。</strong></p>
 <h3 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h3><p>看图说话，这张图（<a href="https://www.cnblogs.com/aspirant/p/8900276.html" target="_blank" rel="noopener">来源</a>）详细的记录了Java线程之间的切换：</p>
-<p><img src="/archives/70ca885c.htm/1.jpg" alt="线程之间的切换"></p>
+<p><img src="/archives/70ca885c/1.jpg" alt="线程之间的切换"></p>
 <p>还有简单版（<a href="https://blog.csdn.net/huakai_sun/article/details/78287931" target="_blank" rel="noopener">来源</a>）的：</p>
-<p><img src="/archives/70ca885c.htm/2.jpg" alt="线程切换"></p>
+<p><img src="/archives/70ca885c/2.jpg" alt="线程切换"></p>
 <h4 id="初始态"><a href="#初始态" class="headerlink" title="初始态"></a>初始态</h4><p>实现Runnable接口或者继承Thread可以得到线程类，使用new实例化以后，线程就进入了初始态。此时的线程情况是：</p>
 <ul>
 <li>JVM为该线程分配内存，初始化成员变量</li>
