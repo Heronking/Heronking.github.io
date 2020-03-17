@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://heronking.github.io">
   <title>理解哈希表 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。 为什么要有哈希表呢？">
+  <meta name="description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。">
 <meta name="keywords" content="随笔,面试,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解哈希表">
 <meta property="og:url" content="https://heronking.github.io/archives/1293cfc0.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。 为什么要有哈希表呢？">
+<meta property="og:description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://heronking.github.io/archives/1293cfc0/1.png">
-<meta property="og:updated_time" content="2020-03-17T07:16:44.452Z">
+<meta property="og:updated_time" content="2020-03-17T15:07:04.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解哈希表">
-<meta name="twitter:description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。 为什么要有哈希表呢？">
+<meta name="twitter:description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。">
 <meta name="twitter:image" content="https://heronking.github.io/archives/1293cfc0/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
@@ -180,8 +180,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。</p>
-<h4 id="为什么要有哈希表呢？"><a href="#为什么要有哈希表呢？" class="headerlink" title="为什么要有哈希表呢？"></a>为什么要有哈希表呢？</h4><a id="more"></a>
+<a id="more"></a>
 
+<p>为什么要有哈希表呢？</p>
 <p>先看看我们常用的数据结构</p>
 <p><strong>普通数组</strong>：对数据的寻址简单且效率高，但插入和删除效率低。<br><strong>链表</strong>：对数据的插入和删除效率高，但寻址的效率低，平衡树的查找也需要O(lgn)。</p>
 <p>而哈希表就是查询、插入、删除一般都只需要O(1)复杂度的数据结构。</p>
@@ -336,7 +337,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么要有哈希表呢？"><span class="toc-number">1.</span> <span class="toc-text">为什么要有哈希表呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#哈希表的实现原理"><span class="toc-number">2.</span> <span class="toc-text">哈希表的实现原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#举个栗子"><span class="toc-number">3.</span> <span class="toc-text">举个栗子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#哈希表的问题"><span class="toc-number">4.</span> <span class="toc-text">哈希表的问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#哈希表的实现原理"><span class="toc-number">1.</span> <span class="toc-text">哈希表的实现原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#举个栗子"><span class="toc-number">2.</span> <span class="toc-text">举个栗子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#哈希表的问题"><span class="toc-number">3.</span> <span class="toc-text">哈希表的问题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -504,11 +505,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
