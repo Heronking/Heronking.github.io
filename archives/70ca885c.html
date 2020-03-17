@@ -6,23 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>Tag: java | 这是个刚搭好的博客</title>
+  <title>线程的基本状态与生命周期 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo,博客,湘潭大学,java,开源">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是个刚搭好的博客">
-<meta property="og:url" content="https://heronking.github.io/tags/java/index.html">
+  <meta name="description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态     状态名 说   明    初始态（New） 线程被构建，但还没有调用 start() 方法   运行态（Runnable） java线程将就绪态（ready）和运行中（runnin）两种状态统称为运行态。线程对象创建并调用 start() 方法之后，该线程就位">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程的基本状态与生命周期">
+<meta property="og:url" content="https://heronking.github.io/archives/70ca885c.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="hexo,博客,湘潭大学,java,开源">
+<meta property="og:description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态     状态名 说   明    初始态（New） 线程被构建，但还没有调用 start() 方法   运行态（Runnable） java线程将就绪态（ready）和运行中（runnin）两种状态统称为运行态。线程对象创建并调用 start() 方法之后，该线程就位">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://heronking.github.io/archives/70ca885c/1.jpg">
+<meta property="og:image" content="https://heronking.github.io/archives/70ca885c/2.jpg">
+<meta property="article:published_time" content="2020-03-17T09:22:03.000Z">
+<meta property="article:modified_time" content="2020-03-17T13:32:56.064Z">
 <meta property="article:author" content="玲猪猪的营养师">
-<meta property="article:tag" content="“程序员">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="记">
 <meta property="article:tag" content="java">
-<meta property="article:tag" content="代码">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="开源">
-<meta property="article:tag" content="个人”">
+<meta property="article:tag" content="线程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://heronking.github.io/archives/70ca885c/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -160,36 +163,104 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-线程的基本状态" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/70ca885c.html" class="archive-article-date">
-  	<time datetime="2020-03-17T09:22:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/70ca885c.html">线程的基本状态与生命周期</a>
+    <h1 class="article-title" itemprop="name">
+      线程的基本状态与生命周期
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/archives/70ca885c.html" class="archive-article-date">
+  	<time datetime="2020-03-17T09:22:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>开门见山！参考自 <a href="https://blog.csdn.net/pange1991/article/details/53860651?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">博客</a> 。</p>
+<p>线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。</p>
+<p>先看看有哪6中状态</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">状态名</th>
+<th>说   明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">初始态（New）</td>
+<td>线程被构建，但还没有调用 <code>start()</code> 方法</td>
+</tr>
+<tr>
+<td align="center">运行态（Runnable）</td>
+<td>java线程将就绪态（ready）和运行中（runnin）两种状态统称为运行态。<br>线程对象创建并调用 <code>start()</code> 方法之后，该线程就位于可运行线程池中，等待系统调度，这个状态叫就绪态（ready）。而就绪态的线程在获得 CPU时间片之后就开始运行了，这个状态是运行中（running）</td>
+</tr>
+<tr>
+<td align="center">阻塞态（Blocked）</td>
+<td>线程阻塞于锁</td>
+</tr>
+<tr>
+<td align="center">等待态（waiting）</td>
+<td>进入该状态的线程表示当前线程需要等待其他线程做出一些特定动作（比如通知或中断）</td>
+</tr>
+<tr>
+<td align="center">超时等待（Time_Waiting）</td>
+<td>该状态不同于等待态，它可以在指定的时间后自行返回。</td>
+</tr>
+<tr>
+<td align="center">终止态（Terminated）</td>
+<td>线程已经执行完毕</td>
+</tr>
+</tbody></table>
+</blockquote>
+<a id="more"></a>
+
+<p><strong>源码在Tread类的State中。</strong></p>
+<h3 id="线程的生命周期"><a href="#线程的生命周期" class="headerlink" title="线程的生命周期"></a>线程的生命周期</h3><p>看图说话，这张图（<a href="https://www.cnblogs.com/aspirant/p/8900276.html" target="_blank" rel="noopener">来源</a>）详细的记录了Java线程之间的切换：</p>
+<p><img src="/archives/70ca885c/1.jpg" alt="线程之间的切换"></p>
+<p>还有简单版（<a href="https://blog.csdn.net/huakai_sun/article/details/78287931" target="_blank" rel="noopener">来源</a>）的：</p>
+<p><img src="/archives/70ca885c/2.jpg" alt="线程切换"></p>
+<h4 id="初始态"><a href="#初始态" class="headerlink" title="初始态"></a>初始态</h4><p>实现Runnable接口或者继承Tread可以得到线程类，使用new实例化以后，线程就进入了初始态。此时的线程情况是：</p>
+<ul>
+<li>JVM为该线程分配内存，初始化成员变量</li>
+<li>线程对象没有表现出线程的动态特征，程序不会执行线程的内容。</li>
+</ul>
+<h4 id="就绪态"><a href="#就绪态" class="headerlink" title="就绪态"></a>就绪态</h4><p>就绪态的线程不会立即执行，而是在<strong>可运行线程池</strong>中<strong>等待CPU调度，为其分配CPU时间片</strong>以后才会开始执行，进入运行中状态。</p>
+<p>让线程进入就绪态的情况，图上已经有标识了</p>
+<ul>
+<li>实例对象调用 <code>start()</code> 方法，线程进入就绪态。</li>
+<li>各种各样的阻塞（sleep、join、用户I/O）完成之后、锁池中的线程拿到对象锁（还是因为阻塞），线程会回到就绪态</li>
+<li>当前线程的时间片用完了、或者调用 <code>yield()</code> <strong>让出CPU调度</strong>，线程回到就绪态。这里是从运行态回到就绪态</li>
+</ul>
+<h4 id="运行态"><a href="#运行态" class="headerlink" title="运行态"></a>运行态</h4><p>线程调度从可运行线程池（处于就绪态的线程们）中选择一个线程调用并分配资源，那么该线程就会进入运行态。<strong>这是线程进入运行态的唯一途经</strong>。</p>
+<p>此时，自动调用该线程对象的 <code>run()</code> 方法，而 <code>run()</code>方法内定义了这个线程功能。</p>
+<p>若此时调用 <code>yeild()</code> 方法，线程会<strong>让出CPU</strong>，重新回到就绪态，也可能会发生刚回去又马上分配到资源再次执行的情况。</p>
+<h4 id="阻塞态"><a href="#阻塞态" class="headerlink" title="阻塞态"></a>阻塞态</h4><p>一个正在运行的线程在特殊情况下，会让出自己的资源并暂时中止，这就是阻塞。</p>
+<p>阻塞态可以分为三种：</p>
+<ul>
+<li><strong>等待阻塞</strong>，线程调用 <code>wait()</code> 方法，该线程<strong>释放CPU也释放锁</strong>并进入等待队列中等待被再次唤醒（其他线程调用 <code>notify()</code> 方法随机唤醒一个，调用 <code>notifyAll()</code> 方法唤醒全部，或者线程结束后自动唤醒）。唤醒后会放入锁池队列中和其他线程竞争同步锁。</li>
+<li><strong>同步阻塞</strong>，线程遇到同步锁，但锁被其他线程占用，该线程进入锁池转为同步阻塞，与其他线程竞争同步锁。当再次获取到锁，线程进入就绪态。</li>
+<li><strong>其他阻塞</strong>，有几种情况<br>线程调用 <code>sleep()</code> 方法，该线程<strong>释放CPU但不释放锁</strong>，线程会抱着锁开始睡觉，等待sleep时间到或者调用了 <code>interrupt()</code> 方法才会结束。<br>当前线程调用另一个线程的 <code>join()</code> 方法，比如 <code>t2.join()</code>，那么当前线程 t 进入阻塞，直到 t2 结束。<br>等待用户的I/O操作，当前线程进入阻塞。</li>
+</ul>
+<p><strong>注意，阻塞结束后，线程会回到就绪态。</strong></p>
+<h4 id="超时等待态"><a href="#超时等待态" class="headerlink" title="超时等待态"></a>超时等待态</h4><p>这个状态相当于在 <strong>等待阻塞</strong> 的基础上增加了超时限制，一般通过 sleep(long s) 和 wait(long s) 让程序进入超市等待。当时间到了之后，线程进入就绪态。</p>
+<h4 id="终止态"><a href="#终止态" class="headerlink" title="终止态"></a>终止态</h4><p>线程调用 <code>stop()</code> 方法、<code>destroy()</code> 方法、遇到异常终止、线程正常执行完也就是 <code>run()</code> 方法执行结束后，线程死亡。</p>
+<p><strong>处于终止态的线程不再具备运行能力</strong>。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,295 +284,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/70ca885c.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/333b0902.html" class="archive-article-date">
-  	<time datetime="2020-03-17T07:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/archives/333b0902.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">equals和hashCode</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/333b0902.html">equals和hashCode</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程的生命周期"><span class="toc-number">1.</span> <span class="toc-text">线程的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初始态"><span class="toc-number">1.1.</span> <span class="toc-text">初始态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#就绪态"><span class="toc-number">1.2.</span> <span class="toc-text">就绪态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行态"><span class="toc-number">1.3.</span> <span class="toc-text">运行态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#阻塞态"><span class="toc-number">1.4.</span> <span class="toc-text">阻塞态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#超时等待态"><span class="toc-number">1.5.</span> <span class="toc-text">超时等待态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#终止态"><span class="toc-number">1.6.</span> <span class="toc-text">终止态</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/cefdebd3.html" class="archive-article-date">
-  	<time datetime="2020-03-16T13:42:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/cefdebd3.html">==和equals</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/eae4d02d.html" class="archive-article-date">
-  	<time datetime="2020-03-16T08:00:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/eae4d02d.html">JVM的栈、堆、方法区</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/b2323594.html" class="archive-article-date">
-  	<time datetime="2020-03-16T06:34:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/b2323594.html">Java静态</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/e6551811.html" class="archive-article-date">
-  	<time datetime="2020-03-15T10:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/e6551811.html">接口和抽象类</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/f018dd97.html" class="archive-article-date">
-  	<time datetime="2020-03-15T08:14:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/f018dd97.html">对多态的理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -533,9 +428,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
