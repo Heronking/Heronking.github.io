@@ -185,40 +185,6 @@
         <p>开门见山！参考自 <a href="https://blog.csdn.net/pange1991/article/details/53860651?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">博客</a> 。</p>
 <p>线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。</p>
 <p>先看看有哪6中状态</p>
-<blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">状态名</th>
-<th>说   明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">初始态（New）</td>
-<td>线程被构建，但还没有调用 <code>start()</code> 方法</td>
-</tr>
-<tr>
-<td align="center">运行态（Runnable）</td>
-<td>java线程将就绪态（ready）和运行中（runnin）两种状态统称为运行态。<br>线程对象创建并调用 <code>start()</code> 方法之后，该线程就位于可运行线程池中，等待系统调度，这个状态叫就绪态（ready）。而就绪态的线程在获得 CPU时间片之后就开始运行了，这个状态是运行中（running）</td>
-</tr>
-<tr>
-<td align="center">阻塞态（Blocked）</td>
-<td>线程阻塞于锁</td>
-</tr>
-<tr>
-<td align="center">等待态（waiting）</td>
-<td>进入该状态的线程表示当前线程需要等待其他线程做出一些特定动作（比如通知或中断）</td>
-</tr>
-<tr>
-<td align="center">超时等待（Time_Waiting）</td>
-<td>该状态不同于等待态，它可以在指定的时间后自行返回。</td>
-</tr>
-<tr>
-<td align="center">终止态（Terminated）</td>
-<td>线程已经执行完毕</td>
-</tr>
-</tbody></table>
-</blockquote>
         
           <a class="article-more-a" href="/archives/70ca885c.html#more">more >></a>
         
