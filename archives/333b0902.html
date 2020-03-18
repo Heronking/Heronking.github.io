@@ -9,14 +9,14 @@
   <title>equals和hashCode | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在java中有一个基础方法 hashCode()，和 equals() toString() 一样，是 Object类 里面的方法，嗯，Object是所有类的老父亲。 从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。">
-<meta name="keywords" content="java,随笔,面试">
+<meta name="keywords" content="随笔,面试,java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="equals和hashCode">
 <meta property="og:url" content="https://heronking.github.io/archives/333b0902.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="在java中有一个基础方法 hashCode()，和 equals() toString() 一样，是 Object类 里面的方法，嗯，Object是所有类的老父亲。 从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-17T08:17:54.611Z">
+<meta property="og:updated_time" content="2020-03-18T10:11:40.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="equals和hashCode">
 <meta name="twitter:description" content="在java中有一个基础方法 hashCode()，和 equals() toString() 一样，是 Object类 里面的方法，嗯，Object是所有类的老父亲。 从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。">
@@ -184,7 +184,7 @@
 <h4 id="关于hashCode的介绍"><a href="#关于hashCode的介绍" class="headerlink" title="关于hashCode的介绍"></a>关于hashCode的介绍</h4><p>其实hashCode()就是 <a href="https://heronking.github.io/archives/1293cfc0.html">哈希表</a> 的散列函数，它的返回值就是hash码，那个传说中的key值，嗯，是个int型的。</p>
 <p>它的存在就是为了哈希表服务的。</p>
 <p>java中有两种<strong>集合</strong>，一类是List，一类是Set。我们在小学二年级的时候就学过集合的概念，不过在计算机语言中，集合是一种数据结构。</p>
-<p>这里说一下HashSet这个集合，它是Set的一个子类，存储在它里面的元素<strong>无序且不可重复的</strong>。为什么是无序的呢？因为它是根据 <code>hashCode()</code> 返回的散列码来存储的。</p>
+<p>这里说一下HashSet这个集合，它是Set的一个子类，它也比较接近数学中的集合，存储在它里面的元素<strong>无序且不可重复的</strong>。为什么是无序的呢？因为它是根据 <code>hashCode()</code> 返回的散列码来存储的。</p>
 <p><strong>那么HashSet如何检查重复？</strong></p>
 <p>在向HashSet中使用 <code>add()</code> 添加一个对象元素时，HashSet会先得到该元素调用hashCode()之后返回的散列码key，然后根据这个key值判断该元素应该存储的位置，<strong>若该位置已经有元素对象</strong>，那么就与已经添加元素的hashCode值作比较。</p>
 <p>如果不同，那么HashSet就会认为该元素没有重复。</p>
@@ -198,7 +198,7 @@
 <li>如果两个对象相等，那么对两个对象分别调用 equals 和 hashcode方法都会返回true</li>
 <li>两个对象有相同的 hashcode值，但他们的不一定是相等的。</li>
 <li>equals 方法被重写，则 hashcode也必须被重写</li>
-<li>hashCode() 的默认行为是对堆上的对象产生独特的散列码值。如果没有重写 hashCode()，则该类的两个对象不会相等，即使两个对象指向相同的数据。</li>
+<li>hashCode() 的默认行为是<strong>对堆上的对象产生独特的散列码值</strong>。如果没有重写 hashCode()，则该类的<strong>两个实例对象无论如何都不会相等</strong>，即使这两个对象指向相同的数据。</li>
 </ul>
 </blockquote>
 
@@ -214,15 +214,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -470,6 +470,22 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github pages</a>
               </li>
              
@@ -482,23 +498,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,7 +510,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
+                <a href="javascript:void(0)" class="js-tag color2">面试 - 记</a>
               </li>
             
             <div class="clearfix"></div>
