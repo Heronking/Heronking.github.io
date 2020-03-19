@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="java中的集合框架主要分为两类：Collection 和 Map  Collection 是单列集合，Map是双列 Collection中的Set要求集合元素唯一，Map中的键值为一，值没有限制">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-18T14:54:23.492Z">
+<meta property="og:updated_time" content="2020-03-19T06:38:43.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java集合简单总结">
 <meta name="twitter:description" content="java中的集合框架主要分为两类：Collection 和 Map  Collection 是单列集合，Map是双列 Collection中的Set要求集合元素唯一，Map中的键值为一，值没有限制">
@@ -203,9 +203,12 @@
 <h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><ul>
 <li>HashMap：<a href="https://heronking.github.io/archives/166dc6bc.html">详情</a> ，使用数组 + 链表/红黑树 的哈希表结构，存储的是Entry键值对。</li>
 <li>LinkedHashMap：继承于HashMap，底层结构在HashMap的基础上<strong>增加了一条双向链表</strong>，用来保持键值对的插入顺序，所以它存取有序。</li>
-<li>TreeMap：红黑树</li>
+<li>TreeMap：红黑树，可以通过实现Comparator接口来指定排序方法。</li>
 <li>Hashtable：与HashMap功能类似，数组 + 链表组成，不能存有null的键值。线程安全，但不推荐使用。多线程使用ConcurrentHashMap</li>
 </ul>
+<h4 id="如何选用集合"><a href="#如何选用集合" class="headerlink" title="如何选用集合"></a>如何选用集合</h4><p>根据集合特点来选。</p>
+<p>如果需要用到键值，那自然就选Map，根据具体情况来选某一个Map，比如需要排序就用TreeMap，不需要排序就用HashMap，需要保证线程安全就用ConcurrentHashMap。</p>
+<p>如果只需要用来存放元素，那就用Collection，需要元素唯一就用Set，不需要就用List。</p>
 
       
 
@@ -297,6 +300,15 @@
   
 <nav id="article-nav">
   
+    <a href="/archives/8b39915a.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySQL安装
+        
+      </div>
+    </a>
+  
   
     <a href="/archives/166dc6bc.html" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">简述HashMap的工作原理</div>
@@ -326,7 +338,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection"><span class="toc-number">1.</span> <span class="toc-text">Collection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Map"><span class="toc-number">2.</span> <span class="toc-text">Map</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection"><span class="toc-number">1.</span> <span class="toc-text">Collection</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Map"><span class="toc-number">2.</span> <span class="toc-text">Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何选用集合"><span class="toc-number">3.</span> <span class="toc-text">如何选用集合</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -474,11 +486,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">记</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,15 +506,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
             
             <div class="clearfix"></div>
