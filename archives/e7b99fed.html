@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>==和equals | 这是个刚搭好的博客</title>
+  <title>数据库的三大范式 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在java中 == 和 equals() 是有一点点区别滴 直接上用法">
-<meta name="keywords" content="随笔,java,面试,记">
+  <meta name="description" content="在进行数据库设计的时候应该满足三大范式。书上写的晕头转向，记一下理解。 三大范式具体如下：  第一范式 1NF，确保每一列的原子性。 第二范式 2NF，在1NF的基础上，确保表中的每列都和主键相关，而且是完全依赖。 第三范式 3NF，在2NF的基础上，确保每列数据都和主键直接相关，不能是间接相关，即消除传递依赖。">
+<meta name="keywords" content="随笔,记,MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="==和equals">
-<meta property="og:url" content="https://heronking.github.io/archives/cefdebd3.html">
+<meta property="og:title" content="数据库的三大范式">
+<meta property="og:url" content="https://heronking.github.io/archives/e7b99fed.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="在java中 == 和 equals() 是有一点点区别滴 直接上用法">
+<meta property="og:description" content="在进行数据库设计的时候应该满足三大范式。书上写的晕头转向，记一下理解。 三大范式具体如下：  第一范式 1NF，确保每一列的原子性。 第二范式 2NF，在1NF的基础上，确保表中的每列都和主键相关，而且是完全依赖。 第三范式 3NF，在2NF的基础上，确保每列数据都和主键直接相关，不能是间接相关，即消除传递依赖。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-16T14:53:30.858Z">
+<meta property="og:updated_time" content="2020-03-20T08:34:12.825Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="==和equals">
-<meta name="twitter:description" content="在java中 == 和 equals() 是有一点点区别滴 直接上用法">
+<meta name="twitter:title" content="数据库的三大范式">
+<meta name="twitter:description" content="在进行数据库设计的时候应该满足三大范式。书上写的晕头转向，记一下理解。 三大范式具体如下：  第一范式 1NF，确保每一列的原子性。 第二范式 2NF，在1NF的基础上，确保表中的每列都和主键相关，而且是完全依赖。 第三范式 3NF，在2NF的基础上，确保每列数据都和主键直接相关，不能是间接相关，即消除传递依赖。">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -157,62 +157,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-equals和==" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-数据库的三大范式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ==和equals
+      数据库的三大范式
     </h1>
   
 
         
-        <a href="/archives/cefdebd3.html" class="archive-article-date">
-  	<time datetime="2020-03-16T13:42:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+        <a href="/archives/e7b99fed.html" class="archive-article-date">
+  	<time datetime="2020-03-20T07:27:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在java中 <code>==</code> 和 <code>equals()</code> 是有一点点区别滴</p>
-<p>直接上用法</p>
+        <p>在进行数据库设计的时候应该满足三大范式。书上写的晕头转向，记一下理解。</p>
+<p>三大范式具体如下：</p>
+<ul>
+<li>第一范式 1NF，确保每一列的<strong>原子性</strong>。</li>
+<li>第二范式 2NF，在1NF的基础上，确保表中的<strong>每列都和主键相关</strong>，而且是完全依赖。</li>
+<li>第三范式 3NF，在2NF的基础上，确保<strong>每列数据都和主键直接相关，不能是间接相关</strong>，即消除传递依赖。</li>
+</ul>
 <a id="more"></a>
 
-<h4 id="运算符"><a href="#运算符" class="headerlink" title="== 运算符"></a><code>==</code> 运算符</h4><p>这个运算符在使用时有两种情况：</p>
-<ul>
-<li>在两个基本数据类之间作比较时，比较的是两个数据的值是否相等。</li>
-<li>两个对象之间作比较时，它判断是两个对象的地址是否相等。</li>
-</ul>
-<h4 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals() 方法"></a><code>equals()</code> 方法</h4><p>同样也分两种情况：</p>
-<ul>
-<li><p>当该类没有重写 <code>equals()</code> 方法。那么该方法用于两个对象之间的比较时，等价于使用 <code>==</code>。</p>
-</li>
-<li><p>类重写了 <code>equals()</code> 方法。一般来说，都重写为用来比较两个对象的内容是否相等的形式，若相等则返回为 <code>true</code> ，也就认为这两个对象相等。</p>
-<p>当然，具体的实现方法都由自己决定。</p>
-</li>
-</ul>
-<p><strong>举个栗子说明一下</strong></p>
-<p>先声明一下变量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两个基本数据类型</span></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">15</span>;</span><br><span class="line"><span class="keyword">float</span> d = (<span class="keyword">float</span>) <span class="number">15.0</span>;</span><br><span class="line"><span class="comment">// 两个String对象，他们内容相同</span></span><br><span class="line">String a = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);	<span class="comment">//这个字符串会放到常量池中。在堆中new一个了String类，并在栈内创建了一个引用</span></span><br><span class="line">String b = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);	<span class="comment">//在常量池中找到了"aaa"。在堆中new一个String类，并在栈内创建了一个新的引用。</span></span><br><span class="line"><span class="comment">// 两个字符串常量</span></span><br><span class="line">String aa = <span class="string">"aaa"</span>;	<span class="comment">//在常量池中查找到</span></span><br><span class="line">String bb = <span class="string">"aaa"</span>;	<span class="comment">//在常量池中查找到</span></span><br></pre></td></tr></table></figure>
-
-<p>再用 <code>==</code> 和 <code>equals()</code> 方法对比一下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (aa == bb) &#123;</span><br><span class="line">	System.out.println(<span class="string">"aa == bb"</span>);</span><br><span class="line">&#125;	<span class="comment">//输出了aa == bb</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">	System.out.println(<span class="string">"a == b"</span>);</span><br><span class="line">&#125;	<span class="comment">//没有输出</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a.equals(b)) &#123;</span><br><span class="line">	System.out.println(<span class="string">"a equals b"</span>);</span><br><span class="line">&#125;	<span class="comment">//输出了a equals b</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (c == d) &#123;</span><br><span class="line">	System.out.println(<span class="string">"c == d"</span>);</span><br><span class="line">&#125;	<span class="comment">//输出了c == d</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>结果分析</strong></p>
-<p><strong>为什么没有输出 <code>a == b</code> 而输出了 <code>a equals b</code> 呢？</strong></p>
-<p>这里需要说明一下，在 String 类中的 <code>equals()</code> 方法是<strong>已经被重写过的</strong>，所以这里使用的 <code>equals()</code> 其实比较的是内容。<br>所以输出 a equals b 也就不奇怪了，因为他们的内容相同。</p>
-<p>而 a == b 这里的 <code>==</code> 比较的是两者的地址。</p>
-<p>引用存放在 <a href="https://heronking.github.io/archives/eae4d02d.html">栈区</a> ，a 是一个引用，指向的是对象<code>new String(&quot;aaa&quot;)</code>，b 是另一个引用，指向的是一个新的对象 <code>new String(&quot;aaa&quot;)</code>。他们是<strong>两个不同的对象</strong></p>
-<p><strong>那么为什么输出了 aa == bb呢？</strong></p>
-<p>因为当我们创建一个String类时，JVM会从常量池中查找是否存在内容和要创建的值相同的对象，如果存在的话，就会返回这个对象的引用。如果不存在，那么就会在常量池中创建一个新的String。</p>
-<p> <code>String aa</code> 在常量池中找了”aaa”，那么 aa = “aaa”的引用<br><code>String bb</code> 也找到了，所以 bb = “aaa” 的引用</p>
-<p>所以他们俩的地址是相等的。</p>
-<p><strong>那么在内存中到底是啥样的呢？</strong></p>
-<p>常量池：字符串”aaa”，只有这一个<br>堆：属于 a 的 new String(“aaa”)，属于 b 的 new String(“aaa”)</p>
-<p>嗯。。基本数据类型就不写了</p>
+<h3 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h3><h4 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h4><p>先上个表</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>address</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>张三</td>
+<td>深圳市福田区xxxx</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>长沙市岳麓区xxxx</td>
+</tr>
+</tbody></table>
+<p>这个表不满足，因为地址还能拆分成城市和地区。可拆分，那就不是原子的。</p>
+<p>虽然第一范式要求是原子的，但有些时候也不是一定要拆。在你需要对城市进行区分的时候，才需要拆，如果不需要通过地址进行分类，反而能提升性能。</p>
+<h4 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h4><p>满足第一范式，其他每一列都<strong>必须完全依赖于</strong>主键，啥叫完全依赖？当主键是联合主键的时候，其他列和这个联合主键中的每一个都有关系。</p>
+<p>比如说：</p>
+<p>这个表的主键是（订单id和顾客id）</p>
+<table>
+<thead>
+<tr>
+<th align="center">订单id</th>
+<th align="center">商品id</th>
+<th align="center">商品信息</th>
+<th align="center">顾客</th>
+<th align="center">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">抱枕</td>
+<td align="center">张三</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">被子</td>
+<td align="center">李四</td>
+<td align="center">6</td>
+</tr>
+</tbody></table>
+<p>显然，商品信息只和商品id有关，和订单还有顾客没啥关系，那么这就违反了2NF。</p>
+<p>要满足2NF，那就需要拆表：</p>
+<p>这是个订单表，主键是订单id，其他id是外键</p>
+<table>
+<thead>
+<tr>
+<th align="center">订单id</th>
+<th align="center">商品id</th>
+<th align="center">顾客id</th>
+<th align="center">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">6</td>
+</tr>
+</tbody></table>
+<p>商品表</p>
+<table>
+<thead>
+<tr>
+<th align="center">商品id</th>
+<th align="center">商品信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">抱枕</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">被子</td>
+</tr>
+</tbody></table>
+<p>顾客信息</p>
+<table>
+<thead>
+<tr>
+<th align="center">顾客id</th>
+<th align="center">顾客名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">张三</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">李四</td>
+</tr>
+</tbody></table>
+<p>拆完之后他们就各自满足2NF了。</p>
+<h4 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h4><p>满足第二范式，不存在传递依赖，啥叫传递依赖？</p>
+<p>a = b，b = c，a = c，这个叫传递，= 换成依赖，那就是传递依赖。</p>
+<p>比如说上面那个订单信息表再加一列</p>
+<table>
+<thead>
+<tr>
+<th align="center">订单id</th>
+<th align="center">商品id</th>
+<th align="center">顾客id</th>
+<th align="center">性别</th>
+<th align="center">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">男</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">女</td>
+<td align="center">6</td>
+</tr>
+</tbody></table>
+<p>很明显订单id和性别没什么关系，性别是依赖于顾客的，根据传递依赖我们得出订性别依赖于订单id，那么这就不满足3NF。</p>
+<p>这里很好解决，把性别放到顾客信息就行了。</p>
+<table>
+<thead>
+<tr>
+<th align="center">顾客id</th>
+<th align="center">顾客名</th>
+<th align="center">性别</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">张三</td>
+<td align="center">男</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">李四</td>
+<td align="center">女</td>
+</tr>
+</tbody></table>
 
       
 
@@ -230,15 +362,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -294,7 +422,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/cefdebd3.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/e7b99fed.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +436,9 @@
   
 <nav id="article-nav">
   
-    <a href="/archives/1293cfc0.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          理解哈希表
-        
-      </div>
-    </a>
   
-  
-    <a href="/archives/eae4d02d.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JVM的栈、堆、方法区</div>
+    <a href="/archives/8b39915a.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL安装</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -346,7 +465,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#运算符"><span class="toc-number">1.</span> <span class="toc-text">== 运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#equals-方法"><span class="toc-number">2.</span> <span class="toc-text">equals() 方法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#栗子"><span class="toc-number">1.</span> <span class="toc-text">栗子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一范式"><span class="toc-number">1.1.</span> <span class="toc-text">第一范式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二范式"><span class="toc-number">1.2.</span> <span class="toc-text">第二范式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三范式"><span class="toc-number">1.3.</span> <span class="toc-text">第三范式</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
