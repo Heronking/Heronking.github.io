@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://heronking.github.io">
   <title>MySQL索引 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构。">
+  <meta name="description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构，好的数据结构将大大提升查询效率。">
 <meta name="keywords" content="随笔,面试,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL索引">
 <meta property="og:url" content="https://heronking.github.io/archives/43a71ae4.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构。">
+<meta property="og:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构，好的数据结构将大大提升查询效率。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://heronking.github.io/archives/43a71ae4/1.png">
-<meta property="og:updated_time" content="2020-03-21T15:36:55.723Z">
+<meta property="og:updated_time" content="2020-03-21T15:39:47.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL索引">
-<meta name="twitter:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构。">
+<meta name="twitter:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构，好的数据结构将大大提升查询效率。">
 <meta name="twitter:image" content="https://heronking.github.io/archives/43a71ae4/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
@@ -181,7 +181,7 @@
       
         <p>数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。</p>
 <p>但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。</p>
-<p>所以需要针对索引设计数据结构。</p>
+<p>所以需要针对索引设计数据结构，好的数据结构将大大提升查询效率。</p>
 <a id="more"></a>
 
 <h4 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a>索引的数据结构</h4><p>如果有千万级别的数据，可以想到构建一棵<strong>搜索树</strong>，查询效率是O(lgN)。但是数据库把数据放在磁盘上，计算机访问磁盘的成本是访问内存的十万倍左右。普通的机械硬盘，一次磁盘IO可能需要4毫秒以上。</p>
@@ -509,11 +509,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">记</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,11 +521,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
