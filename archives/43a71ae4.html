@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>Archives: 2020/3 | 这是个刚搭好的博客</title>
+  <title>MySQL索引 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo,博客,湘潭大学,java,开源">
-<meta name="keywords" content="“程序员,java,代码,算法,开源,个人,数据结构”">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是个刚搭好的博客">
-<meta property="og:url" content="https://heronking.github.io/archives/2020/03/page/2/index.html">
+  <meta name="description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构。">
+<meta name="keywords" content="随笔,面试,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL索引">
+<meta property="og:url" content="https://heronking.github.io/archives/43a71ae4.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="hexo,博客,湘潭大学,java,开源">
+<meta property="og:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://heronking.github.io/archives/43a71ae4/1.png">
+<meta property="og:updated_time" content="2020-03-21T15:36:55.723Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是个刚搭好的博客">
-<meta name="twitter:description" content="hexo,博客,湘潭大学,java,开源">
+<meta name="twitter:title" content="MySQL索引">
+<meta name="twitter:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构。">
+<meta name="twitter:image" content="https://heronking.github.io/archives/43a71ae4/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -156,82 +159,84 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL索引" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL索引
+    </h1>
+  
+
+        
+        <a href="/archives/43a71ae4.html" class="archive-article-date">
+  	<time datetime="2020-03-21T12:28:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。</p>
+<p>但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。</p>
+<p>所以需要针对索引设计数据结构。</p>
+<a id="more"></a>
+
+<h4 id="索引的数据结构"><a href="#索引的数据结构" class="headerlink" title="索引的数据结构"></a>索引的数据结构</h4><p>如果有千万级别的数据，可以想到构建一棵<strong>搜索树</strong>，查询效率是O(lgN)。但是数据库把数据放在磁盘上，计算机访问磁盘的成本是访问内存的十万倍左右。普通的机械硬盘，一次磁盘IO可能需要4毫秒以上。</p>
+<p>而操作系统对此有相应的优化，每次磁盘IO都读取一页的数据，一页根据系统一般是4K或者8K（<strong>在MySQL的Innodb引擎中，一页是16K</strong>），读取当前磁盘数据的时，还把相邻数据的地址也读入缓冲区。</p>
+<p>那么索引的数据结构目的就是，把每次查找数据时需要进行的磁盘IO次数尽量减少，最好是常数级。嗯，就是<strong>B+树</strong>。</p>
+<h5 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h5><p>多路平衡搜索树，所有叶子都在同一层</p>
+<p>上图</p>
+<p><img src="/archives/43a71ae4/1.png" alt="B+树"></p>
+<p>来源 <a href="https://www.cnblogs.com/nullzx/p/8729425.html" target="_blank" rel="noopener">图源</a>，这里面讲的非常清楚，包括插入和删除。这是一颗4阶B+树，高度是两层，叶子结点存着键值对，并且有指向相邻叶子节点的指针，某种意义上来讲，叶子串起来是一个顺序链表。非叶子节点只存储key，用来指引搜索的方向。</p>
+<p>每一个节点都是一个磁盘块，上图一共5个。他们都存在磁盘中。</p>
+<h6 id="查找方式"><a href="#查找方式" class="headerlink" title="查找方式"></a>查找方式</h6><p>如果这个时候要查找24这个的数据。</p>
+<ul>
+<li>首先加载根节点磁盘块，发生一次IO，通过二分法查到24比23大，55小</li>
+<li>加载23 24 30这个磁盘块，再发生一次IO，二分法查找到24，搜索完成了。</li>
+</ul>
+<p>很明显，这棵树越高，那么磁盘IO的次数就越多。</p>
+<p>一般来说，3层以上的B+树可以表示百万级的数据，磁盘IO只需要三次。大多数Innodb的B+树都是3层，可以存千万条数据</p>
+<h6 id="为什么要把数据放到叶子中？"><a href="#为什么要把数据放到叶子中？" class="headerlink" title="为什么要把数据放到叶子中？"></a>为什么要把数据放到叶子中？</h6><p>为了让树的高度尽量小，那么就要让阶数尽量大，也就是让一个节点中key的个数尽量多</p>
+<p>磁盘块的大小是固定，如果在非叶子节点中存储数据，显然键值对比单纯存key要大，磁盘块中能存放的key数量也因此减少了。树的高度也不可避免的增高。</p>
+<h6 id="为什么B-树比B树更适合索引？"><a href="#为什么B-树比B树更适合索引？" class="headerlink" title="为什么B+树比B树更适合索引？"></a>为什么B+树比B树更适合索引？</h6><ul>
+<li><p>B树的非叶子结点也存储了数据。那么在数据量大的时候，B树会比B+树更高，每多一次IO都消耗很大。</p>
+</li>
+<li><p>B+树的查询效率更加稳定，每次搜索数据都是从根节点走到叶子点。</p>
+</li>
+<li><p>在进行整库搜索时，B+树只需要搜索叶子，而B数需要中序遍历。所以B+树更适合<strong>范围查询</strong>。</p>
+</li>
+</ul>
+<h4 id="聚集索引和非聚集索引"><a href="#聚集索引和非聚集索引" class="headerlink" title="聚集索引和非聚集索引"></a>聚集索引和非聚集索引</h4><p>在Innodb引擎中，<strong>聚集索引</strong>是，叶子节点存放着数据，也就是上面的B+树。<strong>一个表中只能有一个聚集索引</strong>，表中的数据会按照聚集索引的顺序存储。检索效率比非聚集索引高。</p>
+<p><strong>非聚集索引</strong>，也是B+树，但是叶子节点还是索引，只不过里面存放着一个指向数据块的指针。也就是说在非聚集索引中，只有索引项按键值的顺序排列，而实际上和索引对应的表中的数据，是按聚集索引排列的。<strong>可以有很多个聚集索引</strong></p>
+<p><strong>举个栗子</strong>：</p>
+<p>新华字典，如果要查”王（wang）“这个字，我们知道他的拼音，就不用去翻目录，因为字典里面排列的顺序是按拼音来的，我们只用翻到”W“开头的那一页，再找W中的“ang”部分就可以发现“王”字。</p>
+<p>所以拼音是新华字典的聚集索引，所有的数据都按照聚集索引排列好。</p>
+<p>但是新华字典还有目录，比如笔画目录。现在要查一个字”王“，如果我们要按照笔画来查，就要先在笔画目录中找到4划的部分，然后里面有很多字，”王“、文“，”木“。在笔画目录中，所有的字都按笔画排好了，但是他们在实际的表中并不是这个顺序，比如王在400页，而文在450页，木在200页。</p>
+<p>所以笔画目录是非聚集索引。</p>
+<p><strong>一般来说</strong>，参考自 <a href="https://zhuanlan.zhihu.com/p/39293940" target="_blank" rel="noopener">知乎</a>：</p>
+<blockquote>
+<p>聚集索引默认是表中的主键索引，如果表中没有显示指定主键，则会选择表中的<strong>第一个不允许为NULL的唯一索引</strong>。如果还是没有的话，就采用Innodb存储引擎为每行数据内置的6字节ROWID作为聚集索引。</p>
+<p>每张表只有一个聚集索引，因为聚集索引在精确查找和范围查找方面良好的性能表现（相比于普通索引和全表扫描），聚集索引就显得弥足珍贵，聚集索引选择还是要慎重的（一般不会让没有语义的自增id充当聚集索引）。</p>
+</blockquote>
+<p>在MyISAM中的索引使用的是非聚集索引。</p>
+<h4 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h4><p>咒语：</p>
+<ul>
+<li><code>create index xxxx on table(xxxx(length));    //length就是长度</code> </li>
+<li><code>create unique index xxxx on table(xxxx(length));    //唯一索引</code></li>
+<li><code>alter table xxxx add index xxxx(column);   //column就是列名</code></li>
+<li>查看索引：<code>show index from xxx;</code></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/333b0902.html" class="archive-article-date">
-  	<time datetime="2020-03-17T07:19:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/333b0902.html">equals和hashCode</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/1293cfc0.html" class="archive-article-date">
-  	<time datetime="2020-03-17T06:13:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/1293cfc0.html">理解哈希表</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -245,384 +250,124 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/43a71ae4.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/cefdebd3.html" class="archive-article-date">
-  	<time datetime="2020-03-16T13:42:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/archives/f91535f.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL事务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/cefdebd3.html">==和equals</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#索引的数据结构"><span class="toc-number">1.</span> <span class="toc-text">索引的数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#B-树"><span class="toc-number">1.1.</span> <span class="toc-text">B+树</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#查找方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">查找方式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#为什么要把数据放到叶子中？"><span class="toc-number">1.1.2.</span> <span class="toc-text">为什么要把数据放到叶子中？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#为什么B-树比B树更适合索引？"><span class="toc-number">1.1.3.</span> <span class="toc-text">为什么B+树比B树更适合索引？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚集索引和非聚集索引"><span class="toc-number">2.</span> <span class="toc-text">聚集索引和非聚集索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建索引"><span class="toc-number">3.</span> <span class="toc-text">创建索引</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/eae4d02d.html" class="archive-article-date">
-  	<time datetime="2020-03-16T08:00:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/eae4d02d.html">JVM的栈、堆、方法区</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/b2323594.html" class="archive-article-date">
-  	<time datetime="2020-03-16T06:34:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/b2323594.html">Java静态</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/e6551811.html" class="archive-article-date">
-  	<time datetime="2020-03-15T10:42:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/e6551811.html">接口和抽象类</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/f018dd97.html" class="archive-article-date">
-  	<time datetime="2020-03-15T08:14:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/f018dd97.html">对多态的理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/627aefd0.html" class="archive-article-date">
-  	<time datetime="2020-03-15T07:09:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/627aefd0.html">重载overload和重写override</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/1d451465.html" class="archive-article-date">
-  	<time datetime="2020-03-15T06:00:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/1d451465.html">java和c++的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/5cc69699.html" class="archive-article-date">
-  	<time datetime="2020-03-15T04:07:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/5cc69699.html">关于JVM，JDK和JRE</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/03/">&laquo; Prev</a><a class="page-number" href="/archives/2020/03/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2020/03/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/03/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -655,8 +400,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
