@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://heronking.github.io">
   <title>简述HashMap的工作原理 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。">
+  <meta name="description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
 <meta name="keywords" content="随笔,java,面试,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简述HashMap的工作原理">
 <meta property="og:url" content="https://heronking.github.io/archives/166dc6bc.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。">
+<meta property="og:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://heronking.github.io/archives/166dc6bc/1.png">
-<meta property="og:updated_time" content="2020-03-18T13:26:40.555Z">
+<meta property="og:updated_time" content="2020-03-21T07:04:02.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简述HashMap的工作原理">
-<meta name="twitter:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。">
+<meta name="twitter:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
 <meta name="twitter:image" content="https://heronking.github.io/archives/166dc6bc/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
@@ -181,8 +181,10 @@
       
         <p>HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。</p>
 <p>JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用<strong>挂链式</strong>解决 <a href="https://heronking.github.io/archives/1293cfc0.html">哈希冲突</a> 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。</p>
+<p>为什么是8呢？</p>
 <a id="more"></a>
 
+<p>如果这个阈值设置太小，相同的哈希数量频繁达到阈值，那么底层就会频繁的在链表和红黑树之间转换。哈希冲突的概率满足泊松分布，同样的哈希值达到8的概率非常小。</p>
 <p>HashMap底层用到的哈希表结构是这样的（<a href="https://www.jianshu.com/p/54d5c2b58125" target="_blank" rel="noopener">图源</a>）：</p>
 <img src="/archives/166dc6bc/1.png" alt="哈希表" style="zoom:80%;">
 
@@ -480,18 +482,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">github pages</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo博客搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">yilia主题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -509,6 +499,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">github pages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo博客搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">yilia主题</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>Tag: hexo博客搭建 | 这是个刚搭好的博客</title>
+  <title>MySQL事务 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo,博客,湘潭大学,java,开源">
-<meta name="keywords" content="“程序员,java,代码,算法,开源,个人,数据结构”">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是个刚搭好的博客">
-<meta property="og:url" content="https://heronking.github.io/tags/hexo博客搭建/index.html">
+  <meta name="description" content="事务处理技术包括数据库回复技术和并发控制技术。这个两个机制是DBMS的重要组成部分。 事务的基本概念事务是用户定义的一个操作序列。这些操作要么都成功完成、要么都失败，他们是一个不可分割的工作单位。">
+<meta name="keywords" content="随笔,MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL事务">
+<meta property="og:url" content="https://heronking.github.io/archives/f91535f.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="hexo,博客,湘潭大学,java,开源">
+<meta property="og:description" content="事务处理技术包括数据库回复技术和并发控制技术。这个两个机制是DBMS的重要组成部分。 事务的基本概念事务是用户定义的一个操作序列。这些操作要么都成功完成、要么都失败，他们是一个不可分割的工作单位。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-21T09:24:00.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是个刚搭好的博客">
-<meta name="twitter:description" content="hexo,博客,湘潭大学,java,开源">
+<meta name="twitter:title" content="MySQL事务">
+<meta name="twitter:description" content="事务处理技术包括数据库回复技术和并发控制技术。这个两个机制是DBMS的重要组成部分。 事务的基本概念事务是用户定义的一个操作序列。这些操作要么都成功完成、要么都失败，他们是一个不可分割的工作单位。">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -156,68 +157,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL事务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/7754bff8.html" class="archive-article-date">
-  	<time datetime="2020-03-14T09:14:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/7754bff8.html">GithubPages+yilia主题博客搭建记录</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL事务
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/archives/f91535f.html" class="archive-article-date">
+  	<time datetime="2020-03-21T06:59:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>事务处理技术包括数据库回复技术和并发控制技术。这个两个机制是DBMS的重要组成部分。</p>
+<h4 id="事务的基本概念"><a href="#事务的基本概念" class="headerlink" title="事务的基本概念"></a>事务的基本概念</h4><p>事务是用户定义的一个操作序列。这些操作<strong>要么都成功完成、要么都失败</strong>，他们是一个不可分割的工作单位。</p>
+<a id="more"></a>
+
+<h5 id="事务的四大特征"><a href="#事务的四大特征" class="headerlink" title="事务的四大特征"></a>事务的四大特征</h5><p>总结为ACID四个特征</p>
+<ul>
+<li>原子性（Atomicity）：事务已经是最小的单位了，不可分割，无论这个事务中有多少个步骤，他们是一个整体，要么全部成功，要求全部失败</li>
+<li>一致性（consistency）：事务必须使数据库从一个正确的状态迁移到另一个争取的状态，也就是说，如果在执行事务之前，库中的数据是合理满足约束的，那么执行事务之后，也应该如此。</li>
+<li>隔离性（isolation）：一个事务的执行不会被其他事务所干扰</li>
+<li>持久性（durability）：每一次事务提交后就保证不会丢失。提交之后对数据库中的数据改变是永久的。</li>
+</ul>
+<h5 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h5><p>银行转账：a 给 b 转账1000，这里就涉及到两条操作</p>
+<p>1.先把a的钱减去1000</p>
+<p>​    <code>update user set money = money - 1000 where name = &#39;a&#39;;</code></p>
+<p>2.再把b的钱加上1000</p>
+<p>​    <code>update user set money = money + 1000 where name = &#39;b&#39;;</code></p>
+<p>如果这两条指令只有a成功，b失败，那a就亏了钱。b成功，a失败，那就是白给1000.</p>
+<p>所以他们是一个事务，要么一起成功，要么一起失败。</p>
+<h4 id="如何控制事务"><a href="#如何控制事务" class="headerlink" title="如何控制事务"></a>如何控制事务</h4><p>MySQL中是默认设置下，事务是自动提交（@autocommit）。</p>
+<p>作用是，当我们执行了一个sql语句，按下回车就能出现结果，这就是自动提交，而且不能回滚了。</p>
+<p><strong>什么是回滚？</strong><br>即 rollback 命令，执行之后<strong>撤销未提交</strong>的sql命令。</p>
+<p><strong>通过手动开启自己的事务</strong>。</p>
+<p>可以先关闭自动提交：<code>set autocommit = 0;</code> </p>
+<p>执行sql语句以后，我们对表和数据的修改效果会出现在临时的表中，对于不满意的修改可以使用 <code>rollback</code> 回滚操作。修改完成后，使用咒语 <code>commit</code> 提交修改，<strong>提交之后不可撤销</strong>。</p>
+<p>或者使用咒语 <code>begin;</code> 或 <code>start transaction;</code>，即使自动提交没有关闭也能开启一个不会自动提交的事务。</p>
+<p>在事务中的操作可以通过 <code>rollback</code> 回滚。修改完成需要 <code>commit</code> 提交，<strong>提交之后事务结束</strong>。</p>
+<h4 id="事务的隔离级别"><a href="#事务的隔离级别" class="headerlink" title="事务的隔离级别"></a>事务的隔离级别</h4><ul>
+<li><p><strong>read uncommitted</strong>：读未提交，可能会出现<strong>脏读</strong>问题</p>
+<p><strong>栗子</strong>：老板发工资了（开启事务1，并update），张三去查了自己的余额发现是5000（事务2，select），张三很开心（commit事务2）。<br>但张三的实际工资应该是2000，于是老板回滚操作，并发2000（rollback，然后update），最后核实无误再提交（commit事务1）.</p>
+<p>并发的事务中，一个事务可能查询另外的事务的未提交数据。这就是<strong>脏读</strong></p>
+</li>
+<li><p><strong>read committed</strong>：读已提交，可能会出现<strong>不可重复读</strong>问题</p>
+<p><strong>栗子</strong>：张三准备用刚发的2000块工资去吃一块新疆切糕，查一下钱是2000（事务1，select），然后准备把钱拿出来。<br>这时候张三的女朋友用他的工资卡买了一个2000块的包包（事务2，update），并在张三之前提交了该事务（commit事务2）。<br>这个时候取钱却发现余额不足，于是张三选择再看一遍工资卡（select），此时余额变成了0，张三不停地 select，但每一次余额都是0，于是他只能悲哀地commit。</p>
+<p>并发的事务访问同一个数据，事务1先查询，事务2马上更新数据并提交，事务1再次查询读取数据时，该数据已经改变。</p>
+<p>这个级别虽然可以<strong>避免脏读</strong>，但是可能会出现<strong>不可重复读</strong>的问题。</p>
+</li>
+<li><p><strong>repeatable read</strong>：重复读，可能会出现<strong>幻读</strong>问题</p>
+<p>该隔离级别可以避免不可重复读。当事务1开始查询数据，在事务1提交之间，事务1无论何时查询到的数据都是一样的。这个和上面差不多，会出现新的问题。</p>
+<p><strong>栗子</strong>：张三换了级别准备再去取钱，先查一下（事务1开始，select）。这个时候张三的老婆以迅雷不及掩耳盗铃之势转走工资卡里的钱并马上提交（事务2，update，commit）。<br>于是张三取钱再次失败了，余额不足，他再查了一遍（select），余额明明和刚开始时一样的，并且不管select多少次，余额都不变，但是钱却取不出来。张三感觉，这应该是梦。</p>
+<p>这就是<strong>幻读</strong>。</p>
+<p><strong>需要注意的是</strong>，MySQL的innoDB引擎默认是RR级别，并且已经通过MVCC自动解决了幻读问题，所以已经模拟不出来了。幻读和不可重复读十分类似，都是因为非线程安全。</p>
+</li>
+<li><p><strong>serializable</strong>：序列化</p>
+<p>这是最高的级别，可以避免所有的问题。因为这个级别下，数据是线程安全的。</p>
+<p>所谓序列化，就是给数据加同步锁。这个锁是针对<strong>写操作</strong>的。</p>
+<p><strong>栗子</strong>：这次张三换了最高级别去取钱，同样先查一下（事务1，select）。张三的老婆发动故技重施，先转走所有的钱（事务2，update），但是却发现，银行柜台机卡住了，转账中这个界面一直在转。<br>然后张三取出钱，最后提交了（事务1，commit）。假设<strong>没有超时</strong>，这时，张三老婆那边就显示，转账失败，余额不足。如果超时了，那边就显示，超时请重试。</p>
+<p>当一个事务1访问数据时，其他并发事务对该数据的<strong>写操作</strong>会进入等待阻塞（序列化），在事务1后面排队。直到事务1提交，下一个事务如果没有超时，才能对数据进行操作。</p>
+<p>这个级别性能十分低，花费资源多，一般很少使用。</p>
+</li>
+</ul>
+<h5 id="查看和修改系统的隔离级别"><a href="#查看和修改系统的隔离级别" class="headerlink" title="查看和修改系统的隔离级别"></a>查看和修改系统的隔离级别</h5><p>MySQL 8.0以上查询，使用咒语：</p>
+<p><code>select @@global.transaction_isolation;  //系统级别</code><br><code>select @@transaction_isolation;  //会话级别</code></p>
+<p>一般两个都是  <strong>REPEATABLE-READ</strong></p>
+<p>修改：</p>
+<p><code>set global transaction isolation level xxxxx;     //修改系统级别</code><br><code>set transaction isolation level xxxxx;     //修改会话级别</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">github pages</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">hexo博客搭建</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">yilia主题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/f91535f.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/archives/50092300.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL查询记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的基本概念"><span class="toc-number">1.</span> <span class="toc-text">事务的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#事务的四大特征"><span class="toc-number">1.1.</span> <span class="toc-text">事务的四大特征</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#举个栗子"><span class="toc-number">1.2.</span> <span class="toc-text">举个栗子</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何控制事务"><span class="toc-number">2.</span> <span class="toc-text">如何控制事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事务的隔离级别"><span class="toc-number">3.</span> <span class="toc-text">事务的隔离级别</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#查看和修改系统的隔离级别"><span class="toc-number">3.1.</span> <span class="toc-text">查看和修改系统的隔离级别</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -249,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
