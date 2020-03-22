@@ -17,7 +17,7 @@
 <meta property="og:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构，好的数据结构将大大提升查询效率。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://heronking.github.io/archives/43a71ae4/1.png">
-<meta property="og:updated_time" content="2020-03-21T15:39:47.362Z">
+<meta property="og:updated_time" content="2020-03-22T09:18:37.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL索引">
 <meta name="twitter:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中的数据非常庞大的时候，那么索引也不可避免地变得庞大。 所以需要针对索引设计数据结构，好的数据结构将大大提升查询效率。">
@@ -229,6 +229,14 @@
 <li><code>alter table xxxx add index xxxx(column);   //column就是列名</code></li>
 <li>查看索引：<code>show index from xxx;</code></li>
 </ul>
+<p><strong>创建索引的几大基本原则</strong>：</p>
+<blockquote>
+<p>1.<strong>最左前缀匹配原则</strong>，非常重要的原则，mysql会一直向右匹配直到遇到范围查询(&gt;、&lt;、between、like)就停止匹配，比如a = 1 and b = 2 and c &gt; 3 and d = 4 如果建立(a,b,c,d)顺序的索引，d是用不到索引的，如果建立(a,b,d,c)的索引则都可以用到，a,b,d的顺序可以任意调整。</p>
+<p>2.<strong>=和in可以乱序</strong>，比如a = 1 and b = 2 and c = 3 建立(a,b,c)索引可以任意顺序，mysql的查询优化器会帮你优化成索引可以识别的形式。</p>
+<p>3.<strong>尽量选择区分度高的列作为索引</strong>，区分度的公式是count(distinct col)/count(*)，表示字段不重复的比例，比例越大我们扫描的记录数越少，唯一键的区分度是1，而一些状态、性别字段可能在大数据面前区分度就是0，那可能有人会问，这个比例有什么经验值吗？使用场景不同，这个值也很难确定，一般需要join的字段我们都要求是0.1以上，即平均1条扫描10条记录。</p>
+<p>4.<strong>索引列不能参与计算，保持列“干净”</strong><br>比如 <code>from_unixtime(create_time) = ’2014-05-29’</code> 就不能使用到索引，原因很简单，b+树中存的都是数据表中的字段值，但进行检索时，需要把所有元素都应用函数才能比较，显然成本太大。<br>所以语句应该写成 <code>create_time = unix_timestamp(’2014-05-29’)</code>。</p>
+<p>5.<strong>尽量的扩展索引，不要新建索引</strong>。比如表中已经有a的索引，现在要加(a,b)的索引，那么只需要修改原来的索引即可。</p>
+</blockquote>
 
       
 
@@ -319,6 +327,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/archives/708bc100.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySQL慢查询及优化
+        
+      </div>
+    </a>
   
   
     <a href="/archives/f91535f.html" id="article-nav-older" class="article-nav-link-wrap">
@@ -521,15 +538,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
