@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>MySQL慢查询及优化 | 这是个刚搭好的博客</title>
+  <title>TCP协议简单总结 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL中将超过指定时间的sql语句查询成为慢查询，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。 使用咒语：set global slow_query_log = 1 ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。 具体怎么配置可以看 这里">
-<meta name="keywords" content="随笔,MySQL">
+  <meta name="description" content="TCP协议（Transmission Control Protocol），传输控制协议。属于传输层。 TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。 基于TCP的协议有 HTTP、SMTP、FTP、Telnet、POP3。">
+<meta name="keywords" content="随笔,记,计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL慢查询及优化">
-<meta property="og:url" content="https://heronking.github.io/archives/708bc100.html">
+<meta property="og:title" content="TCP协议简单总结">
+<meta property="og:url" content="https://heronking.github.io/archives/55ac5dc4.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="MySQL中将超过指定时间的sql语句查询成为慢查询，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。 使用咒语：set global slow_query_log = 1 ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。 具体怎么配置可以看 这里">
+<meta property="og:description" content="TCP协议（Transmission Control Protocol），传输控制协议。属于传输层。 TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。 基于TCP的协议有 HTTP、SMTP、FTP、Telnet、POP3。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-22T09:26:56.870Z">
+<meta property="og:image" content="https://heronking.github.io/archives/55ac5dc4/1.webp">
+<meta property="og:image" content="https://heronking.github.io/archives/55ac5dc4/2.webp">
+<meta property="og:updated_time" content="2020-03-23T12:13:12.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL慢查询及优化">
-<meta name="twitter:description" content="MySQL中将超过指定时间的sql语句查询成为慢查询，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。 使用咒语：set global slow_query_log = 1 ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。 具体怎么配置可以看 这里">
+<meta name="twitter:title" content="TCP协议简单总结">
+<meta name="twitter:description" content="TCP协议（Transmission Control Protocol），传输控制协议。属于传输层。 TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。 基于TCP的协议有 HTTP、SMTP、FTP、Telnet、POP3。">
+<meta name="twitter:image" content="https://heronking.github.io/archives/55ac5dc4/1.webp">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -157,43 +160,153 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL慢查询及优化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-计算机网络-TCP协议简单总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MySQL慢查询及优化
+      TCP协议简单总结
     </h1>
   
 
         
-        <a href="/archives/708bc100.html" class="archive-article-date">
-  	<time datetime="2020-03-22T08:48:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
+        <a href="/archives/55ac5dc4.html" class="archive-article-date">
+  	<time datetime="2020-03-23T07:11:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>MySQL中将超过指定时间的sql语句查询成为<strong>慢查询</strong>，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。</p>
-<p>使用咒语：<code>set global slow_query_log = 1</code> ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。</p>
-<p>具体怎么配置可以看 <a href="https://www.cnblogs.com/kerrycode/p/5593204.HTML" target="_blank" rel="noopener">这里</a></p>
+        <p>TCP协议（Transmission Control Protocol），传输控制协议。属于<strong>传输层</strong>。</p>
+<p>TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。</p>
+<p>基于TCP的协议有 <code>HTTP、SMTP、FTP、Telnet、POP3</code>。</p>
 <a id="more"></a>
 
-<h4 id="慢查询优化"><a href="#慢查询优化" class="headerlink" title="慢查询优化"></a>慢查询优化</h4><p>先看一下关于创建索引的 <a href="https://heronking.github.io/archives/43a71ae4.html">五大基本原则</a> ，建立一个好的索引是提高效率的重要前提。</p>
-<p><strong>优化的基本步骤</strong>：</p>
-<blockquote>
-<p>0.<strong>先运行看看</strong>是否真的很慢，注意设置SQL_NO_CACHE</p>
-<p>1.<strong>where条件单表查，锁定最小返回记录表</strong>。这句话的意思是把查询语句的where都应用到表中返回的记录数最小的表开始查起，单表每个字段分别查询，看哪个字段的区分度最高</p>
-<p>2.<strong>explain查看执行计划</strong>，是否与1预期一致（从锁定记录较少的表开始查询）</p>
-<p>3.<strong>order by limit</strong> 形式的sql语句让排序的表优先查</p>
-<p>4.了解业务方<strong>使用场景</strong></p>
-<p>5.<strong>加索引</strong>时参照建索引的几大原则</p>
-<p>6.观察结果，不符合预期继续从0分析</p>
-</blockquote>
-<p>具体情况还没了解透彻~</p>
+<h5 id="TCP协议的应用场景、应用层协议"><a href="#TCP协议的应用场景、应用层协议" class="headerlink" title="TCP协议的应用场景、应用层协议"></a>TCP协议的应用场景、应用层协议</h5><p>要求通信数据可靠无误的时候，就像传输文件、邮件这一类的信息。</p>
+<ul>
+<li>万维网：<code>Http</code> 协议</li>
+<li>邮件传输：<code>SMTP</code>协议</li>
+<li>接受邮件：<code>POP3</code>协议</li>
+<li>文件传输：<code>FTP</code>协议</li>
+<li>远程登录：<code>Telnet</code>协议</li>
+</ul>
+<h5 id="TCP协议的特点"><a href="#TCP协议的特点" class="headerlink" title="TCP协议的特点"></a>TCP协议的特点</h5><p>面向连接、面向字节流、全双工通信、可靠的。（参考自 <a href="https://www.jianshu.com/p/65605622234b" target="_blank" rel="noopener">简书</a>）</p>
+<p>具体如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">特点</th>
+<th align="center">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">面向连接</td>
+<td align="center">使用TCP传输数据之前，必须先建立连接（三次握手）<br>传输完成后再释放连接（四次挥手）</td>
+</tr>
+<tr>
+<td align="center">全双工通信</td>
+<td align="center">建立TCP连接后，通信的双方都能发送数据</td>
+</tr>
+<tr>
+<td align="center">可靠的</td>
+<td align="center">通过TCP连接的数据不丢失、无差错、不重复、按顺序到达</td>
+</tr>
+<tr>
+<td align="center">面向字节流</td>
+<td align="center">数据以流的形式进行传输<br>流：流入流出进程的字符序列<br>TCP一次传输的报文长度是有限制的，如果超出限制就需要分块，然后依次传输。<br>接收方需要按照顺序接受分块的数据并把他们重新拼接成原样。</td>
+</tr>
+</tbody></table>
+<p>TCP协议也因此<strong>效率较慢</strong>。</p>
+<h5 id="TCP建立连接（三次握手）"><a href="#TCP建立连接（三次握手）" class="headerlink" title="TCP建立连接（三次握手）"></a>TCP建立连接（三次握手）</h5><p>先上图，<a href="https://www.jianshu.com/p/65605622234b" target="_blank" rel="noopener">图源</a></p>
+<img src="/archives/55ac5dc4/1.webp" alt="三次握手" style="zoom:80%;">
+
+<p><strong>字段含义</strong>：</p>
+<ul>
+<li>seq：sequence，序列号，就是报文段的序号，等于x就是第x个</li>
+<li><strong>SYN</strong>：synchronize，同步标志，SYN=1、ACK=0表示请求连接；SYN=1、ACK=1表示请求响应</li>
+<li><strong>ACK</strong>：acknowledge，确认标志，TCP协议规定，只有ACK=1时有效，也规定连接建立后所有发送的报文的ACK必须为1</li>
+<li>ack：确认号，等于x+1就代表正确收到了序号到x的数据</li>
+<li><strong>FIN</strong>：finally，结束标志，等于1表示发送方数据发送完毕，要求释放连接</li>
+</ul>
+<p><strong>连接过程</strong>：</p>
+<ul>
+<li><p>连接前，客户和服务端都处于关闭状态、直到客户端主动打开连接，服务端才会被动打开，然后等待客户端请求。</p>
+</li>
+<li><p><strong>第一次握手</strong>，客户端向服务端发送连接请求（SYN=1）</p>
+</li>
+<li><p><strong>第二次握手</strong>，服务端收到请求，向客户端发送确认（SYN=1，ACK=1）。此时为服务器TCP连接分配资源</p>
+</li>
+<li><p><strong>第三次握手</strong>，客户端收到确认报文段，向服务器发送连接确认（ACK=1）。此时为客户端TCP连接分配资源</p>
+</li>
+<li><p>连接完成</p>
+</li>
+</ul>
+<p>三次握手期间，任何一次未收到回复信息，都会重新发起握手。</p>
+<h6 id="为什么需要三次握手？"><a href="#为什么需要三次握手？" class="headerlink" title="为什么需要三次握手？"></a>为什么需要三次握手？</h6><p>三次握手的最主要目的就是让双方确认自己和对方的发送与接收都是正常的。</p>
+<p>假设只需要两次握手。</p>
+<p>客户端发起请求连接，但是这个连接因为某种情况而阻塞，服务器并没有收到。客户端超时等待后没有收到服务端的回复，于是再次发起请求连接，这一次，服务器收到请求，发送确认，为客户端分配资源，连接完成。然后客户端和服务器愉快的进行信息交流，直到客户端发送了FIN=1，连接释放。</p>
+<p>然后那个姗姗来迟的请求这时候到了，服务器以为是一个新的请求，于是也发回了一个确认，并为这个请求分配资源。但是客户端早就忘了这个超时的请求，而且此时并没有发送过请求，所以对于这个确认，客户端不会回应。</p>
+<p>于是服务器就一直等待，<strong>形成死锁，造成资源浪费</strong></p>
+<p>当大量的无回应请求出现时，服务器就受到了<strong>SYN洪泛攻击</strong>。</p>
+<p>而连接变成三次握手时，在第三次握手完成前，即客户端发回确认之前，服务器不会为客户端TCP连接分配资源，连接没有完成就不用等待客户端的数据，也就不会死锁了。</p>
+<h5 id="释放连接（四次挥手）"><a href="#释放连接（四次挥手）" class="headerlink" title="释放连接（四次挥手）"></a>释放连接（四次挥手）</h5><p>上图，<a href="https://www.jianshu.com/p/65605622234b" target="_blank" rel="noopener">图源</a></p>
+<img src="/archives/55ac5dc4/2.webp" alt="四次挥手" style="zoom:80%;">
+
+<p><strong>连接过程</strong>：</p>
+<ul>
+<li><p>连接前，双方都是已创建状态，直到客户端主动关闭连接。</p>
+</li>
+<li><p><strong>第一次挥手</strong>，客户端向服务器发送连接释放（FIN=1），表示数据发送完毕。</p>
+</li>
+<li><p><strong>第二次挥手</strong>，服务端收到释放请求，向客户端发送释放确认（ACK=1）。<br>此时服务器进入关闭等待，但是可能还有数据要传给客户端。客户端收到确认后，等待服务器的数据传输完成。</p>
+</li>
+<li><p><strong>第三次挥手</strong>，服务器向客户端发送连接释放（FIN=1），表示数据发送完毕。</p>
+</li>
+<li><p><strong>第四次挥手</strong>，客户端收到释放请求，向服务器发送确认（ACK=1）。服务器收到确认后关闭，但客户端进入时间等待（TIME-WAIT），经过<strong>2MSL</strong>（<strong>两个最长报文段寿命</strong>）后依然没有回复，客户端关闭。</p>
+</li>
+<li><p>连接释放。</p>
+</li>
+</ul>
+<h6 id="为什么要等四次挥手？"><a href="#为什么要等四次挥手？" class="headerlink" title="为什么要等四次挥手？"></a>为什么要等四次挥手？</h6><p>目的是，为了保证双方连接释放后，都无法再接受和发送消息。TCP是全双工通信，即使一方释放连接，另一方的连接没有释放，就能继续发送</p>
+<p><strong>为什么要等2MSL？</strong></p>
+<p>为了保证第四次挥手的确认报文能到达服务器，使服务器正常关闭。</p>
+<p>如果客户端发完报文直接关闭，那么当确认报文阻塞或丢失后，服务器等待超时重发连接释放，客户端就收不到，服务器就无法关闭。</p>
+<p>2MSL能保证因为阻塞失效的报文段消失，避免在下次连接中出现。</p>
+<h5 id="TCP协议如何保证可靠传输？"><a href="#TCP协议如何保证可靠传输？" class="headerlink" title="TCP协议如何保证可靠传输？"></a>TCP协议如何保证可靠传输？</h5><ol>
+<li><p>TCP对数据进行合理的<strong>分片和编号</strong>，接收方按照编号对这些数据包排序，组合成原本的数据后再提交给应用层。</p>
+</li>
+<li><p><strong>校验和</strong>，发送数据时，发送端会计算TCP报文段首部和数据的检验和，然后由接收端验证。如果接收端验证校验和有差错，TCP将丢弃该报文。</p>
+</li>
+<li><p>TCP接收端会<strong>丢弃重复的数据</strong>。</p>
+</li>
+<li><p><strong>流量控制</strong>，TCP使用<strong>滑动窗口</strong>实现流量控制。滑动窗口指的是发送方的发送窗口，窗口在报文段上滑动，只有当接收方确认收到数据后，发送窗口才向后滑动。窗口大小根据接受方处理数据的能力变化。</p>
+</li>
+<li><p><strong>拥塞控制</strong>，TCP使用<strong>慢开始、拥塞避免、快重传和快恢复</strong>来进行拥塞控制。</p>
+<ul>
+<li><p><strong>慢开始</strong>：由小（数值为1）到大逐渐增加<strong>拥塞窗口</strong>大小（cwnd，发送窗口），<strong>试探</strong>网络情况。每经过一个轮播（把cwnd中的所有报文都发送了，并收到了最后一个字节的确认），cwnd翻倍。</p>
+</li>
+<li><p><strong>拥塞避免</strong>：使cwnd<strong>按线性缓慢增长</strong>，经过一个轮播，cwnd+1。（<strong>并不能避免拥塞</strong>，只是让拥塞更不容易出现）</p>
+</li>
+<li><p><strong>快重传和快恢复（FFR）</strong>：当接收方发现一个顺序错的数据段，会立即给发送方发一个重复确认（比如先收到了1和2，但是下一个却是收到了4，接下来的5和6也是错的）。当连续收到3个重复确认，发送机就会重发丢失的数据段。不会使cwnd重置为1然后慢开始。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>ARQ协议</strong>：自动重传请求。每发完一组数据就停止，等待对方确认。收到确认再发下一组。</p>
+</li>
+<li><p><strong>超时重传</strong>：TCP发出一段报文后，会启动定时器，如果不能及时收到确认，就会重传这个报文。</p>
+</li>
+</ol>
+<h5 id="TCP协议和UDP协议的区别"><a href="#TCP协议和UDP协议的区别" class="headerlink" title="TCP协议和UDP协议的区别"></a>TCP协议和UDP协议的区别</h5><ul>
+<li>UDP协议传输数据前不需要建立连接，接受方收到UDP报文后，不需要回复确认</li>
+<li>UDP传输的数据不保证可靠性</li>
+<li>UDP的传输效率更高、所需资源更少。</li>
+<li>UDP的传输形式是数据报文段。TCP是字节流，把数据分成很多数据段。</li>
+<li>UDP传输应用于对通信速度要求高的场景，比如即时通讯。</li>
+<li>UDP数据报的首部只有8个字节，TCP有20个。</li>
+</ul>
 
       
 
@@ -211,7 +324,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
         		</li>
       		
 		</ul>
@@ -267,7 +384,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/708bc100.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/55ac5dc4.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,18 +398,9 @@
   
 <nav id="article-nav">
   
-    <a href="/archives/55ac5dc4.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          TCP协议简单总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/archives/43a71ae4.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL索引</div>
+    <a href="/archives/708bc100.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL慢查询及优化</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -319,7 +427,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#慢查询优化"><span class="toc-number">1.</span> <span class="toc-text">慢查询优化</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP协议的应用场景、应用层协议"><span class="toc-number">1.</span> <span class="toc-text">TCP协议的应用场景、应用层协议</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP协议的特点"><span class="toc-number">2.</span> <span class="toc-text">TCP协议的特点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP建立连接（三次握手）"><span class="toc-number">3.</span> <span class="toc-text">TCP建立连接（三次握手）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#为什么需要三次握手？"><span class="toc-number">3.1.</span> <span class="toc-text">为什么需要三次握手？</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#释放连接（四次挥手）"><span class="toc-number">4.</span> <span class="toc-text">释放连接（四次挥手）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#为什么要等四次挥手？"><span class="toc-number">4.1.</span> <span class="toc-text">为什么要等四次挥手？</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP协议如何保证可靠传输？"><span class="toc-number">5.</span> <span class="toc-text">TCP协议如何保证可靠传输？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#TCP协议和UDP协议的区别"><span class="toc-number">6.</span> <span class="toc-text">TCP协议和UDP协议的区别</span></a></li></ol>
                     </div>
                 </span>
             </div>
