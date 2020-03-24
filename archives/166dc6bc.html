@@ -19,7 +19,7 @@
 <meta property="og:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://heronking.github.io/archives/166dc6bc/1.png">
-<meta property="og:updated_time" content="2020-03-21T07:04:02.931Z">
+<meta property="og:updated_time" content="2020-03-24T06:13:44.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简述HashMap的工作原理">
 <meta name="twitter:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
@@ -215,7 +215,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.1k字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -246,10 +246,13 @@
 
 <p>可以看到，如果存储的数据没有哈希冲突，那么这个哈希表就是一个根据哈希值来存储的散列数组。</p>
 <h4 id="HashMap的工作原理是什么？"><a href="#HashMap的工作原理是什么？" class="headerlink" title="HashMap的工作原理是什么？"></a>HashMap的工作原理是什么？</h4><p>我们使用 <code>put(key, value)</code> 的方式存储对象到HashMap中，使用 <code>get(key)</code> 方法从HashMap中获得对象。</p>
-<p>当存数据的时候，HashMap首先会对key调用 <code>hashCode()</code> ，然后根据返回的哈希码在哈希表中找到一个bucket位置（图中存放Entry的就是bucket，上面有6个）来存储Entry对象。</p>
+<p>当存数据的时候，HashMap首先会对键值使用哈希函数 ，此时函数返回的值就是哈希表中的一个bucket位置（图中存放Entry的就是bucket，上面有6个）来存储Entry对象。</p>
 <p>Entry对象是一个静态内部类，里面有属性key、value 和 next，对于每一个需要存储的键值对，HashMap都把他们放到Entry里面。</p>
-<h4 id="当要存储的两个对象哈希码值相同会发生什么？"><a href="#当要存储的两个对象哈希码值相同会发生什么？" class="headerlink" title="当要存储的两个对象哈希码值相同会发生什么？"></a>当要存储的两个对象哈希码值相同会发生什么？</h4><p>也就是 <a href="https://heronking.github.io/archives/1293cfc0.html">哈希冲突</a> （这里写了<strong>HashSet如何检查重复</strong>）发生了。</p>
-<p>由于哈希码值相同，那么他们会找到同一个bucket。此时，这两个对象存放的Entry组成一个链表，然后把链表的头节点放在bucket中，如上图一样。</p>
+<h4 id="当要存储的两个对象哈希码值相同会发生什么？"><a href="#当要存储的两个对象哈希码值相同会发生什么？" class="headerlink" title="当要存储的两个对象哈希码值相同会发生什么？"></a>当要存储的两个对象哈希码值相同会发生什么？</h4><p>也就是哈希冲突发生了。</p>
+<p>由于哈希码值相同，那么他们会找到同一个bucket，然后对两个Entry的调用<code>equals()</code>方法。</p>
+<p>如果返回的是false，那么就将这两个对象存放的Entry组成一个链表，然后把链表的头节点放在bucket中，如上图一样。此时 <code>put()返回的是null</code>，因为插入的是一个新的值。</p>
+<p>如果 <code>equals()</code>方法返回true，说明HashMap中已经存在真正一样的key，此时原来键值对中value，会被替换成新插入的value，<code>put()</code> 方法返回的是原来键值对中的value。</p>
+<p>比如HashMap中已经存在<code>&lt;1, &quot;aaa&quot;&gt;</code> ，那么执行 <code>put(1, &quot;bbb&quot;)</code>，HashMap中就变成了 <code>&lt;1, &quot;bbb&quot;&gt;</code> ，然后put方法返回的是 “aaa”。</p>
 <h4 id="怎么取出哈希码相同的某一个值对象？"><a href="#怎么取出哈希码相同的某一个值对象？" class="headerlink" title="怎么取出哈希码相同的某一个值对象？"></a>怎么取出哈希码相同的某一个值对象？</h4><p>直接查找存储在bucket中的链表，使用 <code>key.equals(Entry.key)</code> 来判断是否找到，最后返回对应的value对象即可。如果链表特别长，那么查找的效率会非常低，因此优化为红黑树，提高效率。</p>
 <h4 id="HashMap的大小超过了负载因子怎么办？"><a href="#HashMap的大小超过了负载因子怎么办？" class="headerlink" title="HashMap的大小超过了负载因子怎么办？"></a>HashMap的大小超过了负载因子怎么办？</h4><p>hashMap默认的负载因子(load factor)是0.75，也就是说，如果数据<strong>填满了75%的bucket数组</strong>，那么就是超过了负载因子。</p>
 <p>HashMap就会创建一个新的 <strong>2 * 原capacity (默认16，可自己定义)</strong> 大小的bucket数组，并将原数组中的所有对象都放到这个新的里面。</p>
@@ -490,7 +493,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: true,
+		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
@@ -602,11 +605,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,7 +617,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
             
             <div class="clearfix"></div>
