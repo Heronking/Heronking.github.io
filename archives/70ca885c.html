@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://heronking.github.io/archives/70ca885c/1.jpg">
 <meta property="og:image" content="https://heronking.github.io/archives/70ca885c/2.jpg">
-<meta property="og:updated_time" content="2020-03-17T13:59:53.424Z">
+<meta property="og:updated_time" content="2020-03-25T07:36:01.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程的基本状态与生命周期">
 <meta name="twitter:description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态">
@@ -243,9 +243,14 @@
 <li><p><strong>同步阻塞</strong>，线程遇到同步锁，但锁被其他线程占用，该线程进入锁池转为同步阻塞，与其他线程竞争同步锁。当再次获取到锁，线程进入就绪态。</p>
 </li>
 <li><p><strong>其他阻塞</strong>，有几种情况：</p>
-<p>线程调用 <code>sleep()</code> 方法，该线程<strong>释放CPU但不释放锁</strong>，线程会抱着锁开始睡觉，等待sleep时间到或者调用了 <code>interrupt()</code> 方法才会结束。<br><strong>这里在java中也被称为超时等待态</strong>，相当于在 <strong>等待态</strong> 的基础上增加了超时限制，一般通过 sleep(long s) 和 wait(long s) 让程序进入超时等待。当时间到了之后，线程进入就绪态。</p>
-<p>当前线程调用另一个线程的 <code>join()</code> 方法，比如 <code>t2.join()</code>，那么当前线程 t 进入阻塞，直到 t2 结束。</p>
-<p>等待用户的I/O操作，当前线程进入阻塞。</p>
+<ul>
+<li><p>线程调用 <code>sleep()</code> 方法，该线程<strong>释放CPU但不释放锁</strong>，线程会抱着锁开始睡觉，等待sleep时间到或者调用了 <code>interrupt()</code> 方法才会结束。<br><strong>这里在java中也被称为超时等待态</strong>，相当于在 <strong>等待态</strong> 的基础上增加了超时限制，一般通过 sleep(long s) 和 wait(long s) 让程序进入超时等待。当时间到了之后，线程进入就绪态。</p>
+</li>
+<li><p>当前线程调用另一个线程的 <code>join()</code> 方法，比如 <code>t2.join()</code>，那么当前线程 t 进入阻塞，直到 t2 结束。</p>
+</li>
+<li><p>等待用户的I/O操作，当前线程进入阻塞。</p>
+</li>
+</ul>
 </li>
 </ul>
 <p><strong>再次注意，阻塞结束后，线程会回到就绪态。</strong></p>
@@ -514,6 +519,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github pages</a>
               </li>
              
@@ -526,27 +547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,11 +555,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://heronking.github.io">
-  <title>JVM的栈、堆、方法区 | 这是个刚搭好的博客</title>
+  <title>java反射机制 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java中的存储方式也是比较重要滴。 先看看JVM的数据区是咋样的">
+  <meta name="description" content="在了解反射之前，要先知道什么是Class对象。 在java中对象分为两种：Class对象和实例对象。 实例对象是类的实例，用 new 来创建； 而Class对象，就是Class类的实例，嗯。。就是这么直接，在 java.lang 这个包下面，有一个类就叫Class。这个类内部可以记录其他类的成员、接口这些信息，也就是说，Class类是用来表示其他类的一个类。">
 <meta name="keywords" content="随笔,java,记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JVM的栈、堆、方法区">
-<meta property="og:url" content="https://heronking.github.io/archives/eae4d02d.html">
+<meta property="og:title" content="java反射机制">
+<meta property="og:url" content="https://heronking.github.io/archives/3ecb78ee.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="java中的存储方式也是比较重要滴。 先看看JVM的数据区是咋样的">
+<meta property="og:description" content="在了解反射之前，要先知道什么是Class对象。 在java中对象分为两种：Class对象和实例对象。 实例对象是类的实例，用 new 来创建； 而Class对象，就是Class类的实例，嗯。。就是这么直接，在 java.lang 这个包下面，有一个类就叫Class。这个类内部可以记录其他类的成员、接口这些信息，也就是说，Class类是用来表示其他类的一个类。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/eae4d02d/1.png">
-<meta property="og:updated_time" content="2020-03-17T15:09:21.135Z">
+<meta property="og:updated_time" content="2020-03-25T09:57:31.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JVM的栈、堆、方法区">
-<meta name="twitter:description" content="java中的存储方式也是比较重要滴。 先看看JVM的数据区是咋样的">
-<meta name="twitter:image" content="https://heronking.github.io/archives/eae4d02d/1.png">
+<meta name="twitter:title" content="java反射机制">
+<meta name="twitter:description" content="在了解反射之前，要先知道什么是Class对象。 在java中对象分为两种：Class对象和实例对象。 实例对象是类的实例，用 new 来创建； 而Class对象，就是Class类的实例，嗯。。就是这么直接，在 java.lang 这个包下面，有一个类就叫Class。这个类内部可以记录其他类的成员、接口这些信息，也就是说，Class类是用来表示其他类的一个类。">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -155,66 +153,111 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JVM的栈、堆、方法区" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java反射机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JVM的栈、堆、方法区
+      java反射机制
     </h1>
   
 
         
-        <a href="/archives/eae4d02d.html" class="archive-article-date">
-  	<time datetime="2020-03-16T08:00:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+        <a href="/archives/3ecb78ee.html" class="archive-article-date">
+  	<time datetime="2020-03-25T06:00:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>java中的存储方式也是比较重要滴。</p>
-<p>先看看JVM的数据区是咋样的</p>
+        <p>在了解反射之前，要先知道什么是Class对象。</p>
+<p>在java中对象分为两种：<strong>Class对象</strong>和<strong>实例对象</strong>。</p>
+<p>实例对象是类的实例，用 <code>new</code> 来创建；</p>
+<p>而Class对象，就是<strong>Class类的实例</strong>，嗯。。就是这么直接，在 <code>java.lang</code> 这个包下面，有一个类就叫Class。这个类内部可以记录其他类的成员、接口这些信息，也就是说，Class类是用来<strong>表示其他类的一个类</strong>。</p>
 <a id="more"></a>
 
-<img src="/archives/eae4d02d/1.png" alt="JVM运行时的数据区" style="zoom:30%;">
-
-
-
-
-
-<h4 id="栈，也就是JVM栈"><a href="#栈，也就是JVM栈" class="headerlink" title="栈，也就是JVM栈"></a>栈，也就是JVM栈</h4><p>简单的记录，因为我也没怎么懂。</p>
-<ul>
-<li><p>栈中保存所有在方法中定义的基础数据类型，还有对象的引用，比如说：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;	<span class="comment">//在方法中</span></span><br><span class="line">      <span class="keyword">int</span> a = <span class="number">0</span>;	<span class="comment">//基本数据类型</span></span><br><span class="line">    <span class="keyword">char</span> b = <span class="string">'b'</span>;	<span class="comment">//基本数据类型</span></span><br><span class="line">      Object o;	<span class="comment">//对象的引用</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>什么是对象的引用？</strong></p>
-<p>就是指向对象的地址或者说对象的变量名，形象一点就是系着气球的绳子<br>一个引用可以指向<strong>1个或者0个</strong>对象，就像绳子只能系着一个气球，也可以不系。<br>当然，多个不同的引用可以指向同一个对象，多根绳子系着同一个气球也是可以的</p>
-</li>
+<p>java程序的执行需要经过<strong>编译、加载、链接、初始化</strong>这几个阶段。编译阶段JVM会将<code>.java</code>文件编译成 <code>.class</code> 文件，同时，在这个文件中生成Class对象。然后，JVM的加载机制会将Class对象加载到方法区中。</p>
+<p>当我们需要实例化一个类的时候，JVM会在方法区中查看这个类的Class对象是否已经存在了，如果是，那么直接根据Class对象生成实例；如果没有，就先加载Class对象，再创建实例。</p>
+<p><strong>在一个ClassLoader中只有一个Class对象</strong>（通常在一个JVM下只有一个ClassLoader），但可以根据这个Class对象创建多个对象实例。</p>
+<h5 id="创建Class对象的方式"><a href="#创建Class对象的方式" class="headerlink" title="创建Class对象的方式"></a>创建Class对象的方式</h5><ul>
+<li><code>类名.class</code> ，注意：<strong>这种方式在加载Class对象后不会初始化类</strong></li>
 </ul>
-<p><strong>总的来说</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String t = <span class="string">"静态区域"</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;	<span class="comment">//静态代码块，如果初始化，静态代码块会执行</span></span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        Class c1 = ClassTest<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果（在idea上）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">D:\Java\jdk\bin\java.exe ...</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br><span class="line">什么都没输出</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><p>栈中的数据是私有的，其他的栈不可以访问。每个线程都会享有一个栈区，可以开辟很多个。</p>
-</li>
-<li><p>在方法中定义的基本数据类型和对象的引用都在该方法的栈中分配内存</p>
-</li>
-<li><p>当程序执行完某一个代码块后，也就是其中的栈内变量退出作用域，java会自动释放这些变量的内存，给别的地方用。</p>
-</li>
+<li><code>Class.forName()</code> 这种方法<strong>会初始化静态区域</strong></li>
 </ul>
-<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><p>堆是用来存放<strong>new创建的对象</strong>的，且堆内存是多个线程共享的，随着JVM的启动而创建。JVM自动垃圾回收就是作用在堆内存上，用不到的对象会自动回收释放堆内存。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String t = <span class="string">"静态区域"</span>;</span><br><span class="line">    <span class="keyword">private</span> String m = <span class="string">"非静态"</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;	<span class="comment">//静态区域</span></span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;	<span class="comment">//非静态区域</span></span><br><span class="line">        System.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        Class.forName(<span class="string">"com.test.ClassTest"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\Java\jdk\bin\java.exe ...</span><br><span class="line">静态区域</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br><span class="line">只输出了静态区域的代码。</span><br></pre></td></tr></table></figure>
+
+<p>可见，在加载Class对象到方法区，还将一起加载进来的静态方法初始化了。</p>
 <ul>
-<li>堆中存储的全部是对象（<strong>数组</strong>也是对象）</li>
-<li>JVM只有一个堆，被所有线程共享，堆中只存放对象本身，对象本身包括它的实例变量。</li>
-<li>JVM会在程序运行时动态地给对象分配内存，用完会自动回收</li>
+<li><code>new class().getClass()</code> 这种方法是通过实例化对象调用的方式 get 到的Class对象。</li>
 </ul>
-<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><p>方法区和堆一样，也是线程共享的。</p>
-<p>方法区里面存储的是，类的信息，包括类名、方法、字段(也就是类的成员)，还存储静态成员、常量、编译后的代码、接口。</p>
-<p>方法区中有一个部分是<strong>运行时常量池</strong>，在类和接口被加载到 JVM 后，对应的运行时常量池就会被创建。</p>
-<p>常量池主要存放的是<strong>字面量</strong>和<strong>符号引用量</strong>。</p>
-<p>字面量就是那些常量，比如文本化的字符串，final常量值这些。<br>符号引用量包括三种类型的常量：类和接口的全限定名、字段名称和描述符、方法名称和描述符。嗯，我还不懂，这是编译层面的概念。</p>
-<p>就只写这些吧~ 其他的看情况再研究。。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String t = <span class="string">"静态区域"</span>;</span><br><span class="line">    <span class="keyword">private</span> String m = <span class="string">"非静态"</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(t);</span><br><span class="line">    &#125;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">        Class c1 = ClassTest<span class="class">.<span class="keyword">class</span></span>;</span><br><span class="line">        Class.forName(<span class="string">"com.test.ClassTest"</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"\n使用getClass："</span>);</span><br><span class="line">        <span class="keyword">new</span> ClassTest().getClass();</span><br><span class="line">        System.out.println(<span class="string">"实例化第二个："</span>);</span><br><span class="line">        <span class="keyword">new</span> ClassTest().getClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">D:\Java\jdk\bin\java.exe ...</span><br><span class="line">静态区域</span><br><span class="line"></span><br><span class="line">使用getClass：</span><br><span class="line">非静态</span><br><span class="line">实例化第二个：</span><br><span class="line">非静态</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<p>把三种方法放到一起比较，对于类的初始化，静态区域在加载到方法区之后，只会初始化一次。而非静态区域每次实例化都会执行一次。</p>
+<h4 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h4><p>以往都是通过new来创建对象，反射机制会获取到该类的Class对象，然后通过Class对象获取到构造器对象，然后再通过构造器对象创建一个对象。</p>
+<p>new创建就是“正”着创建对象，在程序运行之前就已经确定了要new的类是哪一个。</p>
+<p>而反射就是“反”着来，它是在<strong>运行时</strong>才知道需要操作的类是哪一个，并获取类的完整构造，并调用对应的方法</p>
+<h5 id="通过反射实例化对象"><a href="#通过反射实例化对象" class="headerlink" title="通过反射实例化对象"></a>通过反射实例化对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException </span>&#123;</span><br><span class="line">       <span class="comment">//先获取Class对象，类名是Reflect</span></span><br><span class="line">       String className = <span class="string">"com.test.Reflect"</span>;</span><br><span class="line">       Class aClass = Class.forName(className);</span><br><span class="line">       <span class="comment">//再获取构造器对象，在Reflect类中必须有构造器，不然找不到</span></span><br><span class="line">       Constructor constructor = aClass.getConstructor();</span><br><span class="line">       <span class="comment">//通过构造器实例化对象</span></span><br><span class="line">       Reflect reflect = (Reflect) aClass.newInstance();</span><br><span class="line">       reflect.id = <span class="number">1</span>;</span><br><span class="line">       reflect.setName(<span class="string">"第一个"</span>);</span><br><span class="line">       System.out.println(reflect.getName());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一个</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是：要实例化的类中必须写构造方法，不然会抛出异常 NoSuchMethodException</p>
+<h5 id="通过反射访问属性"><a href="#通过反射访问属性" class="headerlink" title="通过反射访问属性"></a>通过反射访问属性</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, NoSuchFieldException </span>&#123;</span><br><span class="line">       String className = <span class="string">"com.test.Reflect"</span>;</span><br><span class="line">       Class aClass = Class.forName(className);</span><br><span class="line">       Constructor constructor = aClass.getConstructor();</span><br><span class="line">       Reflect reflect = (Reflect) aClass.newInstance();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//获取id字段</span></span><br><span class="line">       Field field = reflect.getClass().getDeclaredField(<span class="string">"id"</span>);</span><br><span class="line">       <span class="comment">//修改id的值</span></span><br><span class="line">       field.set(reflect, <span class="number">2</span>);</span><br><span class="line">       System.out.println(<span class="string">"id的值："</span> + reflect.id);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>先实例化以后（实例化的方法随意），可以通过Class对象获取到该对象的属性并访问修改。</p>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id的值：2</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意 <code>getField() 和 getDeclareField()</code> 的区别</strong></p>
+<ul>
+<li><code>getField()</code> <strong>只能获取public的</strong>，包括<strong>继承过来的</strong>字段。</li>
+<li><code>getDeclaredField()</code> 可以获取本类所有的字段，<strong>包括private</strong>的，但是<strong>不能获取继承</strong>来的字段。 (<strong>再注意</strong>： 这里<strong>只能获取到</strong>，但<strong>并不能访问</strong>该private字段的<strong>值</strong>,除非加上<strong>setAccessible(true)</strong>)</li>
+</ul>
+<h5 id="通过反射调用方法"><a href="#通过反射调用方法" class="headerlink" title="通过反射调用方法"></a>通过反射调用方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, NoSuchFieldException, InvocationTargetException </span>&#123;</span><br><span class="line">       String className = <span class="string">"com.test.Reflect"</span>;</span><br><span class="line">       Class aClass = Class.forName(className);</span><br><span class="line">       Constructor constructor = aClass.getConstructor();</span><br><span class="line">       Reflect reflect = (Reflect) aClass.newInstance();</span><br><span class="line"></span><br><span class="line">       <span class="comment">//通过Class对象获取方法setName，第二参数是setName的参数类型</span></span><br><span class="line">       Method method = reflect.getClass().getMethod(<span class="string">"setName"</span>, String<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">       <span class="comment">//对实例化对象调用获取到的方法</span></span><br><span class="line">       method.invoke(reflect, <span class="string">"反射调用方法"</span>);</span><br><span class="line">       System.out.println(<span class="string">"name的值："</span> + reflect.getName());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name的值：反射调用方法</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="反射机制到底有什么用"><a href="#反射机制到底有什么用" class="headerlink" title="反射机制到底有什么用"></a>反射机制到底有什么用</h4><p>其实最主要的用途还是用来设计框架，达到解耦的目的，减少项目的维护成本。比如spring中的依赖注入，控制反转，就很好的用到了反射机制。</p>
+<p>举个栗子：先准备两个类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyApple</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"买苹果"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Banana</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyBanana</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"买香蕉"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用<strong>new的方法</strong>话，如果我想买苹果，那就要 <code>new Apple().buyApple();</code> 但是，如果我不想买苹果了，我就要修改代码，先把买苹果删掉，然后写上 <code>new Banana().buyBanana();</code>，然后重新编译运行才能达到效果。</p>
+<p>如果工程量很大呢？那业务层的代码要改很久，而且改了这个还可能对其他的业务造成影响。其实在Spring中提出的控制反转可以解决这个问题。</p>
+<p><strong>这里使用反射机制</strong>，来实现一下</p>
+<p>先创建一个txt文件放到src下面，内容是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class = com.test.Apple</span><br><span class="line">method = buyApple</span><br></pre></td></tr></table></figure>
+
+<p>然后用反射机制开始操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, NoSuchMethodException, ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException </span>&#123;</span><br><span class="line">        <span class="comment">//先读取文件到Properties</span></span><br><span class="line">        File fileOfSpring = <span class="keyword">new</span> File(<span class="string">"src/spring.txt"</span>);</span><br><span class="line">        Properties config = <span class="keyword">new</span> Properties();</span><br><span class="line">        config.load(<span class="keyword">new</span> FileInputStream(fileOfSpring));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用反射机制开展业务</span></span><br><span class="line">        <span class="comment">//先获取Class对象</span></span><br><span class="line">        Class aClass = Class.forName(config.getProperty(<span class="string">"class"</span>));</span><br><span class="line">        <span class="comment">//获取构造器</span></span><br><span class="line">        Constructor constructor =  aClass.getConstructor();</span><br><span class="line">        <span class="comment">//通过Class对象获取方法</span></span><br><span class="line">        Method method = aClass.getMethod(config.getProperty(<span class="string">"method"</span>));</span><br><span class="line">        <span class="comment">//实例一个Object对象</span></span><br><span class="line">        Object user = constructor.newInstance();</span><br><span class="line">        <span class="comment">//调用对象的方法，开展业务</span></span><br><span class="line">        method.invoke(user);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>不要忘记给类加上构造方法</strong></p>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">买苹果</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<p>这个时候，如果我们想买香蕉怎么办？有反射机制，那就只需要更改spring.txt中配置就行了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class = com.test.Banana</span><br><span class="line">method = buyBanana</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">买香蕉</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<p>如果提供一个接口来配置spring.txt中的文件，把接口开放给用户，那就实现了Spring框架中的控制反转。</p>
+<p>反射就是它的原理。</p>
 
       
 
@@ -292,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/eae4d02d.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://heronking.github.io/archives/3ecb78ee.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,18 +349,9 @@
   
 <nav id="article-nav">
   
-    <a href="/archives/cefdebd3.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ==和equals
-        
-      </div>
-    </a>
   
-  
-    <a href="/archives/b2323594.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java静态</div>
+    <a href="/archives/ce0e21de.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP协议简单总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -344,7 +378,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#栈，也就是JVM栈"><span class="toc-number">1.</span> <span class="toc-text">栈，也就是JVM栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#堆"><span class="toc-number">2.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法区"><span class="toc-number">3.</span> <span class="toc-text">方法区</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#创建Class对象的方式"><span class="toc-number">1.</span> <span class="toc-text">创建Class对象的方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反射机制"><span class="toc-number"></span> <span class="toc-text">反射机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#通过反射实例化对象"><span class="toc-number">1.</span> <span class="toc-text">通过反射实例化对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#通过反射访问属性"><span class="toc-number">2.</span> <span class="toc-text">通过反射访问属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#通过反射调用方法"><span class="toc-number">3.</span> <span class="toc-text">通过反射调用方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反射机制到底有什么用"><span class="toc-number"></span> <span class="toc-text">反射机制到底有什么用</span></a>
                     </div>
                 </span>
             </div>
@@ -361,8 +395,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/eae4d02d.html", 
-    sourceId: "JVM的栈、堆、方法区",
+    url: "https://heronking.github.io/archives/3ecb78ee.html", 
+    sourceId: "java反射机制",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
