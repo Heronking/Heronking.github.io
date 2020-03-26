@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>==和equals | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在java中 == 和 equals() 是有一点点区别滴 直接上用法">
 <meta name="keywords" content="随笔,java,面试,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="==和equals">
-<meta property="og:url" content="https://heronking.github.io/archives/cefdebd3.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/cefdebd3.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="在java中 == 和 equals() 是有一点点区别滴 直接上用法">
 <meta property="og:locale" content="zh-CN">
@@ -201,7 +201,7 @@
 <p><strong>为什么没有输出 <code>a == b</code> 而输出了 <code>a equals b</code> 呢？</strong></p>
 <p>这里需要说明一下，在 String 类中的 <code>equals()</code> 方法是<strong>已经被重写过的</strong>，所以这里使用的 <code>equals()</code> 其实比较的是内容。<br>所以输出 a equals b 也就不奇怪了，因为他们的内容相同。</p>
 <p>而 a == b 这里的 <code>==</code> 比较的是两者的地址。</p>
-<p>引用存放在 <a href="https://heronking.github.io/archives/eae4d02d.html">栈区</a> ，a 是一个引用，指向的是对象<code>new String(&quot;aaa&quot;)</code>，b 是另一个引用，指向的是一个新的对象 <code>new String(&quot;aaa&quot;)</code>。他们是<strong>两个不同的对象</strong></p>
+<p>引用存放在 <a href="https://heronking.github.io/archives/eae4d02d.html" target="_blank" rel="noopener">栈区</a> ，a 是一个引用，指向的是对象<code>new String(&quot;aaa&quot;)</code>，b 是另一个引用，指向的是一个新的对象 <code>new String(&quot;aaa&quot;)</code>。他们是<strong>两个不同的对象</strong></p>
 <p><strong>那么为什么输出了 aa == bb呢？</strong></p>
 <p>因为当我们创建一个String类时，JVM会从常量池中查找是否存在内容和要创建的值相同的对象，如果存在的话，就会返回这个对象的引用。如果不存在，那么就会在常量池中创建一个新的String。</p>
 <p> <code>String aa</code> 在常量池中找了”aaa”，那么 aa = “aaa”的引用<br><code>String bb</code> 也找到了，所以 bb = “aaa” 的引用</p>
@@ -290,7 +290,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3ay4rDMAwF0Pz/T2e2AyXhSmoKsY9XpYTaJwvVehxHvM6P9f/7q+fzX/7c5XhiYWBgvJZx3q57xrd2uXo1yfMYGBj7MJJQeBUWk89JIB4FdAwMDIzxM/dBHAMDA+PpgJsfIrnkYWBgYEyS2F4BLk9Qf5SLY2BgvJDRK9//5vMj/Q0MDIxXMc7i6gXf6rWyfCoMDIylGXmAyw+aD1JMAi4GBsY+jN72veGJvDxXbXxiYGDswMgL9HlprJcAV9uZlzdcDAyM5Rh5G7LXesxT4vzSiYGBsRsjv4rdh8W83Vg4Yp6FY2BgLM3IK3O9oYdJ2yDaBQMDY0tGXu6fFOC+1lrAwMDYgNFrT/bC9Hwo7bKFiYGBsShj3trMt2kW/eNOJQYGxqqMJNROmouTJDkhYWBg7MaolswmKW7+ffQNBgbGBoxqulgdF+slqIVUGQMDY2nGJNOdj4VVk9joHoiBgbEoI09le8ln8pvztBYDA2MHRu8alzQJ5q8sOg8GBsYGjPnYVl76Twp55X0xMDC2YeTDqb0RiuqThWQbAwNjUcZZXEe8mte74isrxGwMDIzXMqrHysth96Tq85NmJwYGxhqMXosx36aajjYDPQYGxgaMyfWuOrrxYC6OgYGBEQfoXjwcUTEwMDCKRbF8mCy/LD7yv4GBgfEqRpLEVkcl8itmlY2BgbEbo9eSrLKjoBmQRo1MDAyM9zH+ADCY2xlZWlqgAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3awU7DQAxF0f7/TweJFagkuc9OgHjurCraZOawsDy2Xy+8ts/1/peva+9b8tTx2y5bMmTIeCxjO1zvDLJZeiyy18k7ZciQsQCDv5oHVs7e+yU5mwwZMmSkQZZ/Jn+RIUOGjFrArV1BN7BkyJAh45hBXp1eR/uJ5i13cRkyZDyQkTYGfvPzjf0NGTJkPISxlVa/2dlPIr+9QYYMGaMZadrHi/gkuUzHNU5OKEOGjKEMPqSVjoXFxTK87w9IGTJkLMbgh06blJ1nW5dYGTJkPJyR5lf8WCRl/LM0UYYMGY9i8CYleTUf0UiLeqjQJkOGjKEMvllnbKLWWeXppgwZMmYzeOZ4R8KXDnPIkCFjTUbt6Okls9Z+4GwZMmTIuJvXqfkHAVeGDBmPZaRhMR3wStPBIluGDBmjGa0qXS2BKw1YBPvKkCFjMQYfqiDtT96w7NxMZciQMY+RXkdrF9p0eCJOEGXIkDGaQdqH/FvOq41onOwuQ4aMJRlXtQo6QZz/42TIkLECgy9eCOuMgsVXXBkyZIxm9A9UOxY5aFAvlCFDxlBGLdSmCWLnN6jZKUOGjNGMWpjjJfu7n5IhQ8Y6jE6QTUMkbwCQFkKQIMqQIWME46pyWK0wx4P+7u4yZMiQEZbPas+S0QrUiZUhQ8bCDN7a7CSUvFQnQ4aM1RjkEps2D3jzkg9YxJmjDBkyRjBqjYE0IKZhmpThLuhvyJAh478zPgA5FNE/WavyfgAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -359,7 +359,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/cefdebd3.html", 
+    url: "https://heronking.gitee.io/archives/cefdebd3.html", 
     sourceId: "equals和==",
     productKey: "true",
     target: "cloud-tie-wrapper"

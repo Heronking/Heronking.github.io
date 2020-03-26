@@ -5,24 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>线程的基本状态与生命周期 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态">
 <meta name="keywords" content="随笔,java,记,线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线程的基本状态与生命周期">
-<meta property="og:url" content="https://heronking.github.io/archives/70ca885c.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/70ca885c.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/70ca885c/1.jpg">
-<meta property="og:image" content="https://heronking.github.io/archives/70ca885c/2.jpg">
+<meta property="og:image" content="https://heronking.gitee.io/archives/70ca885c/1.jpg">
+<meta property="og:image" content="https://heronking.gitee.io/archives/70ca885c/2.jpg">
 <meta property="og:updated_time" content="2020-03-25T07:36:01.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程的基本状态与生命周期">
 <meta name="twitter:description" content="开门见山！参考自 博客 。 线程的基本状态有6种，java线程在生命周期中的某一个指定时刻只可能处于一种状态。 先看看有哪6中状态">
-<meta name="twitter:image" content="https://heronking.github.io/archives/70ca885c/1.jpg">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/70ca885c/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -337,7 +337,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3ay46jQAwF0Pz/TzPbGWVA1zZ0i6pTq1ZEgJOF26/PJz7H1/n787Pr8zt/P+XzxMHAwHgt47g8Zw+oPuwIzjXs7HoMDIx9GEkoTEjX1Gv8KKBjYGBgtF46SSuvqRgYGBjzgJsnedff/eX/GxgYGC9hTF7o+gGTAvWRWhwDA+OFjF77/mf+fmS+gYGB8SrGUTx5sZp/0nuTf+6DgYGxNCMPcNWW2b3jhOQnw8DAWJXRdLeabkkZnBfG5R00DAyM1zKqwXGS9t3VeitMOTAwMJZgVIeI16356itWrzyNrhgYGJsxnlvCqI4/C9/FwMDYgJGvU1Tbbb1W3agWx8DA2ICRJ3C9nYc8sBZGCxgYGBswJiXlvUG5N5bAwMBYm5GnidX1iEmQTe55+l0MDIzlGEl52WuNVYvbUVmLgYGxDSMPdp/WmSSX5WULDAyM5Rh5yyxvq+Xg3k/zn1ocAwNjUUZScOaPnCxhVMPuaaMNAwNjUUY1IE7Wv5KgfMP6BQYGxnKM6iLFJNWrLnMUhgcYGBgbMHo3qpaazwVlDAyMfRj5cmrvpedjhvLKBQYGxssZR/HkIbiZ3rXSRwwMjLUZo5FhMfnLQ211TRYDA2MHRjXI5oF4MgYop48YGBgbMO6N373R5g21OAYGBkYcoHvxcETFwMDACErTJHHsrclGA04MDIwNGEkRmw84J2te1UIaAwNjB0a1l9VjJ3eoBlkMDIwNGH8Ak1GyUG3HxhYAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACE0lEQVR42u3aQW7DQAgF0Nz/0um2Upv0A3alMM+rKHE887xAwPB4xNfz2/X+1593Jv9KVrngwsDA+FjG8+2VbDTfVkJN1v2FioGBcQDjVQTrPTpfPmG/3xsGBgZGvtgk4CbrYmBgYFQZ1SXzkhUDAwNjUsQmQXOeON5ei2NgYHwgI++6///nW843MDAwPorxLF6vlskD9C27wsDAWM3IA1xvK/k31YCLgYFxMmNyVFkF9xpwUdcQAwNjEWMSBKvNr157LtkDBgbGCYx8gbxknZS71eNVDAyMcxjVQrS6ZH5/eQQEAwNjNSM/sJwPVVRDfK/Nh4GBsY+RPGjS7p8koIXgi4GBsZrROwxI/tV7WvX1YWBgnMZISsprB8iuLYkxMDC2MqpjFr2Bibyt1mvMYWBg7GbkTbervs/vac64YWBgLGUkYbd3JNArUPM3jYGBcQKj9+hqQnl7Yw4DA2M1I2+lVdO4Xrlb/S8GBsbJjHnxWU0W83Vf/oqBgXEA46pA2TsYmA98YGBgnMC4tn0/acBVBz4wMDB2M3rDXtUlq/eUU1UMDIzVjEmwq85x5C+lV9BiYGDsZsyHJ+YBugr+I8PFwMBYyqgGvmpKlx8MNJNODAwMjGA8K08c89ZeIavFwMDAiD/nY2TJuoUnYGBgHMBIitj5pnuDF9Erw8DAWM3IS8ek4Kxuoppijg4yMTAwPo/xBTFliYdo+b0bAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -406,7 +406,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/70ca885c.html", 
+    url: "https://heronking.gitee.io/archives/70ca885c.html", 
     sourceId: "线程的基本状态",
     productKey: "true",
     target: "cloud-tie-wrapper"

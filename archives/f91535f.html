@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>MySQL事务 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="事务处理技术包括数据库回复技术和并发控制技术。这个两个机制是DBMS的重要组成部分。 事务的基本概念事务是用户定义的一个操作序列。这些操作要么都成功完成、要么都失败，他们是一个不可分割的工作单位。">
 <meta name="keywords" content="随笔,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL事务">
-<meta property="og:url" content="https://heronking.github.io/archives/f91535f.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/f91535f.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="事务处理技术包括数据库回复技术和并发控制技术。这个两个机制是DBMS的重要组成部分。 事务的基本概念事务是用户定义的一个操作序列。这些操作要么都成功完成、要么都失败，他们是一个不可分割的工作单位。">
 <meta property="og:locale" content="zh-CN">
@@ -301,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3a0YrDIBAF0P7/T2dfF0rSezUtRI9PJU0Tj4VhdOb1isfxb7xfOfv2/XP+zNc3BgYGxmMZx+XIX3B2zzX+mp3MDQMDYx/G2bSSAHoNuH799WIlc8PAwMDI07skTH8ImuV7MTAwMPLU7fo57ZYVAwMDY2YT2wbZsZTx63txDAyMBzLyU/fff/5KfQMDA+NRjKMc7a/aaR1DAwMDY21G/pq2nSLBzARcDAyM3Rh5G8RYA1lLTX5bxGwMDIwlGG2J8d4Q2R69nfIwMDC2YYyF4CRotilmu5QYGBg7MPIUrW2SaBO+vPw51c2BgYHxEMZYqJ0JmvlCFJtYDAyMDRhtcGwLlm2LWF2cwMDA2J5x14vH8tboOgYGxgaMsZTuN2E6Wj4MDIwNGGOH+DNHZm1RISpeYmBgLMoYK1XOFACSA7Ub/hMMDIxFGfnU82Dd3pkXA4o8FwMDYyFGm8Dlx2p5ETRJKIueEQwMjIUYbdKWb3HzqReB9TocY2BgLMrIk7O2Faw9yMuX5sMmFgMDY1FGPsW2naKYykRRAQMDYx/GWJtXO4mWWrdcYGBgLMQ4yjFfMGifEIV+DAyMpRn5GGvFmE/4xprSMDAw1mOMbUTbQsLYkhVPwMDA2IAxVrxMwm5+5Ya9OAYGBka5fR27Z5CKgYGBEaSG80WFvMnjhoCLgYHxQEayib3rSn7QVgR9DAyMpRl3nWXlx/p5iTQvamJgYCzK+APh8mqYHF772gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3aUU7EMAwFwL3/pZcDAN33nGVRk8kXqtokA5KxEz8e8XgG4/ub+Zztt8OBgYFxW0a7uXyZZIbfnuR7w8DAOIeRbOJ6mQR8/eSa9GLPGBgYGOXy1wF9ZV0MDAyM2XRt2ncdjjEwMDBWiti8WM0D7j/U4hgYGDdkzA7OPvPzn9xvYGBg3IrxLEe7fBsun6OBgYGxNyMPcOvJ2VKBGsyGgYGxKyPZXLLp9xbA7cUnBgbG3ozksD4h5Q0Ws6Rw+DfBwMDYgtEG3Dx0zjbXNnAM/29gYGDclpGH1LZMbWerwzcGBsbWjDZda8Ni3myRX6DWL2FgYGzBaINgctDfpoP5usWhGwYGxhaM/Ag+Z3wmsP5whYmBgXEYIy8gZ1uv7y7abhEMDIyNGG3J2h60zb7KSRgYGCczVtos3lVVv6E5DAMDY1NGkgImwboIkQsFLQYGBka+3ZVjuPYXFxWxGBgY2zHaY6/2aCwPzSvHcxgYGCcz8rRs5TIgTyujBlYMDIxNGUnSlqR6K0+S8eI+FgMD4wBGkuTl6d3sq/ySFQMD4wTGLNjlW3zXtWiRFGJgYGzHaC8Uc1ICbsvU/JgPAwNjP0ZeNM42OmsIq4M1BgbGAYw28K0c9LchuG62wMDAwIgTu7xkXX8fAwMDI2mtaANumyy+mBkDA+MARt7ckCR2s+Rv6VIBAwNja0ZeOrYBetZ4kV9LYGBgHMD4AvnVapj7EEqTAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,7 +370,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/f91535f.html", 
+    url: "https://heronking.gitee.io/archives/f91535f.html", 
     sourceId: "MySQL事务",
     productKey: "true",
     target: "cloud-tie-wrapper"

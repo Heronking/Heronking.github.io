@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>JVM的栈、堆、方法区 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="java中的存储方式也是比较重要滴。 先看看JVM的数据区是咋样的">
 <meta name="keywords" content="随笔,java,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM的栈、堆、方法区">
-<meta property="og:url" content="https://heronking.github.io/archives/eae4d02d.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/eae4d02d.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="java中的存储方式也是比较重要滴。 先看看JVM的数据区是咋样的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/eae4d02d/1.png">
+<meta property="og:image" content="https://heronking.gitee.io/archives/eae4d02d/1.png">
 <meta property="og:updated_time" content="2020-03-17T15:09:21.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM的栈、堆、方法区">
 <meta name="twitter:description" content="java中的存储方式也是比较重要滴。 先看看JVM的数据区是咋样的">
-<meta name="twitter:image" content="https://heronking.github.io/archives/eae4d02d/1.png">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/eae4d02d/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -292,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aS27DMAwFwNz/0u62QODkkbSLWhqtiqC2NF4Q/Oj1itfxtn7/fvb/+Zvfd3ndsTAwMB7LOD6usw2qm529+QyTnw0DA2MfRhIK86B59lQCaAZ0DAwMjJPt8y2TIJ5/PgwMDIxqupbDrkpAMTAw9mQkG3wOuHnyl7fwbqnFMTAwHsjote//5u9b5hsYGBiPYhzFlQfQ/JcLToWBgbE0Iw9w+QCy1/SvBlwMDIx9GJPtqwE6Hy3kn+mCr4iBgfEoxry51rvyNW/5YWBg7MCoFqXzAUCvJD6NtBgYGEszeuOB+bixGpqTZzEwMFZlVANu9fJW9RpZL+xiYGDswKg+3Gu9Tfb68h4MDIwNGFcF1vkFizyf/XJnBAMDYyFGXkAmg8xJ0pmMLT/viIGBsSojKS97pWYeZHuXLTAwMPZh5IlaAqumjPOjF9pwGBgYj2VUU8C8BZYjk6bel4+CgYGxASPfuBcc81FBcp5CEYuBgbEEo5rS9dK7vEk3+XAYGBhrM5IhZR7+JlfE8vOc9g4xMDA2YCSJXZ6o5aPKJH0sBFwMDIxFGfmBJlcoemF6dOUCAwPj4YyjuKqlbzm9a6WPGBgYazPmTbc8+cvb+vnRL+sdYmBg/HvG5HC95lov4I6+NAYGxhKMauCbAG6sxTEwMDCCsUFvCHpBSw4DAwOjdRVsMjYoj1QxMDA2YCRFbPWqRN7Qr7IxMDB2Y/RGkr1fJiXupPTFwMB4LOMHGc0i4GlgPBgAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aQW7CQAwF0N7/0lTqqhIl/O8EVGberFAgyTwWlsf211e8bj/r/srv9ejb5K7jp122MDAwPpZxO1z3jORl7baSdz15JgYGxgaM/NF5YM3Zj36Z7A0DAwMjeUHy7XGKOfv7MDAwMNqtHAfWW7AwMDAwjhnJo9tw2YbRN53FMTAwPpDRNgbe+fmF/Q0MDIwPYdxG63yzM2lhFvvBwMBYmtEW7tsyWX4lGdd4skMMDIzNGEmozUts7fW2eIeBgbE2YzYK1pbyz987PMRiYGAswWgPkG0+lvwd54c5MDAwdmC8J/ieKeQVv8fAwFia0R5o2xfPsrsk3cTAwFibkadcyfGyLf23wxwYGBh7Mo5jcB7+2qQwif11ywEDA2NjxqzElhfR2vGOh0EcAwNjacYsLOYhNU8HL2BjYGBswGiPo7NRifauYggDAwNjOUY7TjELsuebl0+uY2BgbMCYFehnA145rEgQMTAwlma0LclZaWzWzsyPzRgYGDswrkrUkmGy9mlFKomBgbEZY3bgbNO42ZhFcSLHwMBYiHFmQ8lRczYWdmrrGBgYCzFmobYdoUiSyLyQ98e7MDAwlmacj9b5a2YjGkkQx8DA2IExayLOtpgU+PIRkCJBxMDAWILxigNqPtjRtkUfBlwMDAyMchjiKnbRwsTAwNie0bY28/GvPEBjYGDszEgOsW3zoG1eDmuBGBgYGzBmgxftJtq2aFKGu2B+BAMD478zvgGOzfoI8fXYgQAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -361,7 +361,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/eae4d02d.html", 
+    url: "https://heronking.gitee.io/archives/eae4d02d.html", 
     sourceId: "JVM的栈、堆、方法区",
     productKey: "true",
     target: "cloud-tie-wrapper"

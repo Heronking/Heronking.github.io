@@ -5,24 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>MySQL安装 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="装mysql的时候遇到很多坑。 弄的是免安装版的，所以需要各种奇奇怪怪的配置。 下载从官网 下载">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL安装">
-<meta property="og:url" content="https://heronking.github.io/archives/8b39915a.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/8b39915a.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="装mysql的时候遇到很多坑。 弄的是免安装版的，所以需要各种奇奇怪怪的配置。 下载从官网 下载">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/8b39915a/1.png">
-<meta property="og:image" content="https://heronking.github.io/archives/8b39915a/2.png">
+<meta property="og:image" content="https://heronking.gitee.io/archives/8b39915a/1.png">
+<meta property="og:image" content="https://heronking.gitee.io/archives/8b39915a/2.png">
 <meta property="og:updated_time" content="2020-03-19T11:05:11.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL安装">
 <meta name="twitter:description" content="装mysql的时候遇到很多坑。 弄的是免安装版的，所以需要各种奇奇怪怪的配置。 下载从官网 下载">
-<meta name="twitter:image" content="https://heronking.github.io/archives/8b39915a/1.png">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/8b39915a/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -269,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3ay4pqMRAFUP//p73ThsZm7yq9YLIyEtHkrDMo6pHHI17PX+vn969+n+/8+5THJxYGBsbXMp5/rlcHtIfNdk6eDQMD4x5GEgrzg1/t/Dd+FdAxMDAwZkGwDLXJi8DAwMCYBdw8XL4rAcXAwLiTkRwwa8BtAvdHanEMDIwvZMza9//n80fmGxgYGF/FeJZrFnzbtLJ+KgwMjKMZeYBrW2bvHSckIwQMDIyzGbPj2wCdt+fawScGBsbZjL8bWJvW2KwAnqWkGBgYZzPy7dorX5s98zQRAwPjZkZbTLbjxrzpVpSvGBgYhzLyI+tW17pVV7fVMDAwjmbkCdx+AJmc274IDAyMGxh5ErYZVRblaBnEMTAwzma0m85C8KytNitxMTAwTmW0za/ZN3lAz0kYGBg3MNqksB0VtC9riMHAwLiM0QI24Fn5+rIWx8DAuICRF5Z5iZtfwlhd1MDAwDiasSliN023fVDGwMC4k5EkapsiNm/hDZ8HAwPjGkaS5LXJYrtDflGsiMoYGBhHMDZDx/yhZy256GkxMDAOZTzLNUsQ23QzL54fSa8OAwPjyxmbMNeG6TzUtokpBgbGDYw2yOaBeFaOzoYHGBgYNzDa9C4pX9vR5htqcQwMDIzgcsYmHq6oGBgYGPHwMrlO0cKiUI6BgXEBIyliZwe0Q4LkvxgYGLcx2l5WHkzzht3+BWFgYBzK+Ac0mbJQrIyqGAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3ay1LDMAwFUP7/p8sWBpJeSYaZ2CerThsSHy+E9fj4iK/Xl+v+1593Jn+VvGXBhYGB8VjG6/a6uqe3rIR6f//lGjAwMA5gXC3r6p4q++r1Cft+bRgYGBj3jFUBN38vBgYGRvK4yZExSVkxMDAwJklscoDrpcTzIyYGBsbejLzq/v+f/6S/gYGB8SjGq3hV09e8MVkNx9+eiYGBsTUjD3BJwpkU46pBvLAeDAyMYxiFADce7eoV4KKqIQYGxkaMeQCdLLpXevtlVRgYGAcweilor3CWvKu8rRgYGAcwolGGOGiuSoAL24eBgbE1ozpIUU1Bk+GJ3sG00FvAwMB4OKMXOnvf5ElseQQEAwNja8aklLZ2/LS3fRgYGCczqovuDZBNCm1vOrEYGBjbMfKRi0kq20uhC7k4BgbGAYxeCO5t0PyeZhkOAwNjC0avfJY0Gnvt0uZWYmBgbMdY9aCkVVktzC3IxTEwMLZgTIr4eesxSXeTVUX/MTAwMLZjzI93CW/VuNibAVYMDIzDGPmBLwms80D85hsMDIzDGMkYVn5wzANufri8HAvDwMDYjtEb9srbltVQW92IKP/GwMB4OGOyrCov35R86WUMBgbGYxlJkM1fPAqIg1QZAwPjBMY88CWDFJMkdsHMCAYGxjGMajraaxvkz8TAwMBIPldHJfKmaeEJGBgYBzB6x7s5Mg/Hb4p9GBgYWzPy1LFarF8bphc0MjEwMJ7H+AQqlrwqElxw+QAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,7 +338,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/8b39915a.html", 
+    url: "https://heronking.gitee.io/archives/8b39915a.html", 
     sourceId: "MySQL安装",
     productKey: "true",
     target: "cloud-tie-wrapper"

@@ -5,9 +5,9 @@
   <subtitle>弱小，可怜，无助</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://heronking.github.io/"/>
+  <link href="https://heronking.gitee.io/"/>
   <updated>2020-03-25T09:58:07.813Z</updated>
-  <id>https://heronking.github.io/</id>
+  <id>https://heronking.gitee.io/</id>
   
   <author>
     <name>多喝热水会好的</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>java反射机制</title>
-    <link href="https://heronking.github.io/archives/3ecb78ee.html"/>
-    <id>https://heronking.github.io/archives/3ecb78ee.html</id>
+    <link href="https://heronking.gitee.io/archives/3ecb78ee.html"/>
+    <id>https://heronking.gitee.io/archives/3ecb78ee.html</id>
     <published>2020-03-25T06:00:03.000Z</published>
     <updated>2020-03-25T09:58:07.813Z</updated>
     
@@ -36,18 +36,18 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>HTTP协议简单总结</title>
-    <link href="https://heronking.github.io/archives/ce0e21de.html"/>
-    <id>https://heronking.github.io/archives/ce0e21de.html</id>
+    <link href="https://heronking.gitee.io/archives/ce0e21de.html"/>
+    <id>https://heronking.gitee.io/archives/ce0e21de.html</id>
     <published>2020-03-24T10:04:37.000Z</published>
     <updated>2020-03-25T13:28:23.931Z</updated>
     
@@ -63,16 +63,16 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="计算机网络" scheme="https://heronking.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://heronking.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>TCP协议简单总结</title>
-    <link href="https://heronking.github.io/archives/55ac5dc4.html"/>
-    <id>https://heronking.github.io/archives/55ac5dc4.html</id>
+    <link href="https://heronking.gitee.io/archives/55ac5dc4.html"/>
+    <id>https://heronking.gitee.io/archives/55ac5dc4.html</id>
     <published>2020-03-23T07:11:17.000Z</published>
     <updated>2020-03-23T12:13:27.892Z</updated>
     
@@ -88,22 +88,22 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
-      <category term="计算机网络" scheme="https://heronking.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+      <category term="计算机网络" scheme="https://heronking.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>MySQL慢查询及优化</title>
-    <link href="https://heronking.github.io/archives/708bc100.html"/>
-    <id>https://heronking.github.io/archives/708bc100.html</id>
+    <link href="https://heronking.gitee.io/archives/708bc100.html"/>
+    <id>https://heronking.gitee.io/archives/708bc100.html</id>
     <published>2020-03-22T08:48:09.000Z</published>
     <updated>2020-03-22T09:26:56.870Z</updated>
     
-    <content type="html"><![CDATA[<p>MySQL中将超过指定时间的sql语句查询成为<strong>慢查询</strong>，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。</p><p>使用咒语：<code>set global slow_query_log = 1</code> ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。</p><p>具体怎么配置可以看 <a href="https://www.cnblogs.com/kerrycode/p/5593204.HTML" target="_blank" rel="noopener">这里</a></p><a id="more"></a><h4 id="慢查询优化"><a href="#慢查询优化" class="headerlink" title="慢查询优化"></a>慢查询优化</h4><p>先看一下关于创建索引的 <a href="https://heronking.github.io/archives/43a71ae4.html">五大基本原则</a> ，建立一个好的索引是提高效率的重要前提。</p><p><strong>优化的基本步骤</strong>：</p><blockquote><p>0.<strong>先运行看看</strong>是否真的很慢，注意设置SQL_NO_CACHE</p><p>1.<strong>where条件单表查，锁定最小返回记录表</strong>。这句话的意思是把查询语句的where都应用到表中返回的记录数最小的表开始查起，单表每个字段分别查询，看哪个字段的区分度最高</p><p>2.<strong>explain查看执行计划</strong>，是否与1预期一致（从锁定记录较少的表开始查询）</p><p>3.<strong>order by limit</strong> 形式的sql语句让排序的表优先查</p><p>4.了解业务方<strong>使用场景</strong></p><p>5.<strong>加索引</strong>时参照建索引的几大原则</p><p>6.观察结果，不符合预期继续从0分析</p></blockquote><p>具体情况还没了解透彻~</p>]]></content>
+    <content type="html"><![CDATA[<p>MySQL中将超过指定时间的sql语句查询成为<strong>慢查询</strong>，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。</p><p>使用咒语：<code>set global slow_query_log = 1</code> ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。</p><p>具体怎么配置可以看 <a href="https://www.cnblogs.com/kerrycode/p/5593204.HTML" target="_blank" rel="noopener">这里</a></p><a id="more"></a><h4 id="慢查询优化"><a href="#慢查询优化" class="headerlink" title="慢查询优化"></a>慢查询优化</h4><p>先看一下关于创建索引的 <a href="https://heronking.github.io/archives/43a71ae4.html" target="_blank" rel="noopener">五大基本原则</a> ，建立一个好的索引是提高效率的重要前提。</p><p><strong>优化的基本步骤</strong>：</p><blockquote><p>0.<strong>先运行看看</strong>是否真的很慢，注意设置SQL_NO_CACHE</p><p>1.<strong>where条件单表查，锁定最小返回记录表</strong>。这句话的意思是把查询语句的where都应用到表中返回的记录数最小的表开始查起，单表每个字段分别查询，看哪个字段的区分度最高</p><p>2.<strong>explain查看执行计划</strong>，是否与1预期一致（从锁定记录较少的表开始查询）</p><p>3.<strong>order by limit</strong> 形式的sql语句让排序的表优先查</p><p>4.了解业务方<strong>使用场景</strong></p><p>5.<strong>加索引</strong>时参照建索引的几大原则</p><p>6.观察结果，不符合预期继续从0分析</p></blockquote><p>具体情况还没了解透彻~</p>]]></content>
     
     <summary type="html">
     
@@ -115,16 +115,16 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="MySQL" scheme="https://heronking.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://heronking.gitee.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>MySQL索引</title>
-    <link href="https://heronking.github.io/archives/43a71ae4.html"/>
-    <id>https://heronking.github.io/archives/43a71ae4.html</id>
+    <link href="https://heronking.gitee.io/archives/43a71ae4.html"/>
+    <id>https://heronking.gitee.io/archives/43a71ae4.html</id>
     <published>2020-03-21T12:28:07.000Z</published>
     <updated>2020-03-24T06:26:48.192Z</updated>
     
@@ -140,18 +140,18 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="面试" scheme="https://heronking.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
-      <category term="MySQL" scheme="https://heronking.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://heronking.gitee.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>MySQL事务</title>
-    <link href="https://heronking.github.io/archives/f91535f.html"/>
-    <id>https://heronking.github.io/archives/f91535f.html</id>
+    <link href="https://heronking.gitee.io/archives/f91535f.html"/>
+    <id>https://heronking.gitee.io/archives/f91535f.html</id>
     <published>2020-03-21T06:59:01.000Z</published>
     <updated>2020-03-21T09:24:23.849Z</updated>
     
@@ -166,16 +166,16 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="MySQL" scheme="https://heronking.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://heronking.gitee.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>MySQL查询记录</title>
-    <link href="https://heronking.github.io/archives/50092300.html"/>
-    <id>https://heronking.github.io/archives/50092300.html</id>
+    <link href="https://heronking.gitee.io/archives/50092300.html"/>
+    <id>https://heronking.gitee.io/archives/50092300.html</id>
     <published>2020-03-20T09:23:54.000Z</published>
     <updated>2020-03-20T14:45:28.975Z</updated>
     
@@ -189,16 +189,16 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="MySQL" scheme="https://heronking.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://heronking.gitee.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>数据库的三大范式</title>
-    <link href="https://heronking.github.io/archives/e7b99fed.html"/>
-    <id>https://heronking.github.io/archives/e7b99fed.html</id>
+    <link href="https://heronking.gitee.io/archives/e7b99fed.html"/>
+    <id>https://heronking.gitee.io/archives/e7b99fed.html</id>
     <published>2020-03-20T07:27:43.000Z</published>
     <updated>2020-03-20T08:34:34.379Z</updated>
     
@@ -218,18 +218,18 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
-      <category term="MySQL" scheme="https://heronking.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://heronking.gitee.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>MySQL安装</title>
-    <link href="https://heronking.github.io/archives/8b39915a.html"/>
-    <id>https://heronking.github.io/archives/8b39915a.html</id>
+    <link href="https://heronking.gitee.io/archives/8b39915a.html"/>
+    <id>https://heronking.gitee.io/archives/8b39915a.html</id>
     <published>2020-03-19T10:42:58.000Z</published>
     <updated>2020-03-19T11:05:11.547Z</updated>
     
@@ -245,18 +245,18 @@
     
     
     
-      <category term="MySQL" scheme="https://heronking.github.io/tags/MySQL/"/>
+      <category term="MySQL" scheme="https://heronking.gitee.io/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>java集合简单总结</title>
-    <link href="https://heronking.github.io/archives/f5e78ffc.html"/>
-    <id>https://heronking.github.io/archives/f5e78ffc.html</id>
+    <link href="https://heronking.gitee.io/archives/f5e78ffc.html"/>
+    <id>https://heronking.gitee.io/archives/f5e78ffc.html</id>
     <published>2020-03-18T13:37:17.000Z</published>
     <updated>2020-03-19T06:38:43.914Z</updated>
     
-    <content type="html"><![CDATA[<p>java中的集合框架主要分为两类：Collection 和 Map</p><ul><li>Collection 是单列集合，Map是双列</li><li>Collection中的Set要求集合元素唯一，Map中的键值为一，值没有限制</li></ul><a id="more"></a><h4 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h4><ul><li><p>List</p><ul><li>ArrayList：Object数组</li><li>LinkedList：双向链表（JDK1.7取消了循环链表）</li><li>Vector：已过时，被ArrayList取代</li></ul></li><li><p>Set</p><ul><li>HashSet：无序且元素唯一，使用哈希法存储元素，底层是HashMap。</li><li>LinkedHashSet：继承于HashSet，但底层是LinkedHashMap。存取<strong>有顺序</strong>，元素唯一，即存进的顺序和取出来的顺序是一样的。</li><li>TreeSet：就是一棵红黑树（自平衡的排序二叉树），存取无序，但自动排序，这是红黑树的特点。</li></ul></li></ul><h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><ul><li>HashMap：<a href="https://heronking.github.io/archives/166dc6bc.html">详情</a> ，使用数组 + 链表/红黑树 的哈希表结构，存储的是Entry键值对。</li><li>LinkedHashMap：继承于HashMap，底层结构在HashMap的基础上<strong>增加了一条双向链表</strong>，用来保持键值对的插入顺序，所以它存取有序。</li><li>TreeMap：红黑树，可以通过实现Comparator接口来指定排序方法。</li><li>Hashtable：与HashMap功能类似，数组 + 链表组成，不能存有null的键值。线程安全，但不推荐使用。多线程使用ConcurrentHashMap</li></ul><h4 id="如何选用集合"><a href="#如何选用集合" class="headerlink" title="如何选用集合"></a>如何选用集合</h4><p>根据集合特点来选。</p><p>如果需要用到键值，那自然就选Map，根据具体情况来选某一个Map，比如需要排序就用TreeMap，不需要排序就用HashMap，需要保证线程安全就用ConcurrentHashMap。</p><p>如果只需要用来存放元素，那就用Collection，需要元素唯一就用Set，不需要就用List。</p>]]></content>
+    <content type="html"><![CDATA[<p>java中的集合框架主要分为两类：Collection 和 Map</p><ul><li>Collection 是单列集合，Map是双列</li><li>Collection中的Set要求集合元素唯一，Map中的键值为一，值没有限制</li></ul><a id="more"></a><h4 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h4><ul><li><p>List</p><ul><li>ArrayList：Object数组</li><li>LinkedList：双向链表（JDK1.7取消了循环链表）</li><li>Vector：已过时，被ArrayList取代</li></ul></li><li><p>Set</p><ul><li>HashSet：无序且元素唯一，使用哈希法存储元素，底层是HashMap。</li><li>LinkedHashSet：继承于HashSet，但底层是LinkedHashMap。存取<strong>有顺序</strong>，元素唯一，即存进的顺序和取出来的顺序是一样的。</li><li>TreeSet：就是一棵红黑树（自平衡的排序二叉树），存取无序，但自动排序，这是红黑树的特点。</li></ul></li></ul><h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><ul><li>HashMap：<a href="https://heronking.github.io/archives/166dc6bc.html" target="_blank" rel="noopener">详情</a> ，使用数组 + 链表/红黑树 的哈希表结构，存储的是Entry键值对。</li><li>LinkedHashMap：继承于HashMap，底层结构在HashMap的基础上<strong>增加了一条双向链表</strong>，用来保持键值对的插入顺序，所以它存取有序。</li><li>TreeMap：红黑树，可以通过实现Comparator接口来指定排序方法。</li><li>Hashtable：与HashMap功能类似，数组 + 链表组成，不能存有null的键值。线程安全，但不推荐使用。多线程使用ConcurrentHashMap</li></ul><h4 id="如何选用集合"><a href="#如何选用集合" class="headerlink" title="如何选用集合"></a>如何选用集合</h4><p>根据集合特点来选。</p><p>如果需要用到键值，那自然就选Map，根据具体情况来选某一个Map，比如需要排序就用TreeMap，不需要排序就用HashMap，需要保证线程安全就用ConcurrentHashMap。</p><p>如果只需要用来存放元素，那就用Collection，需要元素唯一就用Set，不需要就用List。</p>]]></content>
     
     <summary type="html">
     
@@ -270,51 +270,51 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="面试" scheme="https://heronking.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>简述HashMap的工作原理</title>
-    <link href="https://heronking.github.io/archives/166dc6bc.html"/>
-    <id>https://heronking.github.io/archives/166dc6bc.html</id>
+    <link href="https://heronking.gitee.io/archives/166dc6bc.html"/>
+    <id>https://heronking.gitee.io/archives/166dc6bc.html</id>
     <published>2020-03-18T09:31:07.000Z</published>
     <updated>2020-03-24T06:13:44.695Z</updated>
     
-    <content type="html"><![CDATA[<p>HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。</p><p>JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用<strong>挂链式</strong>解决 <a href="https://heronking.github.io/archives/1293cfc0.html">哈希冲突</a> 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。</p><p>为什么是8呢？</p><a id="more"></a><p>如果这个阈值设置太小，相同的哈希数量频繁达到阈值，那么底层就会频繁的在链表和红黑树之间转换。哈希冲突的概率满足泊松分布，同样的哈希值达到8的概率非常小。</p><p>HashMap底层用到的哈希表结构是这样的（<a href="https://www.jianshu.com/p/54d5c2b58125" target="_blank" rel="noopener">图源</a>）：</p><img src="/archives/166dc6bc/1.png" alt="哈希表" style="zoom:80%;"><p>可以看到，如果存储的数据没有哈希冲突，那么这个哈希表就是一个根据哈希值来存储的散列数组。</p><h4 id="HashMap的工作原理是什么？"><a href="#HashMap的工作原理是什么？" class="headerlink" title="HashMap的工作原理是什么？"></a>HashMap的工作原理是什么？</h4><p>我们使用 <code>put(key, value)</code> 的方式存储对象到HashMap中，使用 <code>get(key)</code> 方法从HashMap中获得对象。</p><p>当存数据的时候，HashMap首先会对键值使用哈希函数 ，此时函数返回的值就是哈希表中的一个bucket位置（图中存放Entry的就是bucket，上面有6个）来存储Entry对象。</p><p>Entry对象是一个静态内部类，里面有属性key、value 和 next，对于每一个需要存储的键值对，HashMap都把他们放到Entry里面。</p><h4 id="当要存储的两个对象哈希码值相同会发生什么？"><a href="#当要存储的两个对象哈希码值相同会发生什么？" class="headerlink" title="当要存储的两个对象哈希码值相同会发生什么？"></a>当要存储的两个对象哈希码值相同会发生什么？</h4><p>也就是哈希冲突发生了。</p><p>由于哈希码值相同，那么他们会找到同一个bucket，然后对两个Entry的调用<code>equals()</code>方法。</p><p>如果返回的是false，那么就将这两个对象存放的Entry组成一个链表，然后把链表的头节点放在bucket中，如上图一样。此时 <code>put()返回的是null</code>，因为插入的是一个新的值。</p><p>如果 <code>equals()</code>方法返回true，说明HashMap中已经存在真正一样的key，此时原来键值对中value，会被替换成新插入的value，<code>put()</code> 方法返回的是原来键值对中的value。</p><p>比如HashMap中已经存在<code>&lt;1, &quot;aaa&quot;&gt;</code> ，那么执行 <code>put(1, &quot;bbb&quot;)</code>，HashMap中就变成了 <code>&lt;1, &quot;bbb&quot;&gt;</code> ，然后put方法返回的是 “aaa”。</p><h4 id="怎么取出哈希码相同的某一个值对象？"><a href="#怎么取出哈希码相同的某一个值对象？" class="headerlink" title="怎么取出哈希码相同的某一个值对象？"></a>怎么取出哈希码相同的某一个值对象？</h4><p>直接查找存储在bucket中的链表，使用 <code>key.equals(Entry.key)</code> 来判断是否找到，最后返回对应的value对象即可。如果链表特别长，那么查找的效率会非常低，因此优化为红黑树，提高效率。</p><h4 id="HashMap的大小超过了负载因子怎么办？"><a href="#HashMap的大小超过了负载因子怎么办？" class="headerlink" title="HashMap的大小超过了负载因子怎么办？"></a>HashMap的大小超过了负载因子怎么办？</h4><p>hashMap默认的负载因子(load factor)是0.75，也就是说，如果数据<strong>填满了75%的bucket数组</strong>，那么就是超过了负载因子。</p><p>HashMap就会创建一个新的 <strong>2 * 原capacity (默认16，可自己定义)</strong> 大小的bucket数组，并将原数组中的所有对象都放到这个新的里面。</p><p>这个过程叫做rehash，原数组的每一个对象需要<strong>重新hash</strong>才能放到新的bucket数组中。因为HashMap计算哈希码的方法是： <code>hashCode &amp; (n - 1)（n是新的bucket数组长度）</code>。 </p><h4 id="多线程下重新调整HashMap的大小有什么问题？"><a href="#多线程下重新调整HashMap的大小有什么问题？" class="headerlink" title="多线程下重新调整HashMap的大小有什么问题？"></a>多线程下重新调整HashMap的大小有什么问题？</h4><p>HashMap是非线程安全的，在多线程下会产生资源竞争。在<strong>JDK1.7</strong>中因为rehash而迁移的链表元素会全部倒置，如果此时条件竞争发生，那么就会出现循环链表，查询循环链表会形成死锁。</p><p>但JDK1.8已经解决了这个，因为链表迁移不会再倒置了。</p><p>但还是不建议在多线程下使用。</p><h4 id="为什么wrapper类更适合作为键值？"><a href="#为什么wrapper类更适合作为键值？" class="headerlink" title="为什么wrapper类更适合作为键值？"></a>为什么wrapper类更适合作为键值？</h4><p>因为String、Integer这些wrapper类是用final修饰的，是不可变的，而且这些类中已经重写过了 <code>equals() 和 hashCode()</code> 方法。</p><p>不变这个条件是必要的，因为hashMap需要计算key的hashcode，那就必须防止键值改变，如果键值在 <code>put()</code> 完成以后，再用 <code>get()</code> 调用的时候返回的是不同的hashcode，那么就找不到这个key对应的value了。</p><p>正确的重写那两个方法也是必要的。一个好的hashCode()方法也能提高HashMap的性能，减少哈希冲突。</p><h4 id="自定义对象是否可以作为键值？"><a href="#自定义对象是否可以作为键值？" class="headerlink" title="自定义对象是否可以作为键值？"></a>自定义对象是否可以作为键值？</h4><p>只要该对象满足上面所说的wrapper类的条件就能作为键值。</p><p><strong>ConcurrentHashMap 和 Hashtable 区别</strong></p><p>ConcurrentHashMap的同步性能比Hashtable更好，因为它只对map的一部分上锁，属于分段锁，对整个bucket数组都进行了分割，每一把锁都只锁一部分数据。这样可以避免多线程出现锁竞争，提高并发访问率。</p><p>因此Hashtable提供更强的线程安全性，用的是一把锁，竞争越激烈效率越低。</p><p>一般来说都是用ConcurrentHashMap来替代Hashtable，Hashtable已经基本被淘汰了。</p>]]></content>
+    <content type="html"><![CDATA[<p>HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。</p><p>JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用<strong>挂链式</strong>解决 <a href="https://heronking.github.io/archives/1293cfc0.html" target="_blank" rel="noopener">哈希冲突</a> 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。</p><p>为什么是8呢？</p><a id="more"></a><p>如果这个阈值设置太小，相同的哈希数量频繁达到阈值，那么底层就会频繁的在链表和红黑树之间转换。哈希冲突的概率满足泊松分布，同样的哈希值达到8的概率非常小。</p><p>HashMap底层用到的哈希表结构是这样的（<a href="https://www.jianshu.com/p/54d5c2b58125" target="_blank" rel="noopener">图源</a>）：</p><img src="/archives/166dc6bc/1.png" alt="哈希表" style="zoom:80%;"><p>可以看到，如果存储的数据没有哈希冲突，那么这个哈希表就是一个根据哈希值来存储的散列数组。</p><h4 id="HashMap的工作原理是什么？"><a href="#HashMap的工作原理是什么？" class="headerlink" title="HashMap的工作原理是什么？"></a>HashMap的工作原理是什么？</h4><p>我们使用 <code>put(key, value)</code> 的方式存储对象到HashMap中，使用 <code>get(key)</code> 方法从HashMap中获得对象。</p><p>当存数据的时候，HashMap首先会对键值使用哈希函数 ，此时函数返回的值就是哈希表中的一个bucket位置（图中存放Entry的就是bucket，上面有6个）来存储Entry对象。</p><p>Entry对象是一个静态内部类，里面有属性key、value 和 next，对于每一个需要存储的键值对，HashMap都把他们放到Entry里面。</p><h4 id="当要存储的两个对象哈希码值相同会发生什么？"><a href="#当要存储的两个对象哈希码值相同会发生什么？" class="headerlink" title="当要存储的两个对象哈希码值相同会发生什么？"></a>当要存储的两个对象哈希码值相同会发生什么？</h4><p>也就是哈希冲突发生了。</p><p>由于哈希码值相同，那么他们会找到同一个bucket，然后对两个Entry的调用<code>equals()</code>方法。</p><p>如果返回的是false，那么就将这两个对象存放的Entry组成一个链表，然后把链表的头节点放在bucket中，如上图一样。此时 <code>put()返回的是null</code>，因为插入的是一个新的值。</p><p>如果 <code>equals()</code>方法返回true，说明HashMap中已经存在真正一样的key，此时原来键值对中value，会被替换成新插入的value，<code>put()</code> 方法返回的是原来键值对中的value。</p><p>比如HashMap中已经存在<code>&lt;1, &quot;aaa&quot;&gt;</code> ，那么执行 <code>put(1, &quot;bbb&quot;)</code>，HashMap中就变成了 <code>&lt;1, &quot;bbb&quot;&gt;</code> ，然后put方法返回的是 “aaa”。</p><h4 id="怎么取出哈希码相同的某一个值对象？"><a href="#怎么取出哈希码相同的某一个值对象？" class="headerlink" title="怎么取出哈希码相同的某一个值对象？"></a>怎么取出哈希码相同的某一个值对象？</h4><p>直接查找存储在bucket中的链表，使用 <code>key.equals(Entry.key)</code> 来判断是否找到，最后返回对应的value对象即可。如果链表特别长，那么查找的效率会非常低，因此优化为红黑树，提高效率。</p><h4 id="HashMap的大小超过了负载因子怎么办？"><a href="#HashMap的大小超过了负载因子怎么办？" class="headerlink" title="HashMap的大小超过了负载因子怎么办？"></a>HashMap的大小超过了负载因子怎么办？</h4><p>hashMap默认的负载因子(load factor)是0.75，也就是说，如果数据<strong>填满了75%的bucket数组</strong>，那么就是超过了负载因子。</p><p>HashMap就会创建一个新的 <strong>2 * 原capacity (默认16，可自己定义)</strong> 大小的bucket数组，并将原数组中的所有对象都放到这个新的里面。</p><p>这个过程叫做rehash，原数组的每一个对象需要<strong>重新hash</strong>才能放到新的bucket数组中。因为HashMap计算哈希码的方法是： <code>hashCode &amp; (n - 1)（n是新的bucket数组长度）</code>。 </p><h4 id="多线程下重新调整HashMap的大小有什么问题？"><a href="#多线程下重新调整HashMap的大小有什么问题？" class="headerlink" title="多线程下重新调整HashMap的大小有什么问题？"></a>多线程下重新调整HashMap的大小有什么问题？</h4><p>HashMap是非线程安全的，在多线程下会产生资源竞争。在<strong>JDK1.7</strong>中因为rehash而迁移的链表元素会全部倒置，如果此时条件竞争发生，那么就会出现循环链表，查询循环链表会形成死锁。</p><p>但JDK1.8已经解决了这个，因为链表迁移不会再倒置了。</p><p>但还是不建议在多线程下使用。</p><h4 id="为什么wrapper类更适合作为键值？"><a href="#为什么wrapper类更适合作为键值？" class="headerlink" title="为什么wrapper类更适合作为键值？"></a>为什么wrapper类更适合作为键值？</h4><p>因为String、Integer这些wrapper类是用final修饰的，是不可变的，而且这些类中已经重写过了 <code>equals() 和 hashCode()</code> 方法。</p><p>不变这个条件是必要的，因为hashMap需要计算key的hashcode，那就必须防止键值改变，如果键值在 <code>put()</code> 完成以后，再用 <code>get()</code> 调用的时候返回的是不同的hashcode，那么就找不到这个key对应的value了。</p><p>正确的重写那两个方法也是必要的。一个好的hashCode()方法也能提高HashMap的性能，减少哈希冲突。</p><h4 id="自定义对象是否可以作为键值？"><a href="#自定义对象是否可以作为键值？" class="headerlink" title="自定义对象是否可以作为键值？"></a>自定义对象是否可以作为键值？</h4><p>只要该对象满足上面所说的wrapper类的条件就能作为键值。</p><p><strong>ConcurrentHashMap 和 Hashtable 区别</strong></p><p>ConcurrentHashMap的同步性能比Hashtable更好，因为它只对map的一部分上锁，属于分段锁，对整个bucket数组都进行了分割，每一把锁都只锁一部分数据。这样可以避免多线程出现锁竞争，提高并发访问率。</p><p>因此Hashtable提供更强的线程安全性，用的是一把锁，竞争越激烈效率越低。</p><p>一般来说都是用ConcurrentHashMap来替代Hashtable，Hashtable已经基本被淘汰了。</p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。&lt;/p&gt;
-&lt;p&gt;JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用&lt;strong&gt;挂链式&lt;/strong&gt;解决 &lt;a href=&quot;https://heronking.github.io/archives/1293cfc0.html&quot;&gt;哈希冲突&lt;/a&gt; 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。&lt;/p&gt;
+&lt;p&gt;JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用&lt;strong&gt;挂链式&lt;/strong&gt;解决 &lt;a href=&quot;https://heronking.github.io/archives/1293cfc0.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;哈希冲突&lt;/a&gt; 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。&lt;/p&gt;
 &lt;p&gt;为什么是8呢？&lt;/p&gt;
     
     </summary>
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="面试" scheme="https://heronking.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>总结final关键字</title>
-    <link href="https://heronking.github.io/archives/ef816ce.html"/>
-    <id>https://heronking.github.io/archives/ef816ce.html</id>
+    <link href="https://heronking.gitee.io/archives/ef816ce.html"/>
+    <id>https://heronking.gitee.io/archives/ef816ce.html</id>
     <published>2020-03-18T06:27:28.000Z</published>
     <updated>2020-03-18T06:52:29.285Z</updated>
     
-    <content type="html"><![CDATA[<p>final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。</p><p>但是，<strong>final不能用来修饰抽象类</strong>，这是因为final有这些特性：</p><a id="more"></a><ul><li>被final修饰的类<strong>不能被继承</strong>，在final类中的方法默认为final。所以它不能用来修饰抽象类，因为抽象类设计出来就是为了被继承，<a href="https://heronking.github.io/archives/e6551811.html">前面</a> 已经提到过。</li><li>被final修饰的方法不能被子类重写，但是可以被继承过去。<br><strong>注意一下，private方法也是不能被子类重写的，所以private类型的方法默认是final的。</strong></li><li>对于一个final变量，如果是基本数据类型，那么它的数值在初始化之后就不能更改；<br>如果修饰的是一个引用，那么在初始化之后不能再指向其他的对象。<strong>如果引用内部的数据不是final，那么是可以进行修改的，只是引用的指向不能修改</strong><br>其实final变量也就是<strong>常量</strong>。</li><li>final不能用于修饰构造方法。</li></ul><h4 id="那么为什么要使用final呢？"><a href="#那么为什么要使用final呢？" class="headerlink" title="那么为什么要使用final呢？"></a>那么为什么要使用final呢？</h4><ol><li>锁定方法，防止子类重写。</li><li><strong>高效</strong>，final方法是内嵌调用机制。（但现在已经不需要了，因为private类型的方法默认都是final）</li></ol><h4 id="final和static的区别"><a href="#final和static的区别" class="headerlink" title="final和static的区别"></a>final和static的区别</h4><ul><li>final把数据修饰为常量，无法修改</li><li>static把数据修饰为静态，放入方法区</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。</p><p>但是，<strong>final不能用来修饰抽象类</strong>，这是因为final有这些特性：</p><a id="more"></a><ul><li>被final修饰的类<strong>不能被继承</strong>，在final类中的方法默认为final。所以它不能用来修饰抽象类，因为抽象类设计出来就是为了被继承，<a href="https://heronking.github.io/archives/e6551811.html" target="_blank" rel="noopener">前面</a> 已经提到过。</li><li>被final修饰的方法不能被子类重写，但是可以被继承过去。<br><strong>注意一下，private方法也是不能被子类重写的，所以private类型的方法默认是final的。</strong></li><li>对于一个final变量，如果是基本数据类型，那么它的数值在初始化之后就不能更改；<br>如果修饰的是一个引用，那么在初始化之后不能再指向其他的对象。<strong>如果引用内部的数据不是final，那么是可以进行修改的，只是引用的指向不能修改</strong><br>其实final变量也就是<strong>常量</strong>。</li><li>final不能用于修饰构造方法。</li></ul><h4 id="那么为什么要使用final呢？"><a href="#那么为什么要使用final呢？" class="headerlink" title="那么为什么要使用final呢？"></a>那么为什么要使用final呢？</h4><ol><li>锁定方法，防止子类重写。</li><li><strong>高效</strong>，final方法是内嵌调用机制。（但现在已经不需要了，因为private类型的方法默认都是final）</li></ol><h4 id="final和static的区别"><a href="#final和static的区别" class="headerlink" title="final和static的区别"></a>final和static的区别</h4><ul><li>final把数据修饰为常量，无法修改</li><li>static把数据修饰为静态，放入方法区</li></ul>]]></content>
     
     <summary type="html">
     
@@ -325,18 +325,18 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>线程、进程、程序的区别和联系</title>
-    <link href="https://heronking.github.io/archives/d680fc0.html"/>
-    <id>https://heronking.github.io/archives/d680fc0.html</id>
+    <link href="https://heronking.gitee.io/archives/d680fc0.html"/>
+    <id>https://heronking.gitee.io/archives/d680fc0.html</id>
     <published>2020-03-17T14:03:25.000Z</published>
     <updated>2020-03-17T15:12:54.585Z</updated>
     
@@ -353,18 +353,18 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
-      <category term="线程" scheme="https://heronking.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="https://heronking.gitee.io/tags/%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>线程的基本状态与生命周期</title>
-    <link href="https://heronking.github.io/archives/70ca885c.html"/>
-    <id>https://heronking.github.io/archives/70ca885c.html</id>
+    <link href="https://heronking.gitee.io/archives/70ca885c.html"/>
+    <id>https://heronking.gitee.io/archives/70ca885c.html</id>
     <published>2020-03-17T09:22:03.000Z</published>
     <updated>2020-03-25T07:36:01.204Z</updated>
     
@@ -380,24 +380,24 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
-      <category term="线程" scheme="https://heronking.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+      <category term="线程" scheme="https://heronking.gitee.io/tags/%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>equals和hashCode</title>
-    <link href="https://heronking.github.io/archives/333b0902.html"/>
-    <id>https://heronking.github.io/archives/333b0902.html</id>
+    <link href="https://heronking.gitee.io/archives/333b0902.html"/>
+    <id>https://heronking.gitee.io/archives/333b0902.html</id>
     <published>2020-03-17T07:19:10.000Z</published>
     <updated>2020-03-18T10:11:40.107Z</updated>
     
-    <content type="html"><![CDATA[<p>在java中有一个基础方法 <code>hashCode()</code>，和 <code>equals() toString()</code> 一样，是 Object类 里面的方法，嗯，Object是所有类的老父亲。</p><p>从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。</p><a id="more"></a><h4 id="关于hashCode的介绍"><a href="#关于hashCode的介绍" class="headerlink" title="关于hashCode的介绍"></a>关于hashCode的介绍</h4><p>其实hashCode()就是 <a href="https://heronking.github.io/archives/1293cfc0.html">哈希表</a> 的散列函数，它的返回值就是hash码，那个传说中的key值，嗯，是个int型的。</p><p>它的存在就是为了哈希表服务的。</p><p>java中有两种<strong>集合</strong>，一类是List，一类是Set。我们在小学二年级的时候就学过集合的概念，不过在计算机语言中，集合是一种数据结构。</p><p>这里说一下HashSet这个集合，它是Set的一个子类，它也比较接近数学中的集合，存储在它里面的元素<strong>无序且不可重复的</strong>。为什么是无序的呢？因为它是根据 <code>hashCode()</code> 返回的散列码来存储的。</p><p><strong>那么HashSet如何检查重复？</strong></p><p>在向HashSet中使用 <code>add()</code> 添加一个对象元素时，HashSet会先得到该元素调用hashCode()之后返回的散列码key，然后根据这个key值判断该元素应该存储的位置，<strong>若该位置已经有元素对象</strong>，那么就与已经添加元素的hashCode值作比较。</p><p>如果不同，那么HashSet就会认为该元素没有重复。</p><p>如果相同（<strong>注意这里只是hashCode的值相同</strong>），就要调用 <code>equals()</code> 方法来检查这两个对象是不是真的一样。最后如果返回了true，那么HashSet就认为两个元素重复，add操作就会返回false，加入失败。</p><p>这就是  <code>hashCode()</code> 的用途。</p><h4 id="重写-equals-的时候，也要重写hashCode"><a href="#重写-equals-的时候，也要重写hashCode" class="headerlink" title="重写 equals 的时候，也要重写hashCode"></a>重写 equals 的时候，也要重写hashCode</h4><p>通过上面集合的栗子可以看到，集合判断元素是否重复，需要同时用到equals和hashCode，如果其中一个被重写了，另一个必须做出相应的重写，不然就会出错。</p><p>这里有相关规定：</p><blockquote><ul><li>如果两个对象相等，则 hashCode 一定也是相同的</li><li>如果两个对象相等，那么对两个对象分别调用 equals 和 hashcode方法都会返回true</li><li>两个对象有相同的 hashcode值，但他们的不一定是相等的。</li><li>equals 方法被重写，则 hashcode也必须被重写</li><li>hashCode() 的默认行为是<strong>对堆上的对象产生独特的散列码值</strong>。如果没有重写 hashCode()，则该类的<strong>两个实例对象无论如何都不会相等</strong>，即使这两个对象指向相同的数据。</li></ul></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>在java中有一个基础方法 <code>hashCode()</code>，和 <code>equals() toString()</code> 一样，是 Object类 里面的方法，嗯，Object是所有类的老父亲。</p><p>从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。</p><a id="more"></a><h4 id="关于hashCode的介绍"><a href="#关于hashCode的介绍" class="headerlink" title="关于hashCode的介绍"></a>关于hashCode的介绍</h4><p>其实hashCode()就是 <a href="https://heronking.github.io/archives/1293cfc0.html" target="_blank" rel="noopener">哈希表</a> 的散列函数，它的返回值就是hash码，那个传说中的key值，嗯，是个int型的。</p><p>它的存在就是为了哈希表服务的。</p><p>java中有两种<strong>集合</strong>，一类是List，一类是Set。我们在小学二年级的时候就学过集合的概念，不过在计算机语言中，集合是一种数据结构。</p><p>这里说一下HashSet这个集合，它是Set的一个子类，它也比较接近数学中的集合，存储在它里面的元素<strong>无序且不可重复的</strong>。为什么是无序的呢？因为它是根据 <code>hashCode()</code> 返回的散列码来存储的。</p><p><strong>那么HashSet如何检查重复？</strong></p><p>在向HashSet中使用 <code>add()</code> 添加一个对象元素时，HashSet会先得到该元素调用hashCode()之后返回的散列码key，然后根据这个key值判断该元素应该存储的位置，<strong>若该位置已经有元素对象</strong>，那么就与已经添加元素的hashCode值作比较。</p><p>如果不同，那么HashSet就会认为该元素没有重复。</p><p>如果相同（<strong>注意这里只是hashCode的值相同</strong>），就要调用 <code>equals()</code> 方法来检查这两个对象是不是真的一样。最后如果返回了true，那么HashSet就认为两个元素重复，add操作就会返回false，加入失败。</p><p>这就是  <code>hashCode()</code> 的用途。</p><h4 id="重写-equals-的时候，也要重写hashCode"><a href="#重写-equals-的时候，也要重写hashCode" class="headerlink" title="重写 equals 的时候，也要重写hashCode"></a>重写 equals 的时候，也要重写hashCode</h4><p>通过上面集合的栗子可以看到，集合判断元素是否重复，需要同时用到equals和hashCode，如果其中一个被重写了，另一个必须做出相应的重写，不然就会出错。</p><p>这里有相关规定：</p><blockquote><ul><li>如果两个对象相等，则 hashCode 一定也是相同的</li><li>如果两个对象相等，那么对两个对象分别调用 equals 和 hashcode方法都会返回true</li><li>两个对象有相同的 hashcode值，但他们的不一定是相等的。</li><li>equals 方法被重写，则 hashcode也必须被重写</li><li>hashCode() 的默认行为是<strong>对堆上的对象产生独特的散列码值</strong>。如果没有重写 hashCode()，则该类的<strong>两个实例对象无论如何都不会相等</strong>，即使这两个对象指向相同的数据。</li></ul></blockquote>]]></content>
     
     <summary type="html">
     
@@ -408,18 +408,18 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="面试" scheme="https://heronking.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>理解哈希表</title>
-    <link href="https://heronking.github.io/archives/1293cfc0.html"/>
-    <id>https://heronking.github.io/archives/1293cfc0.html</id>
+    <link href="https://heronking.gitee.io/archives/1293cfc0.html"/>
+    <id>https://heronking.gitee.io/archives/1293cfc0.html</id>
     <published>2020-03-17T06:13:48.000Z</published>
     <updated>2020-03-17T15:07:04.235Z</updated>
     
@@ -433,22 +433,22 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="面试" scheme="https://heronking.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
-      <category term="数据结构" scheme="https://heronking.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://heronking.gitee.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>==和equals</title>
-    <link href="https://heronking.github.io/archives/cefdebd3.html"/>
-    <id>https://heronking.github.io/archives/cefdebd3.html</id>
+    <link href="https://heronking.gitee.io/archives/cefdebd3.html"/>
+    <id>https://heronking.gitee.io/archives/cefdebd3.html</id>
     <published>2020-03-16T13:42:58.000Z</published>
     <updated>2020-03-16T14:53:30.858Z</updated>
     
-    <content type="html"><![CDATA[<p>在java中 <code>==</code> 和 <code>equals()</code> 是有一点点区别滴</p><p>直接上用法</p><a id="more"></a><h4 id="运算符"><a href="#运算符" class="headerlink" title="== 运算符"></a><code>==</code> 运算符</h4><p>这个运算符在使用时有两种情况：</p><ul><li>在两个基本数据类之间作比较时，比较的是两个数据的值是否相等。</li><li>两个对象之间作比较时，它判断是两个对象的地址是否相等。</li></ul><h4 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals() 方法"></a><code>equals()</code> 方法</h4><p>同样也分两种情况：</p><ul><li><p>当该类没有重写 <code>equals()</code> 方法。那么该方法用于两个对象之间的比较时，等价于使用 <code>==</code>。</p></li><li><p>类重写了 <code>equals()</code> 方法。一般来说，都重写为用来比较两个对象的内容是否相等的形式，若相等则返回为 <code>true</code> ，也就认为这两个对象相等。</p><p>当然，具体的实现方法都由自己决定。</p></li></ul><p><strong>举个栗子说明一下</strong></p><p>先声明一下变量</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两个基本数据类型</span></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">15</span>;</span><br><span class="line"><span class="keyword">float</span> d = (<span class="keyword">float</span>) <span class="number">15.0</span>;</span><br><span class="line"><span class="comment">// 两个String对象，他们内容相同</span></span><br><span class="line">String a = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);<span class="comment">//这个字符串会放到常量池中。在堆中new一个了String类，并在栈内创建了一个引用</span></span><br><span class="line">String b = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);<span class="comment">//在常量池中找到了"aaa"。在堆中new一个String类，并在栈内创建了一个新的引用。</span></span><br><span class="line"><span class="comment">// 两个字符串常量</span></span><br><span class="line">String aa = <span class="string">"aaa"</span>;<span class="comment">//在常量池中查找到</span></span><br><span class="line">String bb = <span class="string">"aaa"</span>;<span class="comment">//在常量池中查找到</span></span><br></pre></td></tr></table></figure><p>再用 <code>==</code> 和 <code>equals()</code> 方法对比一下</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (aa == bb) &#123;</span><br><span class="line">System.out.println(<span class="string">"aa == bb"</span>);</span><br><span class="line">&#125;<span class="comment">//输出了aa == bb</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">System.out.println(<span class="string">"a == b"</span>);</span><br><span class="line">&#125;<span class="comment">//没有输出</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a.equals(b)) &#123;</span><br><span class="line">System.out.println(<span class="string">"a equals b"</span>);</span><br><span class="line">&#125;<span class="comment">//输出了a equals b</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (c == d) &#123;</span><br><span class="line">System.out.println(<span class="string">"c == d"</span>);</span><br><span class="line">&#125;<span class="comment">//输出了c == d</span></span><br></pre></td></tr></table></figure><p><strong>结果分析</strong></p><p><strong>为什么没有输出 <code>a == b</code> 而输出了 <code>a equals b</code> 呢？</strong></p><p>这里需要说明一下，在 String 类中的 <code>equals()</code> 方法是<strong>已经被重写过的</strong>，所以这里使用的 <code>equals()</code> 其实比较的是内容。<br>所以输出 a equals b 也就不奇怪了，因为他们的内容相同。</p><p>而 a == b 这里的 <code>==</code> 比较的是两者的地址。</p><p>引用存放在 <a href="https://heronking.github.io/archives/eae4d02d.html">栈区</a> ，a 是一个引用，指向的是对象<code>new String(&quot;aaa&quot;)</code>，b 是另一个引用，指向的是一个新的对象 <code>new String(&quot;aaa&quot;)</code>。他们是<strong>两个不同的对象</strong></p><p><strong>那么为什么输出了 aa == bb呢？</strong></p><p>因为当我们创建一个String类时，JVM会从常量池中查找是否存在内容和要创建的值相同的对象，如果存在的话，就会返回这个对象的引用。如果不存在，那么就会在常量池中创建一个新的String。</p><p> <code>String aa</code> 在常量池中找了”aaa”，那么 aa = “aaa”的引用<br><code>String bb</code> 也找到了，所以 bb = “aaa” 的引用</p><p>所以他们俩的地址是相等的。</p><p><strong>那么在内存中到底是啥样的呢？</strong></p><p>常量池：字符串”aaa”，只有这一个<br>堆：属于 a 的 new String(“aaa”)，属于 b 的 new String(“aaa”)</p><p>嗯。。基本数据类型就不写了</p>]]></content>
+    <content type="html"><![CDATA[<p>在java中 <code>==</code> 和 <code>equals()</code> 是有一点点区别滴</p><p>直接上用法</p><a id="more"></a><h4 id="运算符"><a href="#运算符" class="headerlink" title="== 运算符"></a><code>==</code> 运算符</h4><p>这个运算符在使用时有两种情况：</p><ul><li>在两个基本数据类之间作比较时，比较的是两个数据的值是否相等。</li><li>两个对象之间作比较时，它判断是两个对象的地址是否相等。</li></ul><h4 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals() 方法"></a><code>equals()</code> 方法</h4><p>同样也分两种情况：</p><ul><li><p>当该类没有重写 <code>equals()</code> 方法。那么该方法用于两个对象之间的比较时，等价于使用 <code>==</code>。</p></li><li><p>类重写了 <code>equals()</code> 方法。一般来说，都重写为用来比较两个对象的内容是否相等的形式，若相等则返回为 <code>true</code> ，也就认为这两个对象相等。</p><p>当然，具体的实现方法都由自己决定。</p></li></ul><p><strong>举个栗子说明一下</strong></p><p>先声明一下变量</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两个基本数据类型</span></span><br><span class="line"><span class="keyword">int</span> c = <span class="number">15</span>;</span><br><span class="line"><span class="keyword">float</span> d = (<span class="keyword">float</span>) <span class="number">15.0</span>;</span><br><span class="line"><span class="comment">// 两个String对象，他们内容相同</span></span><br><span class="line">String a = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);<span class="comment">//这个字符串会放到常量池中。在堆中new一个了String类，并在栈内创建了一个引用</span></span><br><span class="line">String b = <span class="keyword">new</span> String(<span class="string">"aaa"</span>);<span class="comment">//在常量池中找到了"aaa"。在堆中new一个String类，并在栈内创建了一个新的引用。</span></span><br><span class="line"><span class="comment">// 两个字符串常量</span></span><br><span class="line">String aa = <span class="string">"aaa"</span>;<span class="comment">//在常量池中查找到</span></span><br><span class="line">String bb = <span class="string">"aaa"</span>;<span class="comment">//在常量池中查找到</span></span><br></pre></td></tr></table></figure><p>再用 <code>==</code> 和 <code>equals()</code> 方法对比一下</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (aa == bb) &#123;</span><br><span class="line">System.out.println(<span class="string">"aa == bb"</span>);</span><br><span class="line">&#125;<span class="comment">//输出了aa == bb</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">System.out.println(<span class="string">"a == b"</span>);</span><br><span class="line">&#125;<span class="comment">//没有输出</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a.equals(b)) &#123;</span><br><span class="line">System.out.println(<span class="string">"a equals b"</span>);</span><br><span class="line">&#125;<span class="comment">//输出了a equals b</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (c == d) &#123;</span><br><span class="line">System.out.println(<span class="string">"c == d"</span>);</span><br><span class="line">&#125;<span class="comment">//输出了c == d</span></span><br></pre></td></tr></table></figure><p><strong>结果分析</strong></p><p><strong>为什么没有输出 <code>a == b</code> 而输出了 <code>a equals b</code> 呢？</strong></p><p>这里需要说明一下，在 String 类中的 <code>equals()</code> 方法是<strong>已经被重写过的</strong>，所以这里使用的 <code>equals()</code> 其实比较的是内容。<br>所以输出 a equals b 也就不奇怪了，因为他们的内容相同。</p><p>而 a == b 这里的 <code>==</code> 比较的是两者的地址。</p><p>引用存放在 <a href="https://heronking.github.io/archives/eae4d02d.html" target="_blank" rel="noopener">栈区</a> ，a 是一个引用，指向的是对象<code>new String(&quot;aaa&quot;)</code>，b 是另一个引用，指向的是一个新的对象 <code>new String(&quot;aaa&quot;)</code>。他们是<strong>两个不同的对象</strong></p><p><strong>那么为什么输出了 aa == bb呢？</strong></p><p>因为当我们创建一个String类时，JVM会从常量池中查找是否存在内容和要创建的值相同的对象，如果存在的话，就会返回这个对象的引用。如果不存在，那么就会在常量池中创建一个新的String。</p><p> <code>String aa</code> 在常量池中找了”aaa”，那么 aa = “aaa”的引用<br><code>String bb</code> 也找到了，所以 bb = “aaa” 的引用</p><p>所以他们俩的地址是相等的。</p><p><strong>那么在内存中到底是啥样的呢？</strong></p><p>常量池：字符串”aaa”，只有这一个<br>堆：属于 a 的 new String(“aaa”)，属于 b 的 new String(“aaa”)</p><p>嗯。。基本数据类型就不写了</p>]]></content>
     
     <summary type="html">
     
@@ -459,20 +459,20 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="面试" scheme="https://heronking.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+      <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>JVM的栈、堆、方法区</title>
-    <link href="https://heronking.github.io/archives/eae4d02d.html"/>
-    <id>https://heronking.github.io/archives/eae4d02d.html</id>
+    <link href="https://heronking.gitee.io/archives/eae4d02d.html"/>
+    <id>https://heronking.gitee.io/archives/eae4d02d.html</id>
     <published>2020-03-16T08:00:18.000Z</published>
     <updated>2020-03-17T15:09:21.135Z</updated>
     
@@ -487,22 +487,22 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Java静态</title>
-    <link href="https://heronking.github.io/archives/b2323594.html"/>
-    <id>https://heronking.github.io/archives/b2323594.html</id>
+    <link href="https://heronking.gitee.io/archives/b2323594.html"/>
+    <id>https://heronking.gitee.io/archives/b2323594.html</id>
     <published>2020-03-16T06:34:16.000Z</published>
     <updated>2020-03-18T07:28:12.376Z</updated>
     
-    <content type="html"><![CDATA[<p>在java的静态也就是 <code>static</code> 关键字，用来修饰成员变量和成员方法，比如 <code>static int a;</code> ，也可以用来做静态代码块，比如：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    ....</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>不过，在java中一般没有全局变量这种概念，因为变量啥的都是放在类里面的。</p><a id="more"></a><p>先写一下java中的创建对象时的初始化顺序，也就是在 <code>new Object()</code> 的时候，顺序如下：</p><ul><li>父类静态成员和静态代码块，从上到下依次执行。</li><li>子类静态成员和静态代码块，从上到下依次执行。</li><li>父类实例成员和实例代码块，从上到下依次执行。也就是父类的非静态区域，这里是每创建一个实例对象时都会执行一次。</li><li>父类构造方法。构造方法是一个类<strong>最后</strong>才执行的，也是每创建一个实例对象都会执行一次。</li><li>子类实例成员和实例代码块，从上到下依次执行。每次都执行</li><li>子类构造方法。每次都执行</li></ul><p><strong>需要注意的是</strong>，<strong>静态成员和代码块只会执行一次</strong>，而且是在类被加载到内存的时候就会执行，不需要等到创建实例对象。所以静态成员是直接属于类的，而不是属于实例对象。</p><h3 id="写一下关于静态变量和非静态成员的存储位置"><a href="#写一下关于静态变量和非静态成员的存储位置" class="headerlink" title="写一下关于静态变量和非静态成员的存储位置"></a>写一下关于静态变量和非静态成员的存储位置</h3><p>静态成员是属于类本身的，<strong>被这个类所有的实例对象共享</strong>，在这个类被JVM加载的时候，静态成员会跟着类一起被加载到一个叫做 <a href="https://heronking.github.io/archives/eae4d02d.html">方法区</a> 的位置，分配内存，不会被自动回收，会一直占用内存直到程序结束，JVM关闭。</p><p>非静态成员属于实例化对象，在对象被实例化的时候，也就是 <strong>new</strong> 的时候，JVM会从堆中动态分配内存给对象。非静态成员必须通过对象来访问，并随着对象一起被JVM回收。</p><h3 id="关于静态方法和实例方法的区别"><a href="#关于静态方法和实例方法的区别" class="headerlink" title="关于静态方法和实例方法的区别"></a>关于静态方法和实例方法的区别</h3><ul><li><p>在本类外调用静态方法时，可以使用 <code>类名.静态方法名()  或者  对象名.方法名()</code> 的方式。而实例方法只能使用后者的方式。</p></li><li><p>在静态方法中，只能访问本类的静态成员，不允许访问实例成员，否则报错。实例方法没有限制</p><p><strong>为什么会报错？</strong></p><p>上面已经提到过，在非静态成员还没有被实例化的之前，静态方法已经加载完成了，访问非静态成员，也就是一个堆内存中还不存在的东西，自然就出错。</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>在java的静态也就是 <code>static</code> 关键字，用来修饰成员变量和成员方法，比如 <code>static int a;</code> ，也可以用来做静态代码块，比如：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    ....</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>不过，在java中一般没有全局变量这种概念，因为变量啥的都是放在类里面的。</p><a id="more"></a><p>先写一下java中的创建对象时的初始化顺序，也就是在 <code>new Object()</code> 的时候，顺序如下：</p><ul><li>父类静态成员和静态代码块，从上到下依次执行。</li><li>子类静态成员和静态代码块，从上到下依次执行。</li><li>父类实例成员和实例代码块，从上到下依次执行。也就是父类的非静态区域，这里是每创建一个实例对象时都会执行一次。</li><li>父类构造方法。构造方法是一个类<strong>最后</strong>才执行的，也是每创建一个实例对象都会执行一次。</li><li>子类实例成员和实例代码块，从上到下依次执行。每次都执行</li><li>子类构造方法。每次都执行</li></ul><p><strong>需要注意的是</strong>，<strong>静态成员和代码块只会执行一次</strong>，而且是在类被加载到内存的时候就会执行，不需要等到创建实例对象。所以静态成员是直接属于类的，而不是属于实例对象。</p><h3 id="写一下关于静态变量和非静态成员的存储位置"><a href="#写一下关于静态变量和非静态成员的存储位置" class="headerlink" title="写一下关于静态变量和非静态成员的存储位置"></a>写一下关于静态变量和非静态成员的存储位置</h3><p>静态成员是属于类本身的，<strong>被这个类所有的实例对象共享</strong>，在这个类被JVM加载的时候，静态成员会跟着类一起被加载到一个叫做 <a href="https://heronking.github.io/archives/eae4d02d.html" target="_blank" rel="noopener">方法区</a> 的位置，分配内存，不会被自动回收，会一直占用内存直到程序结束，JVM关闭。</p><p>非静态成员属于实例化对象，在对象被实例化的时候，也就是 <strong>new</strong> 的时候，JVM会从堆中动态分配内存给对象。非静态成员必须通过对象来访问，并随着对象一起被JVM回收。</p><h3 id="关于静态方法和实例方法的区别"><a href="#关于静态方法和实例方法的区别" class="headerlink" title="关于静态方法和实例方法的区别"></a>关于静态方法和实例方法的区别</h3><ul><li><p>在本类外调用静态方法时，可以使用 <code>类名.静态方法名()  或者  对象名.方法名()</code> 的方式。而实例方法只能使用后者的方式。</p></li><li><p>在静态方法中，只能访问本类的静态成员，不允许访问实例成员，否则报错。实例方法没有限制</p><p><strong>为什么会报错？</strong></p><p>上面已经提到过，在非静态成员还没有被实例化的之前，静态方法已经加载完成了，访问非静态成员，也就是一个堆内存中还不存在的东西，自然就出错。</p></li></ul>]]></content>
     
     <summary type="html">
     
@@ -515,22 +515,22 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>接口和抽象类</title>
-    <link href="https://heronking.github.io/archives/e6551811.html"/>
-    <id>https://heronking.github.io/archives/e6551811.html</id>
+    <link href="https://heronking.gitee.io/archives/e6551811.html"/>
+    <id>https://heronking.gitee.io/archives/e6551811.html</id>
     <published>2020-03-15T10:42:23.000Z</published>
     <updated>2020-03-16T05:47:54.980Z</updated>
     
-    <content type="html"><![CDATA[<p>这里记一些接口和抽象类的异同点<br>这两者本身的设计目的就是不一样的！我是直接从用法上理解的，设计完了用来干嘛，理解了也就知道了两者的异同。</p><p><strong>先理解一下什么是抽象类和接口</strong></p><a id="more"></a><h5 id="对于抽象类"><a href="#对于抽象类" class="headerlink" title="对于抽象类"></a>对于抽象类</h5><p>​    个人理解抽象类设计出来是为了，<strong>代码复用</strong>。</p><p>​    当我们设计类的时候，发现有很多不同的类都需要用到某些<strong>相同的方法</strong>，而且其中<strong>一部分</strong>的方法实现的都是一样的。</p><p>​    比如，先创建 <code>class 橘猫</code> 、<code>class 黑猫</code> 、<code>class 蓝猫</code><br>​    它们都要用到同样的方法 ：<br>​    <code>void eat(){}//吃东西</code>、 <code>void meow(){}//喵喵叫</code>、<code>void like()//喜欢做的事</code>  </p><p>​    这个时候我们可以想到，设计一个大类 <code>class 猫</code>，然后把这些相同的方法都放到里面。但是呢这些看似相同的方法，对于有一些方法，不同的类可能会有不同的实现。</p><p>​    比如，橘猫的 <code>like()</code> 实现是喜欢吃东西，而黑猫的实现是喜欢做警察，蓝猫的实现是喜欢三千问。<br>​    这样一来，如果把<code>like()</code> 也放进 <code>猫</code> 里面，那么就没办法实现不同的猫各自喜欢不同的事了。</p><p>​    所以，就引入了抽象类 <code>(abstract class)</code> 的概念。</p><p>​    我们把 <code>void like()</code> 写成抽象方法，于是 <code>class 猫</code> 就成了一个抽象类（因为有抽象方法的类必然是一个抽象类）</p><p>​    而那些大家都会用到的相同方法，比如 <code>eat() 和 meow()</code> ，我们只需要继承 <code>猫</code> 就行了，而不需要重复的写，这样就实现了<strong>代码复用</strong> 。<br>​    那些我们想要在不同类各自不同实现的方法，就只需要把该抽象类中的抽象方法具体实现就可以了！</p><p>​    当然，继承一个抽象类以后，里面所有的方法都要强制实现，所以抽象方法不能是<code>static 和 private</code>。<br>​    同时，这也引入了一个限制，如果有我不需要实现的方法，该咋办呢？</p><p>​    所以，就有了<strong>接口</strong>。</p><h5 id="对于接口"><a href="#对于接口" class="headerlink" title="对于接口"></a>对于接口</h5><p>​    同样是个人理解，接口的作用是，<strong>对类的一种延申和扩展</strong>。</p><p>​    如果给不同的类添加相同的接口，那么这些不同的类就拥有了看似相同的方法，但是，接口不会限制这些方法的实现方式。</p><p>​    举个栗子！我们要给猫咪设计一个技能 <code>void 抓老鼠()</code><br>​    显然，不是每一只猫咪都会抓老鼠（🤣）</p><p>​    所以我们不能把 <code>抓老鼠()</code> 放到 <code>class 猫</code> 里面，而且不同的猫咪<code>抓老鼠()</code> 的方式可能不一样。</p><p>​    比如说黑猫使用枪抓老鼠，蓝猫抓老鼠会首先和老鼠做朋友。</p><p>​    于是，接口  <code>interface</code> 就出现了！简单直接，<code>interface 抓老鼠 { void 抓老鼠();}</code> </p><p>​    只要实现这个接口，那么这只猫就拥有了自己独特的抓老鼠方法。</p><h5 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h5><p>​    继承<strong>抽象类</strong>是让某个类属于xxx的，如果继承了抽象类，那么该类就是这个抽象类一个种族的。</p><p>​    <strong>接口</strong>的实现让某个类 <strong>有</strong> xxx 方法</p><h5 id="接下来说一下他们俩的异同点"><a href="#接下来说一下他们俩的异同点" class="headerlink" title="接下来说一下他们俩的异同点"></a>接下来说一下他们俩的异同点</h5><ul><li>都不能被实例化！如果需要实例化，这就涉及到了 <a href="https://heronking.github.io/archives/f018dd97.html">多态</a>。</li><li>都能包含抽象方法。但是抽象类可以有实现的方法，甚至可以没有抽象方法。而接口里面必须都是抽象方法，不能实现。如果一个类里面有抽象方法，那么它一定是抽象类。</li><li>一个普通类可以实现多个接口，但是只能继承一个抽象类。</li><li>接口的方法默认是 <code>public</code>。抽象方法可以有 <code>public、protected 和 default</code>，不能是 <code>private</code>。</li><li>从设计层面上来说，抽象是对类的抽象，是一种模板的涉及，而接口是对行为的抽象，这是一种行为的规范。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>这里记一些接口和抽象类的异同点<br>这两者本身的设计目的就是不一样的！我是直接从用法上理解的，设计完了用来干嘛，理解了也就知道了两者的异同。</p><p><strong>先理解一下什么是抽象类和接口</strong></p><a id="more"></a><h5 id="对于抽象类"><a href="#对于抽象类" class="headerlink" title="对于抽象类"></a>对于抽象类</h5><p>​    个人理解抽象类设计出来是为了，<strong>代码复用</strong>。</p><p>​    当我们设计类的时候，发现有很多不同的类都需要用到某些<strong>相同的方法</strong>，而且其中<strong>一部分</strong>的方法实现的都是一样的。</p><p>​    比如，先创建 <code>class 橘猫</code> 、<code>class 黑猫</code> 、<code>class 蓝猫</code><br>​    它们都要用到同样的方法 ：<br>​    <code>void eat(){}//吃东西</code>、 <code>void meow(){}//喵喵叫</code>、<code>void like()//喜欢做的事</code>  </p><p>​    这个时候我们可以想到，设计一个大类 <code>class 猫</code>，然后把这些相同的方法都放到里面。但是呢这些看似相同的方法，对于有一些方法，不同的类可能会有不同的实现。</p><p>​    比如，橘猫的 <code>like()</code> 实现是喜欢吃东西，而黑猫的实现是喜欢做警察，蓝猫的实现是喜欢三千问。<br>​    这样一来，如果把<code>like()</code> 也放进 <code>猫</code> 里面，那么就没办法实现不同的猫各自喜欢不同的事了。</p><p>​    所以，就引入了抽象类 <code>(abstract class)</code> 的概念。</p><p>​    我们把 <code>void like()</code> 写成抽象方法，于是 <code>class 猫</code> 就成了一个抽象类（因为有抽象方法的类必然是一个抽象类）</p><p>​    而那些大家都会用到的相同方法，比如 <code>eat() 和 meow()</code> ，我们只需要继承 <code>猫</code> 就行了，而不需要重复的写，这样就实现了<strong>代码复用</strong> 。<br>​    那些我们想要在不同类各自不同实现的方法，就只需要把该抽象类中的抽象方法具体实现就可以了！</p><p>​    当然，继承一个抽象类以后，里面所有的方法都要强制实现，所以抽象方法不能是<code>static 和 private</code>。<br>​    同时，这也引入了一个限制，如果有我不需要实现的方法，该咋办呢？</p><p>​    所以，就有了<strong>接口</strong>。</p><h5 id="对于接口"><a href="#对于接口" class="headerlink" title="对于接口"></a>对于接口</h5><p>​    同样是个人理解，接口的作用是，<strong>对类的一种延申和扩展</strong>。</p><p>​    如果给不同的类添加相同的接口，那么这些不同的类就拥有了看似相同的方法，但是，接口不会限制这些方法的实现方式。</p><p>​    举个栗子！我们要给猫咪设计一个技能 <code>void 抓老鼠()</code><br>​    显然，不是每一只猫咪都会抓老鼠（🤣）</p><p>​    所以我们不能把 <code>抓老鼠()</code> 放到 <code>class 猫</code> 里面，而且不同的猫咪<code>抓老鼠()</code> 的方式可能不一样。</p><p>​    比如说黑猫使用枪抓老鼠，蓝猫抓老鼠会首先和老鼠做朋友。</p><p>​    于是，接口  <code>interface</code> 就出现了！简单直接，<code>interface 抓老鼠 { void 抓老鼠();}</code> </p><p>​    只要实现这个接口，那么这只猫就拥有了自己独特的抓老鼠方法。</p><h5 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h5><p>​    继承<strong>抽象类</strong>是让某个类属于xxx的，如果继承了抽象类，那么该类就是这个抽象类一个种族的。</p><p>​    <strong>接口</strong>的实现让某个类 <strong>有</strong> xxx 方法</p><h5 id="接下来说一下他们俩的异同点"><a href="#接下来说一下他们俩的异同点" class="headerlink" title="接下来说一下他们俩的异同点"></a>接下来说一下他们俩的异同点</h5><ul><li>都不能被实例化！如果需要实例化，这就涉及到了 <a href="https://heronking.github.io/archives/f018dd97.html" target="_blank" rel="noopener">多态</a>。</li><li>都能包含抽象方法。但是抽象类可以有实现的方法，甚至可以没有抽象方法。而接口里面必须都是抽象方法，不能实现。如果一个类里面有抽象方法，那么它一定是抽象类。</li><li>一个普通类可以实现多个接口，但是只能继承一个抽象类。</li><li>接口的方法默认是 <code>public</code>。抽象方法可以有 <code>public、protected 和 default</code>，不能是 <code>private</code>。</li><li>从设计层面上来说，抽象是对类的抽象，是一种模板的涉及，而接口是对行为的抽象，这是一种行为的规范。</li></ul>]]></content>
     
     <summary type="html">
     
@@ -541,11 +541,11 @@
     
     
     
-      <category term="随笔" scheme="https://heronking.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="java" scheme="https://heronking.github.io/tags/java/"/>
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.github.io/tags/%E8%AE%B0/"/>
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   

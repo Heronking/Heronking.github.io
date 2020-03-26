@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>简述HashMap的工作原理 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
 <meta name="keywords" content="随笔,java,面试,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简述HashMap的工作原理">
-<meta property="og:url" content="https://heronking.github.io/archives/166dc6bc.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/166dc6bc.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/166dc6bc/1.png">
+<meta property="og:image" content="https://heronking.gitee.io/archives/166dc6bc/1.png">
 <meta property="og:updated_time" content="2020-03-24T06:13:44.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简述HashMap的工作原理">
 <meta name="twitter:description" content="HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。 JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用挂链式解决 哈希冲突 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。 为什么是8呢？">
-<meta name="twitter:image" content="https://heronking.github.io/archives/166dc6bc/1.png">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/166dc6bc/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -176,7 +176,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>HashMap是java中运用特别多的数据结构，写一点面试的时候可能会用到的知识。</p>
-<p>JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用<strong>挂链式</strong>解决 <a href="https://heronking.github.io/archives/1293cfc0.html">哈希冲突</a> 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。</p>
+<p>JDK1.8以后 hashMap 的底层经过了优化，在1.8以前是使用<strong>挂链式</strong>解决 <a href="https://heronking.github.io/archives/1293cfc0.html" target="_blank" rel="noopener">哈希冲突</a> 。优化之后，当链表的长度大于一个阈值（默认是8），那么存储哈希冲突的链表会转为红黑树，优化查找时间为O(lgn)。</p>
 <p>为什么是8呢？</p>
 <a id="more"></a>
 
@@ -289,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3awW6EMAxFUf7/p+m20pToPjuMmuRmVdEBclhYduzrwuv+WL+vP/2eP/nzLdcbS4YMGcsy7uF6ekH6shusMezp9zJkyDiHQUIh+S+/a0yNA7oMGTJk1IIgSCv5B5IhQ4aMlFErcWcloDJkyDiTwQvL2tZJ4P5SLS5DhowFGbXj++/8/Up/Q4YMGUsx7nDxAMqvTNiVDBkytmbwADdOy3gZPCvgypAh4zRGekMtQI/LYN4qaOW2MmTIWJzBU7pZLclaWhl0OWTIkLEFgwfB/qBY2gbgY2QyZMg4k/H2uNi4BI3vlSFDxgEMkup1Bh14Kkk+XNBJkCFDxkaMdNirFnB5Oph+aBkyZJzAqD2idlTHT/V5RJUhQ8bejH75mrYnO70LlJ7KkCFjUwYvXzmbBNnOsIUMGTJOY3SOzGrH/fz6ZIwMGTIWZJAwmm4ubR7UvvEftbgMGTIOYKTHYWmBytulcYCWIUPG1gx+cBY0FMPyuBaCZciQISMtQXlix0fQ+NNkyJBxGoOkerVNz+24Bv0NGTJkbMfobIuHyzSwot3KkCFjU8Ydrv5hHC9ZySe7yHmeDBkyFmf0hy3S5I+HdbL1aTMjMmTI+PcM3mJMD/E7bYB0aEOGDBknMHjg461NPjAxrRaXIUOGjDD4pvGwRZUhQ4YMPEjaKXdb6aYMGTIOYJAitvaCTlMzGAGRIUPG1oz0LKvG5sdws8ZbZciQsQXjB8LgIuC2supXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3a0U7rMBAEUP7/p8vrlS4NM+sUKfbJE6Jp7VOkJbvjr6/4ev1zXb/6/53Ju5JVbrgwMDAey3hdXslG820l1GTdH6gYGBgHMN5VsHaZdvmEfb03DAwMjOt7csz1ne26GBgYGCtFdgWJgYGBcc3IR2b5q7MHx4/34hgYGA9k5FP3v//5I/kGBgbGoxiv8nq3TFugb94VBgbG1oy8wM22kv+mLbgYGBgnM4oCt3y0azaAi6aGGBgYxzDy8GClZLfx59tdYWBgbMpYiQFmg7OVyOGXvwMGBsamjHY0lhwOa0vtrEAP/29gYGA8nNEe9po1pW1LXOwBAwNjU0Y7ms+b1aRNnUUOb5tYDAyMTRl5GJA8on3i+GmBx8DAOIDRfmjOyD9hKYrAwMDYmpEfucgb4LwNXglQMTAwTmOsxwBJ65u3x8PDYRgYGNsx2qMPK0FjCyhGexgYGMczZkve2+4W80IMDIztGO3CKy1lexQjeS8GBsY5jPUDYcmQLv9qZndiYGCcwMhDxzwqWAkG6sAAAwPjGEbeUuahZltGZwUdAwNjV8arvGbHNWahwtKzLQYGxkaM9Qa1jSpz3iyowMDA2JXRHkJdyh9GX1lUrDEwMA5gtIUvL4X3xqJveRgYGBijB767xnbRUy0GBgZGGXO2IWWC/+UTMDAwDmC0o7Q2qmyjgjYExcDA2JuRt47tsP5e3g1BJgYGxvMY3998S6nAozBMAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,7 +358,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/166dc6bc.html", 
+    url: "https://heronking.gitee.io/archives/166dc6bc.html", 
     sourceId: "HashMap的工作原理",
     productKey: "true",
     target: "cloud-tie-wrapper"

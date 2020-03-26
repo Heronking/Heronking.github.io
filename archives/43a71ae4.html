@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>MySQL索引 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中存储了非常多的数据，如果是散乱的数据，那么查询基本上都是全表扫描，这样已经谈不上效率不效率了。。 所以需要对这些数据设计索引，好的索引将大大提升查询效率。">
 <meta name="keywords" content="随笔,面试,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL索引">
-<meta property="og:url" content="https://heronking.github.io/archives/43a71ae4.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/43a71ae4.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中存储了非常多的数据，如果是散乱的数据，那么查询基本上都是全表扫描，这样已经谈不上效率不效率了。。 所以需要对这些数据设计索引，好的索引将大大提升查询效率。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/43a71ae4/1.png">
+<meta property="og:image" content="https://heronking.gitee.io/archives/43a71ae4/1.png">
 <meta property="og:updated_time" content="2020-03-24T06:26:48.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL索引">
 <meta name="twitter:description" content="数据库中存放着大量的数据，为了提高查找数据的效率，就需要索引。和字典里面的索引目录意义是一样的。 但数据库要复杂得多，因为往往需要的不仅仅是等值查询，还有范围查询、并集查询、模糊查询。当数据库中存储了非常多的数据，如果是散乱的数据，那么查询基本上都是全表扫描，这样已经谈不上效率不效率了。。 所以需要对这些数据设计索引，好的索引将大大提升查询效率。">
-<meta name="twitter:image" content="https://heronking.github.io/archives/43a71ae4/1.png">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/43a71ae4/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -310,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3aQY7DIAwF0N7/0pntjEYl34ZWCjxWVZsSHgsLG79e8bh+jf/fv3s+n3n8lmUDAwPjsYxrOMbPzLxljMnXhoGBcQ4jCYXvwmLyOflmPPPNmjEwMDDevD5/5TiIY2BgYHwi4CaJ7hhfPSZiYGBgJElsHkZXJagfycUxMDAeyOiV77/z+SP3GxgYGI9iXMWRB808Te2t5M88GBgYWzPyAJennb2ifzXgYmBgnMPovT4PkfkMveazqV3EwMB4FGNVca3X8jVf8sPAwDiBUW3b6pXk8o3IQy0GBsY5jPlksnrdmFxDFv6LgYFxDKOaps7cMH4picXAwNiIMXOA+8QlaLmehoGBcQCj+ufqHWl+EGweEDEwMLZm5JOOF5c/n/xavZzAwMDYm1FNYvOQ2iuo5UksBgbGOYxe0X/murEayhdgMDAwtmDMFOvzFq5e+lrYFAwMjK0ZeUjtBd+1VwU3h04MDIxNGUmymjd7zRfp8vIfBgbGmYxXa+SHwnzL8tkwMDDOYfRCZK/xYiYo3wRcDAyMYxi9Za1Ng6shGwMDY1fGVRx5qtk83sXHxJueEQwMjI0YvUNeFdlrF0uWXsZgYGA8ljGzuPkEOA+4UzuNgYGxBWNVub/XMLE4F8fAwDieUW2VqDZSNKkYGBgYQWqat1NUYVEox8DAOICRJLEzLV/VoFy9LsXAwNibUa1l9djJDDMbhIGBsSnjB4bPaphzaaQOAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3ay27DIBAF0Pz/T7tSV5WiknshqWo4rKI4tTkspvPw4xGv63v9/Py8nn8//n58z8cnFgYGxm0Z13A9M+bu2R5TvjcMDIxzGO2tk8A6/s0Yn+8NAwMDI9nK+PHjbSVHgIGBgbEecFtqnoZiYGBgtEVsW462YfSPanEMDIwbMuYGA3/z+ePzDQwMjH/PuKZWG0zbgF7vBwMDY2tGm/a1Lbb8m+R1jRc7xMDA2JSR36i9WjfLhmH3xSFiYGBszcj/OLnapoZ5mF4qZTEwMG7OWClf8xFCkg4u8TAwMA5gfPrx7ZHV/xIwMDC2ZuRNtCT5a0vcuUZe1CLEwMDYiJE/7F2DybwOHZ86BgbGOYy8Td+OIdu0Mgf8umcMDIyDGXO8tsR9wwADAwNjU8bKVtqwOz6mPHAXN8LAwNiCkYTXuRQwD+V58y7aLQYGxnaMT5SgbWNubqiAgYFxDiNPv9rXIPIBZIsp8lwMDIyNGOuvWbSlb54y5mkoBgbG3oz8AW1YTELq3N2KOhsDA2MjxlxattLKb48sqsgxMDA2ZSTN97bF3zbs2lcuissYGBg3Z1zlah/TBui5cI+BgbE3Yy7M5aVp+3kuiGNgYJzAaMeQeTssH3y+7WULDAyMrRltgdo22tYTuxcJKwYGBkaQXbbBuk0Q6xEmBgbGkYy2GZeMMOdexcDAwDiTkRSxbaMtH14mXcBoBouBgbEpY2UwkAfENkzPteowMDC2Y3wBUE439QM+o+oAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -379,7 +379,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/43a71ae4.html", 
+    url: "https://heronking.gitee.io/archives/43a71ae4.html", 
     sourceId: "MySQL索引",
     productKey: "true",
     target: "cloud-tie-wrapper"

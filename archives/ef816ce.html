@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>总结final关键字 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。 但是，final不能用来修饰抽象类，这是因为final有这些特性：">
 <meta name="keywords" content="随笔,java,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="总结final关键字">
-<meta property="og:url" content="https://heronking.github.io/archives/ef816ce.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/ef816ce.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。 但是，final不能用来修饰抽象类，这是因为final有这些特性：">
 <meta property="og:locale" content="zh-CN">
@@ -178,7 +178,7 @@
 <a id="more"></a>
 
 <ul>
-<li>被final修饰的类<strong>不能被继承</strong>，在final类中的方法默认为final。所以它不能用来修饰抽象类，因为抽象类设计出来就是为了被继承，<a href="https://heronking.github.io/archives/e6551811.html">前面</a> 已经提到过。</li>
+<li>被final修饰的类<strong>不能被继承</strong>，在final类中的方法默认为final。所以它不能用来修饰抽象类，因为抽象类设计出来就是为了被继承，<a href="https://heronking.github.io/archives/e6551811.html" target="_blank" rel="noopener">前面</a> 已经提到过。</li>
 <li>被final修饰的方法不能被子类重写，但是可以被继承过去。<br><strong>注意一下，private方法也是不能被子类重写的，所以private类型的方法默认是final的。</strong></li>
 <li>对于一个final变量，如果是基本数据类型，那么它的数值在初始化之后就不能更改；<br>如果修饰的是一个引用，那么在初始化之后不能再指向其他的对象。<strong>如果引用内部的数据不是final，那么是可以进行修改的，只是引用的指向不能修改</strong><br>其实final变量也就是<strong>常量</strong>。</li>
 <li>final不能用于修饰构造方法。</li>
@@ -268,7 +268,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aS27bQBAFQN//0gyQVQJB8nvTdBDO1KwESCZZXjT79/UVn+v3ef387ts/z+svX7/9/Fe3HQwMjMcyro8nYbTs/PfJs2FgYJzDWLt08qB5GM2vjIGBgZE8ekJt08o8WGNgYGCsPUpeuM7TUAwMjDMZyaXbcJmUrElqeHMtjoGB8UDGZDDw05//0XwDAwPjP2ZcS6e9cTKqvAYHAwNjb0bbuJ809NsFi3b8gIGBsStjMrycr1DkOd4318fAwNiakaRra425/OHaAWdRymJgYGzEaAvOHJ+ng22aWCSLGBgYWzDy2yT146ShNnolYGBgbMrIi9Uk5E3K3UmSioGBcQ6jbYTlBepdb4ZvJrEYGBhbM4rme9ndyv8F7X3rNQsMDIyHM9YuMVn2mjT9o/cGBgbGRow8XE5K08mcsVjXwMDAOJgxWYNIAvrabzAwMM5hrIW5/Nu7hpc3zBMwMDAey4iKw4/la85LYPlwFAMD4zRGu7yVJ3PzK+QtPwwMjBMYk1FlElLbErceJGBgYBzAmATNtRuvrZdFKxcYGBjbMdrFiDaxa9tzoxcDBgbGdoyrPGsJZd6Ya8P3X9ttGBgYmzLa208WMtqxwb3BGgMD4+mMvEyd7znc1ap7W4tjYGBszVgrSu8Kx21a+baUxcDAwLgpEWwL1AiMgYGBsbTONUkB6wYfBgbGAYx2nSKBtUOFomTFwMA4jNEOBtYCYrvMkQTo0XwDAwPjGYxf09MD8fd5NyMAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aS47jMAwFwNz/0pnNbBoNO++JPT2wVFoFhj+sLAhR5OsVr3ewvt+Zv7N9dnFhYGA8ltEG1wZ69YZ7TB4bBgbGOYwkiDZpfn/q/so96UPMGBgYGLfp9T4F36fayd+HgYGBsfbJ/MpV8sXAwMCYFLH51jBPuP+hFsfAwHggIz91//3f/6S/gYGB8SjGu1xJSm1T+SSev+/BwMDYmpEnuPkWbVSgJgd8GBgYBzDyI7AcmTcVksRdH7dhYGBswWgHv9om5drQRl7cftnhYmBgbMrI02Vegk5aDpNvYWBg7MpYa0yuNSnnY2SXkWBgYGzNyIvM4oC+3Pblh2uvyU0YGBgPZ7QvnW8ok+GwdgQEAwNjV8Zis7AsPtukXF/HwMA4jLFWQLah56Nmi9MiGBgYmzLWRiXysPKnchIGBsYJjHbQoU3QbTOgxXwYtsDAwNiCkY81zINoV9EwwMDA2JqRH/TnRW/SJGhL4qKBgYGBsTVjbcyiTYh5a3NeWmNgYOzESJTJ0dikGZC3Py+jxcDAOIDRvigZjGjDWttuYmBgnMNIEm6bBNvRsbWtKgYGxt6Md7nyQY225bA2NVFU2xgYGI9ltA3FvGEwaXDmodcYDAyMxzLyojH/WHsMtzbegYGBcRqjTXxrB/3zMbLL+zEwMDAGCTQpWef3Y2BgYOQNyzzhtpvFD2/GwMA4gJEPNyRJcO2IbTJkhoGBsTcjLx1/diCj/VPWRjQwMDAezvgDftpBz3D3wvsAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -337,7 +337,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/ef816ce.html", 
+    url: "https://heronking.gitee.io/archives/ef816ce.html", 
     sourceId: "java总结final关键字",
     productKey: "true",
     target: "cloud-tie-wrapper"

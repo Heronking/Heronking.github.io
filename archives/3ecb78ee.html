@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>java反射机制 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在了解反射之前，要先知道什么是Class对象。 在java中对象分为两种：Class对象和实例对象。 实例对象是类的实例，用 new 来创建； 而Class对象，就是Class类的实例，嗯。。就是这么直接，在 java.lang 这个包下面，有一个类就叫Class。这个类内部可以记录其他类的成员、接口这些信息，也就是说，Class类是用来表示其他类的一个类。">
 <meta name="keywords" content="随笔,java,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java反射机制">
-<meta property="og:url" content="https://heronking.github.io/archives/3ecb78ee.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/3ecb78ee.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="在了解反射之前，要先知道什么是Class对象。 在java中对象分为两种：Class对象和实例对象。 实例对象是类的实例，用 new 来创建； 而Class对象，就是Class类的实例，嗯。。就是这么直接，在 java.lang 这个包下面，有一个类就叫Class。这个类内部可以记录其他类的成员、接口这些信息，也就是说，Class类是用来表示其他类的一个类。">
 <meta property="og:locale" content="zh-CN">
@@ -335,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3awW7DIBBFUf//T7vbShXkvgGn8nBZVYmVclg8DwzXhcf9a/z9fPQ8/+X5f9k2ZMiQ8VrGPR271mn0yyMMn5sMGTLOYZAoHD1fe5LEehDoMmTIkDGY0IcQnEZtGr4yZMiQUQtcUlBy/L+9N2TIkPESRm1C64Ujh23bi8uQIeOFjNrx/Xf+fqS/IUOGjFcx7nDwgm9e6vGSEc1KhgwZrRk84GqtTb5BTQNXhgwZ5zCKbhyR/Bd4q+BCZ28yZMjoxkhLOnJ8ttJg4E2CYYUrQ4aMRgwSwc81AFJY8MKQIUNGO0Y60ZWW5PpKf+jEypAhox3juXJwV9sAXa2QIUPGYYz0ED9tQKYLgWYlQ4aMAxgkEPmRfS0002/RnREZMmS0YNQ2kPOCL93u1qZOmq8yZMjoxEijljcX+eY2vWwhQ4aMMxlp2KHkDq+XLWFkyJDRmsEPzmrXuWplaG1RZMiQ0Y8xL+9qJR3/trYc6LKFDBkyGjHSg7OV1iY/+duwF5chQ0ZrxlUaPLh5KMetTRkyZBzD2HtVgrcQ0kM99N6QIUNGa0btrI7HZRqsaLYyZMhoyrjD8VyxyMvHoCiUIUNGC8beqxKkjEsLTV5WypAhozcjvWDBg3WlDRAHvQwZMg5gpMGXHpx9aS8uQ4YMGSAiV/JwiSpDhgwZeOrpFVVeLG4OXBkyZLyQsevKxcqBfnpZVoYMGecwai3J2ifpdPkCyZAhoynjBx0nk2GH92nQAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3aQU7EMAwF0Ln/pcsWCRq+7Rap6ctqNBOavC6M7eTzicfxbax//Tkz+atklQsGBgbGYxnHciQbzbeVUJN1f6FiYGC8gHEWwarLVJdP2Ou9YWBgYKznXBVwq+tiYGBgzAPuOvVcl6wYGBgYkyJ20nrLE8fba3EMDIwHMvKu+/9/vuV8AwMD41GMozgmqeR6c8dgYGBg7M2YtNLyAJ18M2/tYWBg7MqYlJfzq129Btwv32BgYGzNmBSZ1eZX8iKqKenp/w0MDIyNGL1jgGT+euHq/D9STwwMjK0Zk6Z8dcl8fvOyGgYGxtaMPPmbX/y6ryTGwMDYlVFIvIot+wTZg50WsRgYGJsy8oWrbbJq4L7gewwMjBcwqs39JOHLw+u8JMbAwNiVMT+krB4b5MVzISXFwMB4AePalv36aXm7v3A5DAMDY2tG73G9gJu38CbHqBgYGPsxeo+oJpTVcreajGJgYOzNSMrOZFt5cKyWu4V1MTAwXsOoNut74OTXfEUMDIw3M5IgmAfWO8pgDAyMtzHy1n9+PNArU/OrHhgYGG9gHMVRbcNVQ231RXySPh8GBsbDGb1g1wua+UvpFbQYGBh7M/Kjx7x93wyIMfg0w8XAwNiacVXg67XPJkehGBgYGL3jzPxQoXr96xSMgYGB0bo0lsxP9hM9AQMD4wWMpIitXuSqFrfVFTEwMN7DyEvHXkF7B290voGBgfEkxhei09sZBiiPJwAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -395,7 +395,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/3ecb78ee.html", 
+    url: "https://heronking.gitee.io/archives/3ecb78ee.html", 
     sourceId: "java反射机制",
     productKey: "true",
     target: "cloud-tie-wrapper"

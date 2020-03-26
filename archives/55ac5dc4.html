@@ -5,24 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>TCP协议简单总结 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="TCP协议（Transmission Control Protocol），传输控制协议。属于传输层。 TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。 基于TCP的协议有 HTTP、SMTP、FTP、Telnet、POP3。">
 <meta name="keywords" content="随笔,记,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TCP协议简单总结">
-<meta property="og:url" content="https://heronking.github.io/archives/55ac5dc4.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/55ac5dc4.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="TCP协议（Transmission Control Protocol），传输控制协议。属于传输层。 TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。 基于TCP的协议有 HTTP、SMTP、FTP、Telnet、POP3。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/55ac5dc4/1.webp">
-<meta property="og:image" content="https://heronking.github.io/archives/55ac5dc4/2.webp">
+<meta property="og:image" content="https://heronking.gitee.io/archives/55ac5dc4/1.webp">
+<meta property="og:image" content="https://heronking.gitee.io/archives/55ac5dc4/2.webp">
 <meta property="og:updated_time" content="2020-03-23T12:13:27.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议简单总结">
 <meta name="twitter:description" content="TCP协议（Transmission Control Protocol），传输控制协议。属于传输层。 TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。 基于TCP的协议有 HTTP、SMTP、FTP、Telnet、POP3。">
-<meta name="twitter:image" content="https://heronking.github.io/archives/55ac5dc4/1.webp">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/55ac5dc4/1.webp">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -380,7 +380,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3a0W6DMAwF0P3/T7PXSRP03gQqkRyepqqQHCp5tuOfn/g6/lz/Pz/7fv7k61VuuzAwMF7LOC6vswXaxc6efIbJ94aBgbEPIwmFCemamgCSl4WBgYFxWxC8DLUzYR0DAwNjLOAmm0jwGBgYGDNF7FgDbiZwP1KLY2BgvJAx1r7/zt+PnG9gYGC8inGUVx408zL1hl1hYGAszcgDXF52jjX924CLgYGxG2Ns+TZAJ2Vw+5qmJs4wMDBewsgbWHkTv223zRxnnma4GBgYyzGSINgmiG2hm78UDAyMPRntzVNNsaGmW1SFY2BgbMPIi8wZ8INFLAYGxqKMmWDXtuHaFDB6DgYGxgaMseLzugU2M2BRf46BgbE0I2mW5WniWGj+0PRvTyoxMDAWZbTFar6JNsi2YR0DA2Mfxthw2Nio2UwqOYjBwMBYgpG3zOpGWBkP8zd9epCJgYGxHOPeplibaI4ll8XvgIGBsQTjutGWF7F5kjc2LlbU4hgYGEsz8gGv9lChHRFrn4aBgbEn465GW5sCJsVzfb6BgYGxHOP6tvw7SYCeac+dVuQYGBjLMY7yypccTO/iNPHD74CBgbEQ44lRifmhjXzrNQYDA+O1jDbIJmlim1C2d0WLYWBgLMeYSe+Sl/KlWhwDAwPjchNtsXpzSw4DAwMjGFpNmmX5sUFSBt/wfwMDA+NVjKSIHVtgZmisGAHBwMBYmtH2ssbYyRPawhUDA2MDxi+MVbJQvJjbRwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW4DMQgF0Nz/0um2VZvRB5yoYz+vKmUy9uuCAObxiNfz27r+9PeTybeSXRYsDAyM2zKelyvfIPlWQr1+/uVJMDAwDmC8OlZ1m+r2Cfv6bBgYGBjXz6wKuNV9MTAwMCZBNqkur9NNDAwMjEkRmwTNaklc3WtBLY6BgXFDRt51//zfb7nfwMDAuBXjWVzzVHLVSX68EwMDY2vGpJVWLTLzYrV5HgwMjGMYeak5H+3qNeCiriEGBsZGjOp4Vs6rhuxeSvpHhouBgbEpI7+AnDTjerExSj0xMDC2ZlQLyDxB7BXAk6YeBgbGCYzPDH4lCWWvJMbAwNiVUU3pqmMZydGr7bxCEYuBgbEFYxJwq5cEvfHTAg8DA+MwRpL89VLJctM/b/9hYGBszaheUuZlat7CqzbmHtXXYWBg3JZRTdTmZe2kxVaYGcHAwNia0UvvqkG5+Ztw3TXEwMDYlDFfk0vNfEB2VR6IgYFxX8aqodJqm6w3zPHySQwMjAMYecH5vibd5EkMDIxzGL2Dzi8G8vUyuGNgYBzA6I18VcvXHjUJ6BgYGLsyJsGudw2ZNM7yf8SCmI2BgfHvGdULgLUpYHU4YzT1hoGBcXNGb3hiEmqrKWAUrDEwMA5g5IGvmhTOg3Vh2AIDAwMjLmLXtu2irBYDAwMjvjbIE8dk38IbMDAwDmD0RiiqW+bhtXoJioGBsTcjLx17Be087C67yMTAwLgf4wuG5rwqQCKhlAAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -449,7 +449,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/55ac5dc4.html", 
+    url: "https://heronking.gitee.io/archives/55ac5dc4.html", 
     sourceId: "计算机网络-TCP协议简单总结",
     productKey: "true",
     target: "cloud-tie-wrapper"

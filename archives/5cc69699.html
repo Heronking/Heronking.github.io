@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>关于JVM，JDK和JRE | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="关于JVMJVM就是java虚拟机，也就是一种解释器，用来运行java字节码的虚拟机。JVM屏蔽了于操作系统平台相关的信息，同一个java程序编译生成的字节码，不加修改地在不同的操作系统上运行时，JVM会给出相同的结果。这就是Java能实现编译一次，到处运行的原因。">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于JVM，JDK和JRE">
-<meta property="og:url" content="https://heronking.github.io/archives/5cc69699.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/5cc69699.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="关于JVMJVM就是java虚拟机，也就是一种解释器，用来运行java字节码的虚拟机。JVM屏蔽了于操作系统平台相关的信息，同一个java程序编译生成的字节码，不加修改地在不同的操作系统上运行时，JVM会给出相同的结果。这就是Java能实现编译一次，到处运行的原因。">
 <meta property="og:locale" content="zh-CN">
@@ -252,7 +252,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW7EIAwF0Ln/pdNtpXYy33ZSNfBYjaoIeCxcY/N6xeP4Nn7+/d331TnfrXLZwMDAeCzjOB3nS05WSWZO9oaBgbEP4zxonofa5HeCzw8LAwMDo7rR85SuGmoxMDAwrmL0NpEkeRgYGBiTS2yv0Da5oN5yF8fAwHggIy+W/f3vW/obGBgYj2IcxZEnfNUmZR5kf1kLAwNjaUbvYUQvTRyV0pLHHxgYGIsyesvnYTGfIQ/Hr9yNgYGxBKP6tGKy3atKb4UuBwYGxhKMvBB/vtHeFq96RoaBgbEDI7rpBhfRvN04f2YR3cIxMDCWY/QWy8PivElwwcUVAwNjIUavQNZrgibp5od5MDAwNmD0Fqi2KqvzFA4UAwNjacZkumpaWX14kTQnXvNTwcDA+PeMvCjW20R+uR1dmzEwMJZmzBfIxx2Pw6LUEAMD4+GMavls8oQrT0PLh4KBgbE0o/pIIm9S3nE0H0I/BgbGBox8c+ffV1uevaCMgYGxJyMvkE1SvTzg5rNhYGDsxjhvT+ahdtJC6AV3DAyMfRjVpmN10/M2Q/PJBQYGxmMZR3HkYbeZ3sVpYqElgIGB8XDGJMxVS/l5qM23XsZgYGA8ltELstVveu2EwnljYGBswMgDX6/x2bvulu/iGBgYGEEpfxIPR1QMDAyMYlEsoVaTxRv/b2BgYDyEkVxiewv0mgTJPBgYGPswqrWsPJgmm5iU7TAwMDZgfAGryWqY2i41WwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aS27jMBAFQN//0p7tBB7J75HKAGoVV4ajiCwvGv3h6xWv98c6/+vfz3w+//lfR99cvDAwMG7LeJ+uhJEfK6GeP394BgwMjAcwjo7VbtNun7DPz4aBgYFx/vmqgJvsi4GBgbETcHNeUrJiYGBg7BSxO623PHH89VocAwPjhoy86/7/P//KfAMDA+NWjHe52nZbPphsw/GPd2JgYIxm5AGuTcjOS9O6QE3Og4GBMZTRBtPzkrUFrzXg/vENBgbGaEYe7PKxZRuy11LSLxgMDIxxjLYEzYeOeYC+IH3EwMB4AKN9aZ4Otgnf4qUxDAyMBzDaKw5rBW17YaJo82FgYAxltJe9dgYAeRGbt9V+DAYwMDCGMq5K0XYCd33cfBKLgYExjtEmavvpY3v0L6fFwMAYyljbcr/cTSrQxasVGBgY4xg7FyzaNO6qYrgoYjEwMIYy1tpn7XWN9rh1uw0DA2MQY+cVLTJJN/M2X9QvxMDAGMFo22rnA4C2TZY33drCGAMDYx5jJ73Lg+baD1H8ZBgYGI9ktBcmko3zwUB9RQMDA+MBjHYkkDDWwuhawoqBgTGV8S7X2pbtM/kP8crjNAYGxm0Z7QBgJ2gmaWVS0O6MMTAwMO7LWAuy+6neDvgww8XAwBjNaEvWtkC9in3Iw8DAwNgoR9fGBvk7MTAwMNZGAvmQMjlP9AYMDIwHMJIi9tqLYu1FjS+7Y2BgjGbkpeN+cZvz8vdgYGCMZvwBFzKTYUn9ghAAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,7 +321,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/5cc69699.html", 
+    url: "https://heronking.gitee.io/archives/5cc69699.html", 
     sourceId: "JVM，JDK和JRE",
     productKey: "true",
     target: "cloud-tie-wrapper"

@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>重载overload和重写override | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一些关于重载和重写（覆盖）的注意事项，区别用法啥的。">
 <meta name="keywords" content="随笔,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重载overload和重写override">
-<meta property="og:url" content="https://heronking.github.io/archives/627aefd0.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/627aefd0.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="一些关于重载和重写（覆盖）的注意事项，区别用法啥的。">
 <meta property="og:locale" content="zh-CN">
@@ -188,7 +188,7 @@
 <p>所以，重载的作用就是对不同数据类型的数据实现相似的操作。</p>
 <h3 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h3><p>重写的意思是：子类对<strong>父类允许访问的方法</strong>的实现过程进行的重新编写。当子类中的方法与父类中方法的<strong>名称、参数个数、类型</strong>都一样的时候，那么重写就发生了。</p>
 <p>这里要<strong>注意的是</strong>，重写的方法返回值范围要 <strong>≤</strong> 父类，抛出的异常范围也要 <strong>≤</strong> 父类，而<strong>访问修饰符的范围</strong>要 <strong>≥</strong> 父类。如果父类的方法是 <code>private</code>，那么子类不能重写该方法，所以定义一个和该私有方法同名的方法是没有限制条件的。</p>
-<p>不要觉得没啥用，重写是实现 <a href="https://heronking.github.io/archives/f018dd97.html">多态</a> 的重要步骤！！</p>
+<p>不要觉得没啥用，重写是实现 <a href="https://heronking.github.io/archives/f018dd97.html" target="_blank" rel="noopener">多态</a> 的重要步骤！！</p>
 <h4 id="那么由此可以得出，构造方法不能被override-重写或者覆盖-，但是可以被overload（重载）"><a href="#那么由此可以得出，构造方法不能被override-重写或者覆盖-，但是可以被overload（重载）" class="headerlink" title="那么由此可以得出，构造方法不能被override(重写或者覆盖)，但是可以被overload（重载）"></a>那么由此可以得出，构造方法不能被override(重写或者覆盖)，但是可以被overload（重载）</h4><p>为什么？？因为构造方法不能被继承啊~</p>
 <h4 id="还有一件事！静态方法不能被重写"><a href="#还有一件事！静态方法不能被重写" class="headerlink" title="还有一件事！静态方法不能被重写"></a>还有一件事！静态方法不能被重写</h4><p>为什么？？因为静态成员是属于类本身的，而不是属于某个实例对象的。<br>当然，如果你在子类中也写了一个和父类一模一样的静态方法，父类的静态方法确实会被屏蔽掉。但是这个过程不叫重写，而是<strong>重定义</strong>，也就是重新定义类中的成员。而父类中的静态成员依然可以使用 <code>super.xxx</code> 来访问。</p>
 
@@ -264,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aS27DMAwFwNz/0u62RWHnkXQCWBqtisC1NVoQ/Oj1itfxa/3//ez5/M3XX7ltYWBgPJZxXK6zZ+ZfOdv69XdP94CBgbEBIwmFedA8+6/rX65Jb/aMgYGB0QuCrVCLgYGBcRejFy4TPAYGBsakiO014PLA/aVaHAMD44GMXvv+O39/ZL6BgYHxKMZRXHlAzMvU3k7+vAcDA2NpRh7g8rKz1/SvBlwMDIx9GL3P5yEyf0Pv8tnoFDEwMB7FyBv0k7RvPhY9fTMGBsbSjF4C19tutSSuXkfDwMBYm9F7qNkUuwzN+WEVhgcYGBgPZ1Rf17voUB0blAMrBgbGBoycNx9A5u28ZFfRYAADA2MJxqSknLT7k8gZHSgGBsbSjKRZlmwuf/6uAzo9FAwMjEUZyRZ7m8gbdtXLFhgYGPswbiggP9z7in7BwMDYjDFJ8nrDg+qYoVyLY2BgLMTotdKqCV8yKigHaAwMjKUZk6b8pNz9RJqIgYGxNqM3XMyHCklzPw/Eb5puGBgY2zB6VyV6Tbr8Mlk54GJgYCzKqBaok+FB/t3oygUGBsaijKO4eqlkIb2L08Q3XUMMDIyFGL0kr5rMVRPNfOtlDAYGxmMZ944Yo2y0FXBHJ42BgbEEYx74JqPKm2txDAwMjOBSRS8ejqgYGBgYxaZYfkUsTxZvDrgYGBgPZFSvovYK4CS85u/BwMDYh1HtZfXYeYmbP4+BgbEB4weDIGqYyTLDTQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3awY7DMAhF0f7/T2e2laJY90E7UuF6VXU8jU8WCDCvF17XbZ3/+r7nvv/+X0/ffHjJkCHjZxnXcREGPxahnvc/nkGGDBkLGE/HetqTss/B+sw+n02GDBkyaqQ04PLXJ0OGDBmccQ6dNaQMGTJknBm8ZdZPCvvPkiFDxjYG77r//+ev3G/IkCHjpxhXuEgRy1NJ0nRDp5IhQ8ZoBg9waUJGStxOwJUhQ8ZmBi81+6NdtQYc6hrKkCFjDaNzScBDdnr9+YiRIUPGAkb6gP5YBt8fX2HKkCFjKIPDeOHaSfjiUQwZMmSsYfDhhlpBSwYm0tcnQ4aM2Qz+gE4jrPbLwfWDDBkyRjM6ww1pwO1g0H4ZMmQsYPC2Pk/4PtXCQ2AZMmQMZdTGLHiZmjbpam0+GTJkzGbE14TtG0M+zBEXzDJkyBjKSINpWvTWCtQ0YZUhQ4YMXsp+r9wN+oUyZMgYx+DjWXxUgjTs+DdBYSxDhoxljNp4Vr9JV2vPyZAhYxujNkIRB0fQaONpqAwZMrYxUgwJu2nArQV0GTJkTGVc4epfQ6YNNZQ+ypAhYzSj0yxLC13eqksvKmTIkLGBkQbZ2tVm7ZWRlyJDhow9jH7gS0vWWqoXDFvIkCFjMYMHx0+17VBWK0OGDBn4MxkyI2lf/AsyZMhYwCBFbAeWFqVpuilDhozZDF46koKzxuuHexkyZAxl/AGjNGqYROljzwAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -333,7 +333,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/627aefd0.html", 
+    url: "https://heronking.gitee.io/archives/627aefd0.html", 
     sourceId: "java重载overload和重写override",
     productKey: "true",
     target: "cloud-tie-wrapper"

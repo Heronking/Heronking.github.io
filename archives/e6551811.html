@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>接口和抽象类 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这里记一些接口和抽象类的异同点这两者本身的设计目的就是不一样的！我是直接从用法上理解的，设计完了用来干嘛，理解了也就知道了两者的异同。 先理解一下什么是抽象类和接口">
 <meta name="keywords" content="随笔,java,记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="接口和抽象类">
-<meta property="og:url" content="https://heronking.github.io/archives/e6551811.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/e6551811.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="这里记一些接口和抽象类的异同点这两者本身的设计目的就是不一样的！我是直接从用法上理解的，设计完了用来干嘛，理解了也就知道了两者的异同。 先理解一下什么是抽象类和接口">
 <meta property="og:locale" content="zh-CN">
@@ -197,7 +197,7 @@
 <h5 id="总结一下："><a href="#总结一下：" class="headerlink" title="总结一下："></a>总结一下：</h5><p>​    继承<strong>抽象类</strong>是让某个类属于xxx的，如果继承了抽象类，那么该类就是这个抽象类一个种族的。</p>
 <p>​    <strong>接口</strong>的实现让某个类 <strong>有</strong> xxx 方法</p>
 <h5 id="接下来说一下他们俩的异同点"><a href="#接下来说一下他们俩的异同点" class="headerlink" title="接下来说一下他们俩的异同点"></a>接下来说一下他们俩的异同点</h5><ul>
-<li>都不能被实例化！如果需要实例化，这就涉及到了 <a href="https://heronking.github.io/archives/f018dd97.html">多态</a>。</li>
+<li>都不能被实例化！如果需要实例化，这就涉及到了 <a href="https://heronking.github.io/archives/f018dd97.html" target="_blank" rel="noopener">多态</a>。</li>
 <li>都能包含抽象方法。但是抽象类可以有实现的方法，甚至可以没有抽象方法。而接口里面必须都是抽象方法，不能实现。如果一个类里面有抽象方法，那么它一定是抽象类。</li>
 <li>一个普通类可以实现多个接口，但是只能继承一个抽象类。</li>
 <li>接口的方法默认是 <code>public</code>。抽象方法可以有 <code>public、protected 和 default</code>，不能是 <code>private</code>。</li>
@@ -280,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS27DMAwFwNz/0u62RWPnkbIDSBqtiiSVPVoQ4uf1itfxa/3//Oz3+c7XT7ltYWBgTMs4Ltdd55TvfPbt2Q4YGBj7MJJQmD/4bOfrg7je+cM+GBgYGMO/yUMtBgYGxnMBN3mJ5JKHgYGBMZLE9gptIwnqI7k4BgbGhIxe+f47fz/S38DAwJiKcRRXHjTzNLUaiN88CwMDY2lGHuB6rc272gnR8AcGBsbSjN6oVjVAX++Qh+Oh+ywGBsaEjOqQRH6l6yXA1XbmnxsuBgbGoozqYFYy1NVLdKvDFhgYGPsw8kvbeE0+D9/l/8XAwNiGkWxaRd61T5TEYmBgLM3owUbCbrW18GEfDAyMDRh3pZTVcn8SUqMDxcDAWJqRFMt6ZbiRINu772FgYKzNuA6RI83F5EV7wxYYGBj7MHoNgF5prJcYR59gYGBswMgLZ9USW942qDYD3uTiGBgYSzPykFct5edHkx9Ec9gCAwNjWkb1ijbS2ixU/loXRwwMjLUZI2Gu2ubMA26+GwYGxp6MPET2ronjQTkKuBgYGEszqoGyGnx7A2cf3hYDA2NRxlFceYm/eb0rHlmhR4GBgTEtI1+9cn9esOsdRxmDgYExLSNvMeaPHElHe0MbGBgYOzB6r5hfMb+Ui2NgYGDcmqzeXJLDwMDAaI2CjbQN8uCOgYGxDyMfucjT4JGgXG2XYmBgrM2o1rLyYJq8RLWdMNTIxMDAmI/xAwiUaphQEz6JAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3awU7EMAxFUf7/p8sWBInuswtSnJvVCNompyNlbMcfH3g8X8b+vz+vJHeRWV4YMmTIOJbxbMfqmtqyCHV//XINMmTIuICxWlY6TTo9Ye/XJkOGDBn7azgm3bhlyJAho7/h7rfOGlKGDBky9gxeMiOhXpoS90NMGTJkzGbwqvv/f/6T8w0ZMmQcxXjCsZqGb9D8NQWrkiFDxmgG3+BqiSv/S7rhypAh4x5GLb3kpf/01fCX9cv3IEOGjKGM2sb61qJrx58II0OGjEEM3vqQpqCddJfMu/zdkCFDxjhG7ebg0aWAjxyRLr8TGTJkDGXwM0Fe0OdJcnqA+sLRpgwZMo5ipCFd+hyy9E6z17ckVoYMGUMZ/DCgk6CmAV9apJMhQ8ZtjFqwWGsgq23xy9XKkCFjNKMzZe3oMa3nByGjDBkyhjJQ4NUYhFRrBVueb8iQIWMQo3Nzp8mVh4Bx1VCGDBnjGDw4S5PbWrrLC3OttjAZMmQcy+AtETwp5bPwl7WcRYYMGRcwyGeyxE6RrnOlDBkybmDwtq00ZeWHo60WDRkyZFzASE8DObufKpOGDxkyZExlPOHgpfy01az2IuLfBBkyZBzIqG12ccMWCEDTulkRI0OGjGMZnU32rbAvBS8jXBkyZIxmdDY+3khRK8nFPSMyZMi4ntFZXJoSB8GoDBkyZODF7SfmYV/8BBkyZFzAeKuFgrRNFM9a38rFZciQcSCDp4610luNRzZZGTJkXMD4BPgbIuBvsFuYAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,7 +349,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/e6551811.html", 
+    url: "https://heronking.gitee.io/archives/e6551811.html", 
     sourceId: "java接口和抽象类",
     productKey: "true",
     target: "cloud-tie-wrapper"

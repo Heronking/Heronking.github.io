@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>java集合简单总结 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="java中的集合框架主要分为两类：Collection 和 Map  Collection 是单列集合，Map是双列 Collection中的Set要求集合元素唯一，Map中的键值为一，值没有限制">
 <meta name="keywords" content="随笔,java,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java集合简单总结">
-<meta property="og:url" content="https://heronking.github.io/archives/f5e78ffc.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/f5e78ffc.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="java中的集合框架主要分为两类：Collection 和 Map  Collection 是单列集合，Map是双列 Collection中的Set要求集合元素唯一，Map中的键值为一，值没有限制">
 <meta property="og:locale" content="zh-CN">
@@ -197,7 +197,7 @@
 </li>
 </ul>
 <h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><ul>
-<li>HashMap：<a href="https://heronking.github.io/archives/166dc6bc.html">详情</a> ，使用数组 + 链表/红黑树 的哈希表结构，存储的是Entry键值对。</li>
+<li>HashMap：<a href="https://heronking.github.io/archives/166dc6bc.html" target="_blank" rel="noopener">详情</a> ，使用数组 + 链表/红黑树 的哈希表结构，存储的是Entry键值对。</li>
 <li>LinkedHashMap：继承于HashMap，底层结构在HashMap的基础上<strong>增加了一条双向链表</strong>，用来保持键值对的插入顺序，所以它存取有序。</li>
 <li>TreeMap：红黑树，可以通过实现Comparator接口来指定排序方法。</li>
 <li>Hashtable：与HashMap功能类似，数组 + 链表组成，不能存有null的键值。线程安全，但不推荐使用。多线程使用ConcurrentHashMap</li>
@@ -282,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3ay1LDMAwF0P7/T4ctM0zNlZTCxD5eMVBqnywUPfx6xev6sb7//t3n82/+ucvrEwsDA+OxjGu53m1Q3ewK1hr27vMYGBjnMJJQmJDW1DV+FNAxMDAw3hwo3zIJ4sm+GBgYGHnArQbidar3b+8NDAyMRzHywnKSDq4L1D+qxTEwMB7I6LXv/+bnj8w3MDAwHsW4iitP+NapXl7uRqfCwMDYmpEHuHValpfBdwVcDAyMcxiT7asBOh8tVAefGBgY5zCSNlneGusVwL0xAwYGxt6MSVu/d42smiDmO2JgYOzN6F0FazbFikfs/S8GBsZOjMlFh/zSw3xsED17DAyMrRn5AKCXAvZK38JDx8DAOICRH6sa63oHLSeIGBgYWzN65Wt+/aI6BpjnexgYGPsx8qP0xo3VhlpexGJgYJzDyBO1Xpo4SfJuw2BgYGzByFtm9w4M1vjyQ8HAwDiAUQ1w+V/vHRX80mjDwMDYmpFckshD8KRJ13vEGBgY5zCShCwfAFSviI3Og4GBcQyj+qXVNG4+HC28NzAwMLZj5AeaHDofcFZDNgYGxq6Mq7jyVv5d6Wb0nRgYGFszemGul/zlobaamGJgYJzA+ESQnZSjvUsbGBgYJzCqR6w+lMk4oVCLY2BgYMQBuhcPR1QMDAyMYlMsvyKWJ4sfeW9gYGA8ipFfUZ0UwNVGWxL0MTAwTmBUe1l5MK0ml9XCFQMD4wDGFzIwslCaMjoMAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQW7DMAwEwPz/0+m1QBJ1SToFLI1PhWtHHB0IkvLjEV/Pl2v939/PvD7/+tanOxdfGBgYt2U8l1e+QPJWQl0//zESDAyMAxifwsqTZm/5hL2ODQMDA2P9TI5JSszq9mFgYGBcUK4VkRgYGBhrRj4yqwZdLRy/3otjYGDckJFP3f//76+cb2BgYNyK8Sxek7Dy4MpRYWBgbM3IE1zScK7v581qMx4MDIxNGXmzumb00mtvAPfmDgYGxgGMSQKdBN07/nwTFQYGxgGMfBw/GcDlKT4/fijsBAYGxm0Z88oqf6u6SvmjMQwMjK0Z1zaWSXk3+c3yoSYGBsbNGflrkyRYHdiV18XAwNiaUU2L+RFC8tnExZkTAwPjAEZeMvY+IMs3qNniYmBgbMqYL9nDrMvKnISBgXEa438OAKpFYXQHAwNja0aS8pJEnCfl6pYlBSsGBsbejHyg1kugk0HeBfNCDAyMLRjfGKvlhWPe7lYbYwwMjP0YeWLN02u1WJyM5zAwME5jVFvWpHTrHQzka2FgYJzD6LWv84PP+QcfGBgYezN6LWs+sk9S7WQjRp03BgbGTRi9sHo/l29KHnoZg4GBcVvGfPQ/T9BV8B8VLgYGxqaMauJbp7+kZZ0n7uYRJgYGxgGMZKCfpObqBxZ/gDEwMDAuWjgv+8q/gIGBcQAjaWInx5zVD8vKW4aBgbE1I28deyVjNe2uN3F0kImBgXE/xg836mqYPXc/+gAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -351,7 +351,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/f5e78ffc.html", 
+    url: "https://heronking.gitee.io/archives/f5e78ffc.html", 
     sourceId: "java集合简单总结",
     productKey: "true",
     target: "cloud-tie-wrapper"

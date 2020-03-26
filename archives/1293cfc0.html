@@ -5,23 +5,23 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>理解哈希表 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。">
 <meta name="keywords" content="随笔,面试,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解哈希表">
-<meta property="og:url" content="https://heronking.github.io/archives/1293cfc0.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/1293cfc0.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.github.io/archives/1293cfc0/1.png">
+<meta property="og:image" content="https://heronking.gitee.io/archives/1293cfc0/1.png">
 <meta property="og:updated_time" content="2020-03-17T15:07:04.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解哈希表">
 <meta name="twitter:description" content="哈希表是一个用途十分广泛的数据结构，也叫散列表。散列的意思就是，散装排列嘛，把一些要存储的数据散列地放到表里面。">
-<meta name="twitter:image" content="https://heronking.github.io/archives/1293cfc0/1.png">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/1293cfc0/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -281,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aQW7DMAwFUd//0u62QBtnPqkEEDVeFY5r62lBkBSvC1/3r+vv/VfP8zc/f2XZJUOGjG0Z9+O1ap/4m1/9+uoNMmTIOIdBQiH5lf8XCbhBQJchQ4aM9jM81MqQIUNGn/Fc0JKA+5zkyZAhQ0aniK012joF6kdqcRkyZGzIqLXvv/P3R843ZMiQsRXjDi8eNHmZumBVMmTIGM3gAY6XnbWmfxpwZciQcQ6j9nkeFmvtOb5NrV2UIUPGhgye0tUODFa13v55swwZMkYzSObIS9BOoZsOW8iQIeM0Rm2haWvsTSUdFsxvZkZkyJAxiME/mY52kWXx8IqKWBkyZIxmpIvjgbJT+gZppQwZMg5gkIBIjhU7AxZpwEUzIzJkyBjB4K9Lkf22GklJr3RXZMiQsS2Dj1Oki+DFbTpsIUOGjHMYtRZbrTVWC80II0OGjNGMTlJIWmy86E0PA958RYYMGYMYPPnjLTZS7qZbEw9byJAhYxCDp2612YZak25BUihDhoxxjM4RY7BPOMSTgjZousmQIWMoo5Mmpq202okrCrgyZMgYyuCDpLURivRJvhIZMmRMZdzhlYbaOL0Lt+wi/TwZMmRszqglebzdVks0+dJjjAwZMrZl1I4Y+WfScrQY6GXIkHEAox/4OgMTy2pxGTJkyFh13IjvB1QZMmTICJtifESMJ4uLA64MGTI2ZKSjqKQM5g39WiEtQ4aMcxi1I8nanVpDrZaMypAhYwTjBxxN2xnOzobNAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3awY6DMAxF0f7/TzPSbDvAu3ZaDc5lVbU05LCwbMevV3wdv9f757Nvrv97ttr7r4svGTJkPJZxXF7X9+Rr1l5TsjcZMmTsw6CBkgZl+iy8jgwZMmS0qQe8ZMiQIaPPyAvRpHBdELhlyJCxAYMGPnrPWTjOG3DLanEZMmQ8kNE5GPj05y+db8iQIeMfMzqFJf2GHnCCXcmQIWM04/q4sdbcz9tt+bhG9BQZMmQMZeSl49qhijxBTF6NDBkyZjM6jfj+pmmyeLNbGTJkDGXQwEcPIOnxAO2h4V6gDBkyHsugB415spgzOkFchgwZsxkLgl28Qv9EEjTdZMiQMY6RJHn5ISVNHGuw09VkyJAxjpGna/178sQRB2IZMmSMZtBBChpY6QgFDdkyZMjYgUFbY7Xt1tYHRawMGTJGM2qFJX0YLXrp6JgMGTJmM/oP7hS0eeCO2m0yZMjYgJEkbR1SrYiN7pQhQ8ZoBj28TAIibc/lRezNS5QhQ8ZQRj74Rccv8iZdsubNq5EhQ8ZmDPoYXHDCFh7IcGXIkDGUkZedncBKN9cviWXIkDGJccCrM+BFy13wmmTIkDGa0R+wuF4uL1Nx4SpDhozNGEmQzY8way08WkL/saYMGTI2YNSSvFWDYgtSTxkyZMjIZzdKRwg5aUHAlSFDxjaMPKFc1b2/SVVlyJCxAaNWxNbSxFoZHAVcGTJkDGXQ0jEBfKJhhydHZMiQMYHxAxSRRrxjPDcCAAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -350,7 +350,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/1293cfc0.html", 
+    url: "https://heronking.gitee.io/archives/1293cfc0.html", 
     sourceId: "理解哈希表",
     productKey: "true",
     target: "cloud-tie-wrapper"

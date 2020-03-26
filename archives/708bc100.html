@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>MySQL慢查询及优化 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="MySQL中将超过指定时间的sql语句查询成为慢查询，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。 使用咒语：set global slow_query_log = 1 ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。 具体怎么配置可以看 这里">
 <meta name="keywords" content="随笔,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL慢查询及优化">
-<meta property="og:url" content="https://heronking.github.io/archives/708bc100.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/708bc100.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="MySQL中将超过指定时间的sql语句查询成为慢查询，可以通过日志来查看记录下的慢查询语句，这个功能需要在配置文件中开启。 使用咒语：set global slow_query_log = 1 ，开启慢查询日志，但只对当前数据库生效，如果MySQL重启则会失效。如果要永久生效，就必须修改配置文件。 具体怎么配置可以看 这里">
 <meta property="og:locale" content="zh-CN">
@@ -178,7 +178,7 @@
 <p>具体怎么配置可以看 <a href="https://www.cnblogs.com/kerrycode/p/5593204.HTML" target="_blank" rel="noopener">这里</a></p>
 <a id="more"></a>
 
-<h4 id="慢查询优化"><a href="#慢查询优化" class="headerlink" title="慢查询优化"></a>慢查询优化</h4><p>先看一下关于创建索引的 <a href="https://heronking.github.io/archives/43a71ae4.html">五大基本原则</a> ，建立一个好的索引是提高效率的重要前提。</p>
+<h4 id="慢查询优化"><a href="#慢查询优化" class="headerlink" title="慢查询优化"></a>慢查询优化</h4><p>先看一下关于创建索引的 <a href="https://heronking.github.io/archives/43a71ae4.html" target="_blank" rel="noopener">五大基本原则</a> ，建立一个好的索引是提高效率的重要前提。</p>
 <p><strong>优化的基本步骤</strong>：</p>
 <blockquote>
 <p>0.<strong>先运行看看</strong>是否真的很慢，注意设置SQL_NO_CACHE</p>
@@ -263,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3ay07DMBAFUP7/p8sWCdreO06RYh+vUJTGOVkM8/DXV7weP9bv68/uz5/8epfLFgYGxm0Zj5fr2QbtZrMnJ++GgYFxDiMJhfnGz578+kr+sTAwMDDyF8q3zEMtBgYGxucCbvISSZKHgYGBsVLEzhpteYH6T7U4BgbGDRmz9v3//P2R+QYGBsatGI9y5cVqfqUNsn+8FQYGxtaMPMDlLbNZ078NuBgYGKcxZtu3ATofLeQFc53PYmBg3JYxa+gn4LZwXWr5YWBgHMCYtfVnA4DZnW+GEBgYGFsz2iRsJU3Mk8X2txgYGLsy1kvNz7Xqio+LgYFxJGPWxJ8NQZPw+qbYxsDAOIDRts9WBgltSI3+DWBgYGzNSJpl7VGJ/P6i6Z+npBgYGJsy8uMUs5FnezoiJ2FgYJzGWIFdm+TlT346HsDAwNiOkffYZ+G4bfrPgjUGBsaujGsTvpY9a9LVhy0wMDBuzshTt5Xisz2oMSxiMTAwtmYkBeRsALASlOv3wcDAOIDRHghrk8VrJ65v5hsYGBibMtpwOSuDZ2E6QmJgYGzKeJQr3/KqdDMK/RgYGFsz8jVrnCVBOf8ERe8QAwNjO0YbZPNHr4wB2kMbGBgYJzDawJds3442L6vFMTAwMOKjXW08XKJiYGBgxMPL9ohqnixeHHAxMDBuyEiK2JUjX3l4zZ+DgYFxDqPtZc3YeRtuNtTEwMDYlPENSzb6CKHc1KAAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQW7DMAwF0dz/0s62QGJnPikXMDVaFU5q6akAS4p6vfA4/ozrTz+/SX6LzLJgyJAh47GM43KQhfJlESqZ9wtVhgwZGzDOIljt1Xx6wr5emwwZMmTwyToBl8wrQ4YMGSkjXRYvWWXIkCGjU8Tyw7VOSXx7LS5DhowHMvip+///fEt/Q4YMGY9iHOE4m4YHTb5NwapkyJAxmsEDHCk4r5/zYrW4HhkyZAxlpCVoevSfbg3frC9/BxkyZAxloAN38LwfsvnRG8LIkCFjECM9mu8neZ2WA/q/IUOGjHEM3gwgiVoalMl21K5iyJAhYx4jvQzRKUprwTTYdRkyZIxj8Al4MCVlaloG/wDLkCFjNCMNi7UClYTvlHHaiZUhQ8ZoBk/7Vl0gq/UuTgO0DBkyhjI6KV1auKYVaKuIlSFDxiBGbaQvJaRbLofJkCFjECNtCaRJ4S3dDBkyZGzGSNPBzuEaeU7CLsp5ZciQMY5RawCsvYqRthxkyJCxD4MnbbXmAUkWaw0D1MKUIUPGIEZ6EJYmeWtTTBkyZOzJSLMsfhjHA24noMuQIWMqo3bZK00T0+/wjUCdChkyZDyc0SlQ01enLQd+8CdDhowdGOnliVrK2N+yH8FahgwZGzB44OOtTd68TK+CFVuYMmTIkLH09ge/iiFDhgwZnEQm5mlf/AYZMmRswKhdoUinTI/keBNUhgwZsxm8dExTRrKIta0CGTJkjGO8AYmZ2xl3LIR8AAAAAElFTkSuQmCC" alt="微信分享二维码">
     </div>
 </div>
 
@@ -332,7 +332,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/708bc100.html", 
+    url: "https://heronking.gitee.io/archives/708bc100.html", 
     sourceId: "MySQL慢查询及优化",
     productKey: "true",
     target: "cloud-tie-wrapper"

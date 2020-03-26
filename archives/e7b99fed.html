@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>数据库的三大范式 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在进行数据库设计的时候应该满足三大范式。书上写的晕头转向，记一下理解。 三大范式具体如下：  第一范式 1NF，确保每一列的原子性。 第二范式 2NF，在1NF的基础上，确保表中的每列都和主键相关，而且是完全依赖。 第三范式 3NF，在2NF的基础上，确保每列数据都和主键直接相关，不能是间接相关，即消除传递依赖。">
 <meta name="keywords" content="随笔,记,MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库的三大范式">
-<meta property="og:url" content="https://heronking.github.io/archives/e7b99fed.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/e7b99fed.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="在进行数据库设计的时候应该满足三大范式。书上写的晕头转向，记一下理解。 三大范式具体如下：  第一范式 1NF，确保每一列的原子性。 第二范式 2NF，在1NF的基础上，确保表中的每列都和主键相关，而且是完全依赖。 第三范式 3NF，在2NF的基础上，确保每列数据都和主键直接相关，不能是间接相关，即消除传递依赖。">
 <meta property="og:locale" content="zh-CN">
@@ -418,7 +418,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3a0W7CMAwFUP7/p9nrpo1wbZdJTU6eUClJT5Gs2M7jEY/nt/H7+qv785nXq1w2MDAwbst4Lsf6nskqa0z+bBgYGOcwklD46v7enUnALQR0DAwMjGUQTOZZB/FkXQwMDIyrGEnAncyAgYFxMiNZoFdomySoH8nFMTAwbsjole//5/NH+hsYGBi3YjyLI09W8yu9J/kxDwYGxtaMPMDlDche0b8acDEwME5jVH/QC9DrIJu3CkZ7WwwMjJszescgJi3J3vzlLgcGBsbNGXkwrW4Qq3NW2w8YGBjnMHpfz9uNSQo6+S0GBsZOjMlEvQeaby5Hbx0DA+PmjPzoVa/0lqevSWvzjx0uBgbG1oxeytprJPSq+m+uY2BgbM2YTJeUyaptgPwZmrk4BgbGDRl5UeyqduZVhy0wMDDOYayLWdUU96pC/+g/wcDA2I5R3ZD1jnP1tqGFVBkDA2NrRjXH/dwhjF6rIFoeAwNjC0YeEKsLVJsN1cYABgbGOYx5wF2X+HtBOZ8NAwPjHEYvRPYOXuRhOnlxGBgYZzKqxf38oUeJaHLkAgMDYzvGsziq6W55exdvE9/sbTEwMDZiTMJcL/Xt3T9pdmJgYOzBqLYYr02A84A7etMYGBhbMKqBLy+iVY+aXZCLY2BgYMRHIqrxcETFwMDAWCaQ+bGJ6nYznx8DA+MERpLE9haYtEjz7SkGBsbejGotq8dOZpi8IAwMjE0ZX1F7S6lp+2kVAAAAAElFTkSuQmCC" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aQY7DIAwF0N7/0pntjKrQb0xHCjxWVZqkPBauDX694nG9jfG3v+95v//9qbsriwcGBsZjGddwJIx8Wgl1fP/tHDAwMA5g3E3r7p4qexysx+zx3DAwMDDGjCSMzgVuDAwMjA6jU6wmJSsGBgZGp4hNNsXmSuJ/rcUxMDAeyMh33f//81fONzAwMB7FuIqjn0qumsmfd2JgYGzNyANcUnCOr+fF6uR8MDAwjmHMBd9qeK0+Gy0fBgbGpoxOAO1POl+4D7PFwMDYmjFXgnaSvOqRQ3VZMTAw9masPTzoF8CdpjEMDIxdGXPNW9WCdtwwkfxK+TgTAwPj4YxOSpcHwWTq1aB8W4tjYGBsx8jDYj/gVt9Wvo6BgXEYI0kck4QvD68LSlwMDIytGXnLxVzDRJ7ezSWIGBgYezPmDgirO3nVI8l8Vrc9IxgYGBsx+uEvSfXyrbrqfwUGBsbJjE5bar/cnduYw8DAOJmxtuV07bMYGBjnMKotF9/Gz92JgYFxAmOuqeJ7BwN5iwYGBsZpjFXb96sSyrzhAwMDY1fGVRxz7RrVo9B8IV55nMbAwHgsIx8dXvXIoV9UY2Bg7MeobpZVN8j6UTEK1hgYGAcwqiVr9dt+EfthmTAwMDCKm2tj3lyDxQcwBgYGRpAIJj+cp33lN2BgYBzA6LRQdJD5YcCyWhwDA+OBjLx07BS3nbBbRWJgYGzE+AFYCCLgM6X+VwAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -487,7 +487,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/e7b99fed.html", 
+    url: "https://heronking.gitee.io/archives/e7b99fed.html", 
     sourceId: "MySQL数据库的三大范式",
     productKey: "true",
     target: "cloud-tie-wrapper"

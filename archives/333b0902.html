@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>equals和hashCode | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在java中有一个基础方法 hashCode()，和 equals() toString() 一样，是 Object类 里面的方法，嗯，Object是所有类的老父亲。 从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。">
 <meta name="keywords" content="随笔,java,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="equals和hashCode">
-<meta property="og:url" content="https://heronking.github.io/archives/333b0902.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/333b0902.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="在java中有一个基础方法 hashCode()，和 equals() toString() 一样，是 Object类 里面的方法，嗯，Object是所有类的老父亲。 从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。">
 <meta property="og:locale" content="zh-CN">
@@ -177,7 +177,7 @@
 <p>从某种严格的意义上讲，每一个java类都需要重写这三个方法。不过一般不这么干，用不到就不重写。</p>
 <a id="more"></a>
 
-<h4 id="关于hashCode的介绍"><a href="#关于hashCode的介绍" class="headerlink" title="关于hashCode的介绍"></a>关于hashCode的介绍</h4><p>其实hashCode()就是 <a href="https://heronking.github.io/archives/1293cfc0.html">哈希表</a> 的散列函数，它的返回值就是hash码，那个传说中的key值，嗯，是个int型的。</p>
+<h4 id="关于hashCode的介绍"><a href="#关于hashCode的介绍" class="headerlink" title="关于hashCode的介绍"></a>关于hashCode的介绍</h4><p>其实hashCode()就是 <a href="https://heronking.github.io/archives/1293cfc0.html" target="_blank" rel="noopener">哈希表</a> 的散列函数，它的返回值就是hash码，那个传说中的key值，嗯，是个int型的。</p>
 <p>它的存在就是为了哈希表服务的。</p>
 <p>java中有两种<strong>集合</strong>，一类是List，一类是Set。我们在小学二年级的时候就学过集合的概念，不过在计算机语言中，集合是一种数据结构。</p>
 <p>这里说一下HashSet这个集合，它是Set的一个子类，它也比较接近数学中的集合，存储在它里面的元素<strong>无序且不可重复的</strong>。为什么是无序的呢？因为它是根据 <code>hashCode()</code> 返回的散列码来存储的。</p>
@@ -274,7 +274,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS27DMAwFwNz/0u62QGrnkXQKWBqvCte/yeKBIvV6xcfx63g/f3Z9/uTrt9x2YGBgPJZxXB5n19z7lvd35d+GgYGxDyOJwjw0z+66PnNN+vDNGBgYGL0QvAzr/AwGBgbGhJF8aFIgVoMeAwNjT0a+sJyUg1X8V9biGBgYD2T02vf/8/dX5hsYGBiPYhzFIw/EfJlaDdk/3oWBgbE0Iw+4/EN7Tf9q4GJgYOzGqN7QC+jr1ltv89loXxsGBsYDGZNyrVr2TZ5fnnJgYGA8nJH4vjEA6D3zNF0xMDCWZvTqx0mZmBeL1XsxMDBWZeSlXt44u6tVV/ihMTAwNmAkTfxJCVgdgpZHCxgYGBsw8kKtOjbIg7X63w97RjAwMBZiVB9aDcpeoCefHi28MTAwlmD0AvfekO1ttsDAwNiNUR0ATMaN924OO53EYmBgLM3oFX9V0mSAeroWx8DAWJRRHUn2ho75qCCP3dM9IxgYGIsyqu2tZDCZfFzS1CuXoRgYGIsyChODcamXb78ojzYxMDA2YEyWstXW/zdCGQMDYwdGb+h412K42p4rb7nAwMB4LOMoHtUWW7m8a5WPGBgYazN6I8MqdbJ1dbK9AwMDYyVGPmKsPnoyBig3ATEwMDZgzIOvt6Xs5rU4BgYGRnx9Lw9HVAwMDIygBEyaZb2fI4pyDAyMDRjJIjYJx0lDv/ocDAyMfRjVXlYepnko54vk0SATAwPjeYwfNpZLqb/ydQsAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aS3KEMAxF0d7/psk0VUk790nQFcuXEdUBzGGgWJ/XCx/Xt2P9159XkrvIKjccMmTI2JZxLQ++ALmLUNfXv30TGTJkHMB491q1R/PlCXv9bjJkyJCxPidhlARcsq4MGTJkdAIuT1bJdlOGDBkyOklsp/RGNo4fysVlyJCxIYNX3T9//kh/Q4YMGVsxrvDobyUfeSsZMmSMZvAARxLO9e88WS2+jwwZMo5hBAGuPdpVK8ChqqEMGTIGMWpjW7wZyUN2bUv6yw5XhgwZ4xhp2CXDWxzPr0ctTBkyZIxm1JLJdMlaWhuMYsiQIWM0Iw24pJSfZpe1D9T6vyFDhoxNGE9s0dJ0NyW9zcVlyJAxlNGpq9fCa9oK5cmwDBkyTmDw7WO/lF8s+q8DtAwZMkYzOk3KGqZTYgtycRkyZIxgpBuyfsOAPDNuJMiQIeMwBg+XPCl9rpshQ4aMExhpB7CW0PJCHi/M3TwWJkOGjH/PqA1ecDBvJKT3ypAh4xxGp1jPh8lq42JBSixDhowjGbVAWWsMpGMcMmTIOJPB25nk0WnA7Yx6yJAhYzajVjLrjE2Qwhn/EK3KnwwZMjZh1IJdOkhBNqC1RkWMkSFDxraMtPSfluE6UZGnyjJkyDiBwQMfuSstn6WjYH/MjMiQIUNG+xcCQM0AGTJkyAi3hjzRJdu++AkyZMg4gEGS2HSQK20wdAbLZMiQMZvBU0feACDn6Se7oZEpQ4aM/Rhfb/CTYYxOA9AAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -343,7 +343,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/333b0902.html", 
+    url: "https://heronking.gitee.io/archives/333b0902.html", 
     sourceId: "equals和hashCode",
     productKey: "true",
     target: "cloud-tie-wrapper"

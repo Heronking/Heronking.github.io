@@ -5,14 +5,14 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="https://heronking.github.io">
+  <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>HTTP协议简单总结 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="HTTP，超文本传输协议，是一个客户端和服务端请求和响应的标准TCP，建立在TCP之上。简单来说，就是用电脑上网，访问web，然后web服务器对电脑的请求作出响应。 互联网上所有的WWW文件都必须遵守HTTP标准。 http协议在应用层，它是基于传输层的TCP协议。所以http在开始传输前，会首先建立tcp连接，也就是三次握手。">
 <meta name="keywords" content="随笔,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP协议简单总结">
-<meta property="og:url" content="https://heronking.github.io/archives/ce0e21de.html">
+<meta property="og:url" content="https://heronking.gitee.io/archives/ce0e21de.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="HTTP，超文本传输协议，是一个客户端和服务端请求和响应的标准TCP，建立在TCP之上。简单来说，就是用电脑上网，访问web，然后web服务器对电脑的请求作出响应。 互联网上所有的WWW文件都必须遵守HTTP标准。 http协议在应用层，它是基于传输层的TCP协议。所以http在开始传输前，会首先建立tcp连接，也就是三次握手。">
 <meta property="og:locale" content="zh-CN">
@@ -289,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQYrDMAwF0Ln/pTPbgaHpl5QWojyvStPEfikIyfLPTzyOP+P/969+nz/5fJbLBgYGxm0Zx+k4/81klnNMvjYMDIznMJJQmAfNV3clz0nmxcDAwMgXlITgJIhXXx8GBgbGJF2b4L8acDEwMG7I6C0omSB/HV+qxTEwMG7I6G3ff+fzR/obGBgYt2IcxZEHxPNUL08Zo1VhYGCsZuQBLm9A5gcpJgEXAwPjaYze9NUAfR5k81bBKJ/FwMC4OSPf0J8sIkkx8ybBmy4HBgbGCkb15uRQV6/QTWAvZ8TAwFjNqF6epIx5CTq5ioGBsY/RKyCrRebkENgF22oYGBiLGHnJmtw1aYKWWwsYGBgPYFQPQCTB99py9M0sGBgYqxnzIraKmfQukqCPgYGxj1ENuL2tt/xoV7OQxsDAWM2YBLskKCfJ3MX/CQYGxlJGvmXW2+6vpqG9YI2BgfEERj5xUtBWD2EkZW3hf8DAwFjNyJPCXpJXTS7zNBEDA2M3Iw9zvVQvTyjz9bypxTEwMFYzeq3K6tb/vONabgxgYGAsYkyWNSlEqwH95ZELDAyMdYyjOCYbcL3GQPRMDAyM1YxqG2CexuXtyXliioGBsYmRtxg/3QbI74pyRgwMjHWM+XGK85fy1VocAwMDo1XoVpujZSoGBgZGsc05P6KalMGjgIuBgXFDRlLE9o639poE1XYpBgbGbkZ1L6vH7hW6eVMTAwNjKeMXk5pLqWi/k5kAAAAASUVORK5CYII=" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7DMAwFUd//0u62RWNhPikHkDRaFU0c6XlBkBSvC6/71xp/+v+b5Cmyy4QlQ4aMZRn3cJGD8mMRKtn3A1WGDBkHMJ4iWLpNuj1hj88mQ4YMGWSzfsAl+8qQIUPG3IA7Tj3J65AhQ4aMWhHbab3xxPH1WlyGDBkLMnjX/ft/v3K/IUOGjKUYd7jmFr2dk/z5TRkyZGzN4AEuTcjGpWk/4MqQIeMcRq285K3/9NWQBtyH/8iQIeNgxqy0j198pikpCrgyZMhYnEHGs3iQJUkev3LgAxkyZMg4gVFrjfESlyd86VOPtbgMGTKOYfDAymvJcTCtgWXIkLE3oz/uwEvN9Oj8UxkyZOzNSMNiJ+B2Qi36vwwZMg5jkPDaaeUXm/7j08qQIWNTxqwGPb824CX0tCJWhgwZizNIaEuf4i8rGPziw2EyZMjYjlELl7wojVtm4WuSIUPGCYz0BrA22Fpr5BVrcRkyZGzNSMdVawG0H9wfd5EhQ8YBDB5A06sC8mu1C4M4NZQhQ8biDN6UT8cmSNuuFuJlyJBxGiNtgZEUMA24tVEPGTJk7M24w3XhRZ7i6WacFMqQIWMjRu1YNR5/qnNRIUOGjF0ZabPslfcUgh8zXBkyZGzNqJWs6eBFp4gNZkZkyJAhA1wYdL4TXAbIkCFDRjiEQTbmaV/8CzJkyDiAQYrYdAAibc/x78uQIeM0Bi8d05SxFqZrl5oyZMjYlPED1F1Bz05QUC4AAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
@@ -358,7 +358,7 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://heronking.github.io/archives/ce0e21de.html", 
+    url: "https://heronking.gitee.io/archives/ce0e21de.html", 
     sourceId: "计算机网络-HTTP协议",
     productKey: "true",
     target: "cloud-tie-wrapper"
