@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heronking.gitee.io/"/>
-  <updated>2020-03-25T09:58:07.813Z</updated>
+  <updated>2020-03-26T13:31:27.566Z</updated>
   <id>https://heronking.gitee.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>总结final关键字</title>
+    <link href="https://heronking.gitee.io/archives/ef816ce.html"/>
+    <id>https://heronking.gitee.io/archives/ef816ce.html</id>
+    <published>2020-03-26T11:20:00.000Z</published>
+    <updated>2020-03-26T13:31:27.566Z</updated>
+    
+    <content type="html"><![CDATA[<p>final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。</p><p>但是，<strong>final不能用来修饰抽象类</strong>，这是因为final有这些特性：</p><a id="more"></a><ul><li>被final修饰的类<strong>不能被继承</strong>，在final类中的方法默认为final。所以它不能用来修饰抽象类，因为抽象类设计出来就是为了被继承，<a href="https://heronking.github.io/archives/e6551811.html" target="_blank" rel="noopener">前面</a> 已经提到过。</li><li>被final修饰的方法不能被子类重写，但是可以被继承过去。<br><strong>注意一下，private方法也是不能被子类重写的，所以private类型的方法默认是final的。</strong></li><li>对于一个final变量，如果是基本数据类型，那么它的数值在初始化之后就不能更改；<br>如果修饰的是一个引用，那么在初始化之后不能再指向其他的对象。<strong>如果引用内部的数据不是final，那么是可以进行修改的，只是引用的指向不能修改</strong><br>其实final变量也就是<strong>常量</strong>。</li><li>final不能用于修饰构造方法。</li></ul><h4 id="那么为什么要使用final呢？"><a href="#那么为什么要使用final呢？" class="headerlink" title="那么为什么要使用final呢？"></a>那么为什么要使用final呢？</h4><ol><li>锁定方法，防止子类重写。</li><li><strong>高效</strong>，final方法是内嵌调用机制。（但现在已经不需要了，因为private类型的方法默认都是final）</li></ol><h4 id="final和static的区别"><a href="#final和static的区别" class="headerlink" title="final和static的区别"></a>final和static的区别</h4><ul><li>final把数据修饰为常量，无法修改</li><li>static把数据修饰为静态，放入方法区</li></ul><h4 id="和finally、finalize-的区别"><a href="#和finally、finalize-的区别" class="headerlink" title="和finally、finalize()的区别"></a>和finally、finalize()的区别</h4><ul><li><strong>finally关键字</strong>，用于异常处理，无论是否抛出异常，finally代码块都会执行，可以用来维护对象的内部状态，清理资源。不要在try中使用return语句，因为会被finally覆盖。</li><li><strong>finalize方法</strong>，是Objecte类的方法。在GC决定回收一个没用的对象时调用。可以覆盖这个方法来选择回收资源还是执行清除操作，或者其他什么东西都行。任何对象只会被JVM调用一次finalize方法。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。&lt;/p&gt;
+&lt;p&gt;但是，&lt;strong&gt;final不能用来修饰抽象类&lt;/strong&gt;，这是因为final有这些特性：&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
+    
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>java反射机制</title>
@@ -302,32 +328,6 @@
       <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
       <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>总结final关键字</title>
-    <link href="https://heronking.gitee.io/archives/ef816ce.html"/>
-    <id>https://heronking.gitee.io/archives/ef816ce.html</id>
-    <published>2020-03-18T06:27:28.000Z</published>
-    <updated>2020-03-18T06:52:29.285Z</updated>
-    
-    <content type="html"><![CDATA[<p>final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。</p><p>但是，<strong>final不能用来修饰抽象类</strong>，这是因为final有这些特性：</p><a id="more"></a><ul><li>被final修饰的类<strong>不能被继承</strong>，在final类中的方法默认为final。所以它不能用来修饰抽象类，因为抽象类设计出来就是为了被继承，<a href="https://heronking.github.io/archives/e6551811.html" target="_blank" rel="noopener">前面</a> 已经提到过。</li><li>被final修饰的方法不能被子类重写，但是可以被继承过去。<br><strong>注意一下，private方法也是不能被子类重写的，所以private类型的方法默认是final的。</strong></li><li>对于一个final变量，如果是基本数据类型，那么它的数值在初始化之后就不能更改；<br>如果修饰的是一个引用，那么在初始化之后不能再指向其他的对象。<strong>如果引用内部的数据不是final，那么是可以进行修改的，只是引用的指向不能修改</strong><br>其实final变量也就是<strong>常量</strong>。</li><li>final不能用于修饰构造方法。</li></ul><h4 id="那么为什么要使用final呢？"><a href="#那么为什么要使用final呢？" class="headerlink" title="那么为什么要使用final呢？"></a>那么为什么要使用final呢？</h4><ol><li>锁定方法，防止子类重写。</li><li><strong>高效</strong>，final方法是内嵌调用机制。（但现在已经不需要了，因为private类型的方法默认都是final）</li></ol><h4 id="final和static的区别"><a href="#final和static的区别" class="headerlink" title="final和static的区别"></a>final和static的区别</h4><ul><li>final把数据修饰为常量，无法修改</li><li>static把数据修饰为静态，放入方法区</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。&lt;/p&gt;
-&lt;p&gt;但是，&lt;strong&gt;final不能用来修饰抽象类&lt;/strong&gt;，这是因为final有这些特性：&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="随笔" scheme="https://heronking.gitee.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
       <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     

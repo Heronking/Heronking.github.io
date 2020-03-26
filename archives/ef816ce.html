@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。 但是，final不能用来修饰抽象类，这是因为final有这些特性：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-18T06:52:29.285Z">
+<meta property="og:updated_time" content="2020-03-26T13:31:27.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="总结final关键字">
 <meta name="twitter:description" content="final是Java中的一个关键字，用来修饰变量、方法或者类，和static用法差不多。final可以理解成“无法改变”的意思。 但是，final不能用来修饰抽象类，这是因为final有这些特性：">
@@ -166,7 +166,7 @@
 
         
         <a href="/archives/ef816ce.html" class="archive-article-date">
-  	<time datetime="2020-03-18T06:27:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
+  	<time datetime="2020-03-26T11:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-26</time>
 </a>
         
       </header>
@@ -190,6 +190,10 @@
 <h4 id="final和static的区别"><a href="#final和static的区别" class="headerlink" title="final和static的区别"></a>final和static的区别</h4><ul>
 <li>final把数据修饰为常量，无法修改</li>
 <li>static把数据修饰为静态，放入方法区</li>
+</ul>
+<h4 id="和finally、finalize-的区别"><a href="#和finally、finalize-的区别" class="headerlink" title="和finally、finalize()的区别"></a>和finally、finalize()的区别</h4><ul>
+<li><strong>finally关键字</strong>，用于异常处理，无论是否抛出异常，finally代码块都会执行，可以用来维护对象的内部状态，清理资源。不要在try中使用return语句，因为会被finally覆盖。</li>
+<li><strong>finalize方法</strong>，是Objecte类的方法。在GC决定回收一个没用的对象时调用。可以覆盖这个方法来选择回收资源还是执行清除操作，或者其他什么东西都行。任何对象只会被JVM调用一次finalize方法。</li>
 </ul>
 
       
@@ -282,18 +286,9 @@
   
 <nav id="article-nav">
   
-    <a href="/archives/166dc6bc.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          简述HashMap的工作原理
-        
-      </div>
-    </a>
   
-  
-    <a href="/archives/d680fc0.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">线程、进程、程序的区别和联系</div>
+    <a href="/archives/3ecb78ee.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java反射机制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -320,7 +315,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#那么为什么要使用final呢？"><span class="toc-number">1.</span> <span class="toc-text">那么为什么要使用final呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final和static的区别"><span class="toc-number">2.</span> <span class="toc-text">final和static的区别</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#那么为什么要使用final呢？"><span class="toc-number">1.</span> <span class="toc-text">那么为什么要使用final呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#final和static的区别"><span class="toc-number">2.</span> <span class="toc-text">final和static的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#和finally、finalize-的区别"><span class="toc-number">3.</span> <span class="toc-text">和finally、finalize()的区别</span></a></li></ol>
                     </div>
                 </span>
             </div>
