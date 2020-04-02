@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://heronking.gitee.io">
-  <title>解决hexo上传本地图片失败的问题 | 这是个刚搭好的博客</title>
+  <title>Archives: 2020/4 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一次用hexo写博客，然后遇到了本地图片显示不了的问题就像这样一般情况下是没什么问题的，按照教程一步步来">
-<meta name="keywords" content="hexo图片">
-<meta property="og:type" content="article">
-<meta property="og:title" content="解决hexo上传本地图片失败的问题">
-<meta property="og:url" content="https://heronking.gitee.io/archives/897429d0.html">
+  <meta name="description" content="hexo,博客,湘潭大学,java,开源">
+<meta name="keywords" content="“程序员,java,代码,算法,开源,个人,数据结构”">
+<meta property="og:type" content="website">
+<meta property="og:title" content="这是个刚搭好的博客">
+<meta property="og:url" content="https://heronking.gitee.io/archives/2020/04/index.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="第一次用hexo写博客，然后遇到了本地图片显示不了的问题就像这样一般情况下是没什么问题的，按照教程一步步来">
+<meta property="og:description" content="hexo,博客,湘潭大学,java,开源">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://heronking.gitee.io/archives/897429d0/1.png">
-<meta property="og:updated_time" content="2020-03-17T15:03:58.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决hexo上传本地图片失败的问题">
-<meta name="twitter:description" content="第一次用hexo写博客，然后遇到了本地图片显示不了的问题就像这样一般情况下是没什么问题的，按照教程一步步来">
-<meta name="twitter:image" content="https://heronking.gitee.io/archives/897429d0/1.png">
+<meta name="twitter:title" content="这是个刚搭好的博客">
+<meta name="twitter:description" content="hexo,博客,湘潭大学,java,开源">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -155,190 +152,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-解决hexo上传本地图片失败的问题" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      解决hexo上传本地图片失败的问题
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/archives/ff8068c0.html" class="archive-article-date">
+  	<time datetime="2020-04-02T11:08:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/archives/ff8068c0.html">快速排序</a>
     </h1>
   
 
-        
-        <a href="/archives/897429d0.html" class="archive-article-date">
-  	<time datetime="2020-03-14T12:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一次用hexo写博客，然后遇到了本地图片显示不了的问题<br>就像这样<img src="/archives/897429d0/1.png" alt="显示失败"><br>一般情况下是没什么问题的，按照教程一步步来</p>
-<a id="more"></a>
-
-<ul>
-<li>首先把<code>_config.yml</code>下的<code>post_asset_folder</code>改成<code>true</code></li>
-<li>然后安装插件，使用咒语：<code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code>，这个是0.0.5版本的，最好是用这个！</li>
-<li>这样你新建文章的时候会生成一个和文章名一样的文件夹，比如新建一个<code>test.md</code>，那么在你的<code>_posts</code>目录下面会有<code>test</code>文件夹和<code>test.md</code>，然后把需要用的图片放到 test 文件夹里面，在你的文章里面使用<code>markdown</code>语法就能正常上传图片</li>
-</ul>
-<p>这是一般情况</p>
-<p>但是呢，如果你的hexo装了<a href="https://github.com/rozbo/hexo-abbrlink" target="_blank" rel="noopener">abbrlink</a>，那么上传的图片就会显示不出来。这个插件会和<code>asset-image</code>冲突，原因是abbrlink会把博客的帖子的标题转换成一个唯一的静态代码，由于这里用的相对路径上传本地图片，<code>asset-image</code>在上传的图片自然就没办法被找到了！</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>我找到了abbrlink作者大大的发帖记录，最后在 <a href="https://github.com/rozbo/hexo-abbrlink/issues/19" target="_blank" rel="noopener">这里</a> 找到了办法~<br>只需要把这位大佬的改好的 <a href="https://github.com/foreveryang321/hexo-asset-image" target="_blank" rel="noopener">插件</a> 装好就行，咒语：</p>
-<p><code>$ npm install https://github.com/foreveryang321/hexo-asset-image.git --save</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo图片</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQY6DQAxE0dz/0mQbiQC/bBIJ92c1IiT0Y1GD23698LHtjvNPP6/ZX7//1tGZmw8ZMmQ8lrGdHmShfFmESu77hSpDhowFGEcJxkOzdnvCPl+bDBkyZBxdc2/g1h6fDBkyZJDXNVJ8klCWIUOGDMLgW2bpotOS+Oe1uAwZMh7I4Lvu///7J/0NGTJkPIqxhQcJxDSg05D9ckcZMmSMZvCAIwUn2YxLQzxYjwwZMoYy+gVkuvVWGwu7OCNDhowFGLUA7S86bRscrlaGDBnLMNIStLZxRiI+fqwyZMhYhpGGYz+USfiixydDhozRDD7yRTbC0hKXtyrRlTJkyBjK4Dfg53mZykP8IuJlyJAxmlEbdOjEaw0Td2JlyJAxmsG/nA6QkTZAqxUhQ4aMoYz+LWutR15CF4tYGTJkDGX0GwAkOvlvBmdkyJCxGIOPovKXwvShpKNmMmTImM3ohCDfPiPf6rcoZMiQMZvBW5Lp9n1tFCNdlQwZMlZgkCGw9AWxs0nHy2DUHpAhQ8ZoRjpC0WkM1NoDMmTIWI1Rw5AIvusV82K8TIYMGUMZW3jw7Tmy0NpW3UXUypAhYxyjH3adlidpTJJ/AzJkyFiBUdss60Rt+shQWMuQIWMBBg++zlhGsbN618yIDBkylmSkb6CdAYsLsAwZMmTgYVMevuS+wS/IkCFjAUZthIK3KtNWQdwElSFDxmgGLx3TgrbGI4Hb6m/IkCHjSYw3UldqmK61kuIAAAAASUVORK5CYII=" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/archives/5cc69699.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于JVM，JDK和JRE
-        
-      </div>
-    </a>
   
   
-    <a href="/archives/7754bff8.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GithubPages+yilia主题博客搭建记录</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决办法"><span class="toc-number">1.</span> <span class="toc-text">解决办法</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "https://heronking.gitee.io/archives/897429d0.html", 
-    sourceId: "解决hexo上传本地图片失败的问题",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -370,8 +245,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
