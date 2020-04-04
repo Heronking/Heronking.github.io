@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="HTTP，超文本传输协议，是一个客户端和服务端请求和响应的标准TCP，建立在TCP之上。简单来说，就是用电脑上网，访问web，然后web服务器对电脑的请求作出响应。 互联网上所有的WWW文件都必须遵守HTTP标准。 http协议在应用层，它是基于传输层的TCP协议。所以http在开始传输前，会首先建立tcp连接，也就是三次握手。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-04T10:46:42.053Z">
+<meta property="og:image" content="https://heronking.gitee.io/archives/ce0e21de/1.png">
+<meta property="og:updated_time" content="2020-04-04T12:20:43.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议简单总结">
 <meta name="twitter:description" content="HTTP，超文本传输协议，是一个客户端和服务端请求和响应的标准TCP，建立在TCP之上。简单来说，就是用电脑上网，访问web，然后web服务器对电脑的请求作出响应。 互联网上所有的WWW文件都必须遵守HTTP标准。 http协议在应用层，它是基于传输层的TCP协议。所以http在开始传输前，会首先建立tcp连接，也就是三次握手。">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/ce0e21de/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -166,7 +168,7 @@
 
         
         <a href="/archives/ce0e21de.html" class="archive-article-date">
-  	<time datetime="2020-03-24T10:04:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+  	<time datetime="2020-04-04T10:04:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
 </a>
         
       </header>
@@ -216,6 +218,15 @@
 <p>HTTPS协议是基于SSL/TLS上的HTTP协议，而SSL/TLS是基于TCP的。该协议的所有内容都经过了加密。HTTP的安全性没有HTTPS高，但HTTPS要花费更多的服务器资源，因为需要对报文进行认证。</p>
 </li>
 </ul>
+<h4 id="HTTP中的请求"><a href="#HTTP中的请求" class="headerlink" title="HTTP中的请求"></a>HTTP中的请求</h4><p>具体还是看图！http/1.1后有8个，还在增加中。<a href="https://blog.csdn.net/weixin_42981419/article/details/86162244?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1" target="_blank" rel="noopener">图源</a></p>
+<p><img src="/archives/ce0e21de/1.png" alt="http请求方法"></p>
+<h5 id="POST和PUT方法的区别"><a href="#POST和PUT方法的区别" class="headerlink" title="POST和PUT方法的区别"></a>POST和PUT方法的区别</h5><p>两者都能向指定资源进行创建或更新。</p>
+<p>但<strong>PUT 是幂等的方法</strong>，如果对某个资源重复执行多次PUT，得到的结果仍然是一样的。对于两个相同的请求，后一个请求会将前一个请求覆盖。使用PUT方法可以指定路径明确操作的对象，如果服务器已经存在对象，则更新，不存在，则创建。</p>
+<p>而<strong>POST方法不是幂等的</strong>，若重复执行多次POST方法，则会创建多个对象，因为后一个请求不会覆盖前面相同的请求。POST方法无法指定资源路径，服务器会为POST提交的新文档创建一个编号。</p>
+<h5 id="GET和POST方法的区别"><a href="#GET和POST方法的区别" class="headerlink" title="GET和POST方法的区别"></a>GET和POST方法的区别</h5><p>GET方法提交的数据会直接放到请求报文的URL上，比如要在谷歌上搜索”计算机网络“，那么URL栏上是：”<a href="https://www.google.com/search?q=计算机网络&amp;ie=utf-8“，数据都在这上面了，而且URL是长度限制的。" target="_blank" rel="noopener">https://www.google.com/search?q=计算机网络&amp;ie=utf-8“，数据都在这上面了，而且URL是长度限制的。</a></p>
+<p>POST方法提交的数据会在请求正文（body）中，没有长度限制。</p>
+<p>所以GET方法一把用来传输可公开的参数，解析快。POST方法用来提交不公开的敏感信息，比GET要安全。</p>
+<p>当然，如果不使用https加密，报文的body也是可被截取的。</p>
 
       
 
@@ -303,18 +314,9 @@
   
 <nav id="article-nav">
   
-    <a href="/archives/3ecb78ee.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java反射机制
-        
-      </div>
-    </a>
   
-  
-    <a href="/archives/55ac5dc4.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">TCP协议简单总结</div>
+    <a href="/archives/ff8068c0.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">快速排序</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +343,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP的工作流程"><span class="toc-number">1.</span> <span class="toc-text">HTTP的工作流程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP的长连接和短连接"><span class="toc-number">2.</span> <span class="toc-text">HTTP的长连接和短连接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP协议响应报文的状态码"><span class="toc-number">3.</span> <span class="toc-text">HTTP协议响应报文的状态码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在浏览器中输入url地址到返回结果的过程"><span class="toc-number"></span> <span class="toc-text">在浏览器中输入url地址到返回结果的过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP和HTTPS的区别"><span class="toc-number"></span> <span class="toc-text">HTTP和HTTPS的区别</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP的工作流程"><span class="toc-number">1.</span> <span class="toc-text">HTTP的工作流程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP的长连接和短连接"><span class="toc-number">2.</span> <span class="toc-text">HTTP的长连接和短连接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#HTTP协议响应报文的状态码"><span class="toc-number">3.</span> <span class="toc-text">HTTP协议响应报文的状态码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在浏览器中输入url地址到返回结果的过程"><span class="toc-number"></span> <span class="toc-text">在浏览器中输入url地址到返回结果的过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP和HTTPS的区别"><span class="toc-number"></span> <span class="toc-text">HTTP和HTTPS的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP中的请求"><span class="toc-number"></span> <span class="toc-text">HTTP中的请求</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#POST和PUT方法的区别"><span class="toc-number">1.</span> <span class="toc-text">POST和PUT方法的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#GET和POST方法的区别"><span class="toc-number">2.</span> <span class="toc-text">GET和POST方法的区别</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -483,14 +485,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github pages</a>
               </li>
              
@@ -500,6 +494,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">yilia主题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo图片</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
