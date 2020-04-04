@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heronking.gitee.io/"/>
-  <updated>2020-04-04T12:20:43.318Z</updated>
+  <updated>2020-04-04T12:24:49.756Z</updated>
   <id>https://heronking.gitee.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://heronking.gitee.io/archives/ce0e21de.html"/>
     <id>https://heronking.gitee.io/archives/ce0e21de.html</id>
     <published>2020-04-04T10:04:37.000Z</published>
-    <updated>2020-04-04T12:20:43.318Z</updated>
+    <updated>2020-04-04T12:24:49.756Z</updated>
     
     <content type="html"><![CDATA[<p>HTTP，超文本传输协议，是一个客户端和服务端<strong>请求和响应</strong>的<strong>标准TCP</strong>，建立在TCP之上。简单来说，就是用电脑上网，访问web，然后web服务器对电脑的请求作出响应。</p><p>互联网上所有的WWW文件都必须遵守HTTP标准。</p><p><code>http</code>协议在应用层，它是基于传输层的<code>TCP</code>协议。所以http在开始传输前，会首先建立tcp连接，也就是三次握手。</p><a id="more"></a><p><strong>为什么使用TCP协议而不是UDP协议？</strong></p><p>因为一个网页里面有很多数据需要传输，必须保证数据的完整性，不然网页就会出错。</p><h5 id="HTTP的工作流程"><a href="#HTTP的工作流程" class="headerlink" title="HTTP的工作流程"></a>HTTP的工作流程</h5><p>一次HTTP操控叫一个事务</p><blockquote><ul><li>客户端和服务器建立连接（三次握手）</li><li>建立连接后，发送HTTP请求</li><li>服务器收到请求，返回HTTP响应信息</li><li>如果模式为短连接，则服务器释放TCP连接（四次挥手）</li><li>客户端收到回复信息，通过浏览器解析HTML内容，把信息展示给用户。</li></ul></blockquote><h5 id="HTTP的长连接和短连接"><a href="#HTTP的长连接和短连接" class="headerlink" title="HTTP的长连接和短连接"></a>HTTP的长连接和短连接</h5><p>在<strong>HTTP/1.0</strong>中默认是短连接。每进行一个事务，就建立一次连接，事务结束就释放连接。web页中如果有其他的资源（比如JavaScript文件、图片、css这种），每遇到一个资源，就会重新建立一个HTTP会话。</p><p><strong>HTTP/1.1</strong>中默认是长连接，可以保持连接。使用长连接以后，当一个web页打开完成，客户端和服务器之间的TCP连接不会释放，当客户端再次访问这个服务器的时候，会继续使用这个没有释放的连接。</p><p>在响应头中加入 <code>Connection:keep-alive</code> 就会将HTTP转为长连接。</p><p>长连接让多个HTTP请求可以复用同一个TCP连接，这样可以节省很多连接和断开的消耗。当然，长连接不是永久连接。在header中可以设置一个超时时间，如果该连接在超时时间内没有HTTP请求，那么长连接会被释放。</p><h5 id="HTTP协议响应报文的状态码"><a href="#HTTP协议响应报文的状态码" class="headerlink" title="HTTP协议响应报文的状态码"></a>HTTP协议响应报文的状态码</h5><ul><li>1**，指示信息，表示请求已接收，需要请求继续执行操作</li><li>2**，成功，表示请求已被成功接收并处理</li><li>3**，重定向，让客户端实现URL重定向</li><li>4**，客户端错误，请求包含语法错误或无法完成请求</li><li>5**，服务器错误，服务器在处理请求的过程在发生错误</li></ul><h4 id="在浏览器中输入url地址到返回结果的过程"><a href="#在浏览器中输入url地址到返回结果的过程" class="headerlink" title="在浏览器中输入url地址到返回结果的过程"></a>在浏览器中输入url地址到返回结果的过程</h4><ul><li><strong>DNS解析</strong>，浏览器查找域名所对应的IP地址</li><li><strong>TCP连接</strong>，三次握手</li><li><strong>发送HTTP请求</strong>，客户端发送请求报文</li><li><strong>服务器处理请求并返回HTTP响应报文</strong>，服务器发回响应报文</li><li><strong>浏览器解析渲染页面</strong>，客户端处理数据</li><li><strong>连接释放</strong>，四次挥手</li></ul><h4 id="HTTP和HTTPS的区别"><a href="#HTTP和HTTPS的区别" class="headerlink" title="HTTP和HTTPS的区别"></a>HTTP和HTTPS的区别</h4><ul><li><p>HTTP的URL是 <code>http://</code>开头，默认使用80端口；HTTPS的URL由<code>https://</code>开头，默认使用443端口。</p></li><li><p>HTTP协议是基于TCP的，传输内容是明文信息，客户端和服务器的无法验证发送方的身份。</p><p>HTTPS协议是基于SSL/TLS上的HTTP协议，而SSL/TLS是基于TCP的。该协议的所有内容都经过了加密。HTTP的安全性没有HTTPS高，但HTTPS要花费更多的服务器资源，因为需要对报文进行认证。</p></li></ul><h4 id="HTTP中的请求"><a href="#HTTP中的请求" class="headerlink" title="HTTP中的请求"></a>HTTP中的请求</h4><p>具体还是看图！http/1.1后有8个，还在增加中。<a href="https://blog.csdn.net/weixin_42981419/article/details/86162244?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1" target="_blank" rel="noopener">图源</a></p><p><img src="/archives/ce0e21de/1.png" alt="http请求方法"></p><h5 id="POST和PUT方法的区别"><a href="#POST和PUT方法的区别" class="headerlink" title="POST和PUT方法的区别"></a>POST和PUT方法的区别</h5><p>两者都能向指定资源进行创建或更新。</p><p>但<strong>PUT 是幂等的方法</strong>，如果对某个资源重复执行多次PUT，得到的结果仍然是一样的。对于两个相同的请求，后一个请求会将前一个请求覆盖。使用PUT方法可以指定路径明确操作的对象，如果服务器已经存在对象，则更新，不存在，则创建。</p><p>而<strong>POST方法不是幂等的</strong>，若重复执行多次POST方法，则会创建多个对象，因为后一个请求不会覆盖前面相同的请求。POST方法无法指定资源路径，服务器会为POST提交的新文档创建一个编号。</p><h5 id="GET和POST方法的区别"><a href="#GET和POST方法的区别" class="headerlink" title="GET和POST方法的区别"></a>GET和POST方法的区别</h5><p>GET方法提交的数据会直接放到请求报文的URL上，比如要在谷歌上搜索”计算机网络“，那么URL栏上是：”<a href="https://www.google.com/search?q=计算机网络&amp;ie=utf-8“，数据都在这上面了，而且URL是长度限制的。" target="_blank" rel="noopener">https://www.google.com/search?q=计算机网络&amp;ie=utf-8“，数据都在这上面了，而且URL是长度限制的。</a></p><p>POST方法提交的数据会在请求正文（body）中，没有长度限制。</p><p>所以GET方法一把用来传输可公开的参数，解析快。POST方法用来提交不公开的敏感信息，比GET要安全。</p><p>当然，如果不使用https加密，报文的body也是可被截取的。</p>]]></content>
     
@@ -356,9 +356,9 @@
     
       <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
-    
       <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
@@ -492,9 +492,9 @@
     
       <category term="java" scheme="https://heronking.gitee.io/tags/java/"/>
     
-      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
-    
       <category term="面试" scheme="https://heronking.gitee.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="记" scheme="https://heronking.gitee.io/tags/%E8%AE%B0/"/>
     
   </entry>
   
