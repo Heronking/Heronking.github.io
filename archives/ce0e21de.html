@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="这是个刚搭好的博客">
 <meta property="og:description" content="HTTP，超文本传输协议，是一个客户端和服务端请求和响应的标准TCP，建立在TCP之上。简单来说，就是用电脑上网，访问web，然后web服务器对电脑的请求作出响应。 互联网上所有的WWW文件都必须遵守HTTP标准。 http协议在应用层，它是基于传输层的TCP协议。所以http在开始传输前，会首先建立tcp连接，也就是三次握手。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-25T13:28:23.931Z">
+<meta property="og:updated_time" content="2020-04-04T10:46:42.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP协议简单总结">
 <meta name="twitter:description" content="HTTP，超文本传输协议，是一个客户端和服务端请求和响应的标准TCP，建立在TCP之上。简单来说，就是用电脑上网，访问web，然后web服务器对电脑的请求作出响应。 互联网上所有的WWW文件都必须遵守HTTP标准。 http协议在应用层，它是基于传输层的TCP协议。所以http在开始传输前，会首先建立tcp连接，也就是三次握手。">
@@ -184,12 +184,12 @@
 <blockquote>
 <ul>
 <li>客户端和服务器建立连接（三次握手）</li>
-<li>建立连接后，发送请求</li>
-<li>服务器收到请求，响应信息</li>
-<li>客户端收到回复信息，通过浏览器把信息展示给用户。释放连接（四次挥手）</li>
+<li>建立连接后，发送HTTP请求</li>
+<li>服务器收到请求，返回HTTP响应信息</li>
+<li>如果模式为短连接，则服务器释放TCP连接（四次挥手）</li>
+<li>客户端收到回复信息，通过浏览器解析HTML内容，把信息展示给用户。</li>
 </ul>
 </blockquote>
-<p>不过HTTP的连接也不是这么简单的。</p>
 <h5 id="HTTP的长连接和短连接"><a href="#HTTP的长连接和短连接" class="headerlink" title="HTTP的长连接和短连接"></a>HTTP的长连接和短连接</h5><p>在<strong>HTTP/1.0</strong>中默认是短连接。每进行一个事务，就建立一次连接，事务结束就释放连接。web页中如果有其他的资源（比如JavaScript文件、图片、css这种），每遇到一个资源，就会重新建立一个HTTP会话。</p>
 <p><strong>HTTP/1.1</strong>中默认是长连接，可以保持连接。使用长连接以后，当一个web页打开完成，客户端和服务器之间的TCP连接不会释放，当客户端再次访问这个服务器的时候，会继续使用这个没有释放的连接。</p>
 <p>在响应头中加入 <code>Connection:keep-alive</code> 就会将HTTP转为长连接。</p>
@@ -487,6 +487,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">github pages</a>
               </li>
              
@@ -499,7 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,15 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
