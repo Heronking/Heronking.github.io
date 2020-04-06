@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://heronking.gitee.io/archives/55ac5dc4/1.webp">
 <meta property="og:image" content="https://heronking.gitee.io/archives/55ac5dc4/2.webp">
-<meta property="og:updated_time" content="2020-03-23T12:13:27.892Z">
+<meta property="og:updated_time" content="2020-04-06T12:12:28.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP协议简单总结">
 <meta name="twitter:description" content="TCP协议（Transmission Control Protocol），传输控制协议。属于传输层。 TCP负责检查传输的报文，一旦出现问题就发出信号，要求重新传输，直到所有的数据都安全正确地传输到目的地。 基于TCP的协议有 HTTP、SMTP、FTP、Telnet、POP3。">
@@ -248,6 +248,8 @@
 <p>于是服务器就一直等待，<strong>形成死锁，造成资源浪费</strong></p>
 <p>当大量的无回应请求出现时，服务器就受到了<strong>SYN洪泛攻击</strong>。</p>
 <p>而连接变成三次握手时，在第三次握手完成前，即客户端发回确认之前，服务器不会为客户端TCP连接分配资源，连接没有完成就不用等待客户端的数据，也就不会死锁了。</p>
+<p>当然，在三次握手中，在客户端收到的服务器响应SYN+ACK报文时，会判断这个报文是否为历史报文（序列号过期或者超时），此时，客户端就会发送一个<strong>RST报文</strong>给服务器，终止这个报文连接。</p>
+<p>因此，<strong>三次握手可以阻止历史连接的初始化</strong>，<strong>避免资源浪费</strong>。</p>
 <h5 id="释放连接（四次挥手）"><a href="#释放连接（四次挥手）" class="headerlink" title="释放连接（四次挥手）"></a>释放连接（四次挥手）</h5><p>上图，<a href="https://www.jianshu.com/p/65605622234b" target="_blank" rel="noopener">图源</a></p>
 <img src="/archives/55ac5dc4/2.webp" alt="四次挥手" style="zoom:80%;">
 
@@ -582,11 +584,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">记</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,11 +600,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +613,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
             
             <div class="clearfix"></div>

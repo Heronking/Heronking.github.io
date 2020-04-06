@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://heronking.gitee.io">
-  <title>Tag: 算法 | 这是个刚搭好的博客</title>
+  <title>重建二叉树 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo,博客,湘潭大学,java,开源">
-<meta name="keywords" content="“程序员,java,代码,算法,开源,个人,数据结构”">
-<meta property="og:type" content="website">
-<meta property="og:title" content="这是个刚搭好的博客">
-<meta property="og:url" content="https://heronking.gitee.io/tags/算法/index.html">
+  <meta name="description" content="根据遍历的结果来重建二叉树 知道中序和前序、中序和后序结果能确定一颗二叉树，而前序和后序不能，因为前序和后序只能确定父子关系，无法分辨左右子树。 现在来重建一下！ 前序遍历序列{1,2,4,7,3,5,6,8}中序遍历序列{4,7,2,1,5,3,8,6}">
+<meta name="keywords" content="数据结构,剑指offer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重建二叉树">
+<meta property="og:url" content="https://heronking.gitee.io/archives/97fc4ab0.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="hexo,博客,湘潭大学,java,开源">
+<meta property="og:description" content="根据遍历的结果来重建二叉树 知道中序和前序、中序和后序结果能确定一颗二叉树，而前序和后序不能，因为前序和后序只能确定父子关系，无法分辨左右子树。 现在来重建一下！ 前序遍历序列{1,2,4,7,3,5,6,8}中序遍历序列{4,7,2,1,5,3,8,6}">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://heronking.gitee.io/archives/97fc4ab0/1.png">
+<meta property="og:updated_time" content="2020-04-06T14:05:12.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是个刚搭好的博客">
-<meta name="twitter:description" content="hexo,博客,湘潭大学,java,开源">
+<meta name="twitter:title" content="重建二叉树">
+<meta name="twitter:description" content="根据遍历的结果来重建二叉树 知道中序和前序、中序和后序结果能确定一颗二叉树，而前序和后序不能，因为前序和后序只能确定父子关系，无法分辨左右子树。 现在来重建一下！ 前序遍历序列{1,2,4,7,3,5,6,8}中序遍历序列{4,7,2,1,5,3,8,6}">
+<meta name="twitter:image" content="https://heronking.gitee.io/archives/97fc4ab0/1.png">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -152,68 +155,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-题解-重建二叉树" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/archives/ff8068c0.html" class="archive-article-date">
-  	<time datetime="2020-04-02T11:08:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/archives/ff8068c0.html">快速排序</a>
+    <h1 class="article-title" itemprop="name">
+      重建二叉树
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/archives/97fc4ab0.html" class="archive-article-date">
+  	<time datetime="2020-04-06T13:06:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据遍历的结果来重建二叉树</p>
+<p>知道<strong>中序和前序、中序和后序</strong>结果能确定一颗二叉树，而前序和后序不能，因为前序和后序只能确定父子关系，无法分辨左右子树。</p>
+<p>现在来重建一下！</p>
+<p>前序遍历序列{1,2,4,7,3,5,6,8}<br>中序遍历序列{4,7,2,1,5,3,8,6}</p>
+<a id="more"></a>
+
+<p>前序的第一节点是这棵树的根节点，在没有重复节点的情况下，我们在中序遍历的结果中找到它，它的左边就是根的左子树，右边是右子树。</p>
+<p>所以这棵树就是这样了</p>
+<img src="/archives/97fc4ab0/1.png" style="zoom:50%;">
+
+<p>然后对它的左右子树做同样的操作，找到根节点，拆分成左右子树，直到左右子树为空。</p>
+<p>显然，这是个递归的过程。</p>
+<p>上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 找到根节点的位置</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> pre   先序遍历序列</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> preLeft   先序起点</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> preRight  先序终点</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> in    中序遍历序列</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> inLeft    中序起点</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> inRight   中序终点</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">findRoot</span><span class="params">(<span class="keyword">int</span>[] pre, <span class="keyword">int</span> preLeft, <span class="keyword">int</span> preRight, <span class="keyword">int</span>[] in, <span class="keyword">int</span> inLeft, <span class="keyword">int</span> inRight)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (preLeft &gt; preRight || inLeft &gt; inRight) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    TreeNode tree = <span class="keyword">new</span> TreeNode(pre[preLeft]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = inLeft; i &lt;= inRight; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (in[i] == pre[preLeft]) &#123;</span><br><span class="line">            <span class="comment">//找左子树根节点，左子树长度是 i-left。</span></span><br><span class="line">            tree.left = findRoot(pre, preLeft+<span class="number">1</span>, preLeft+i-inLeft, in, inLeft, i-<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//找右子树根节点，右子树起点是左子树终点的后一个</span></span><br><span class="line">            tree.right = findRoot(pre, preLeft+i-inLeft+<span class="number">1</span>, preRight, in, i+<span class="number">1</span>, inRight);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tree;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意每个子树的边界就行了</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指offer</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3azY7CMAxFYd7/pTvbkUrDuXZBqnOyQkwh+WZh/JPXC6/jtNZ//f/M+fnzp67euXnJkCHjsYxjuchB+bEIlez7hipDhowNGFcRLN0m3Z6w12eTIUOGjPUzHENSTL6vDBkyZPAgS4pPjpQhQ4aMNYO3zGqtN14Sf70WlyFDxgMZvOv++9dfmW/IkCHjUYwjXJ1jkTK4eCoZMmSMZvAAlyZk69K0H3BlyJCxDyMdPdYuWPB/DWnAvXlHhgwZWzJQI7596Nr4882pZMiQMZrR2aCW5PExQGuEKUOGjEEMfj2Lg9NQ27lmcfm7IUOGjEGMdA7YuVRBLmrUhgoyZMiYzUhDbXoVgxw9DfqXtbgMGTKGMmoXHXhbv3/9NMDLkCFjA0ba3E8vkHVaeChAy5AhYyiDNOh5K40fMS1ZgyJWhgwZoxn9Rv+97f5gkCBDhozRDN4sI0GWF7dBMAWpqgwZMmYz4jlnOIbkI0w+5mw12mTIkPFARqco5WVqOkjgn5UhQ8Y+jGLR2Gi6pYF4/T0yZMjYh0FK1lrqRgYDP2q3yZAh4+GMe9v3tYBbu+ohQ4aM2YwjXH0krzqLua0MGTLGMWrDgH4KmF4US4tqGTJkzGPUmmWt+cOtI1IZMmTsw+gEPvJ8v4j9kHTKkCFDRmnA2QnNfDwgQ4YMGTyYko152hd/gwwZMjZgkCK2Mx5Ii9J0CCpDhozZDF46pikjD9M8fWw19WTIkPE8xh80EfoIF2ejfQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/archives/de7c53fe.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线程池</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    没有目录啊
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "https://heronking.gitee.io/archives/97fc4ab0.html", 
+    sourceId: "题解-重建二叉树",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -245,9 +369,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
