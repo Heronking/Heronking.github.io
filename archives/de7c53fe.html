@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://heronking.gitee.io">
   <title>线程池 | 这是个刚搭好的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。 于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，避免大量线程的创建和销毁带来的开销。 Executors类中提供了四种线程池，有对应的静态工厂来生成，然后实现Exe">
+  <meta name="description" content="当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。 于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，降低大量线程的创建和销毁的开销，提高响应速度。 Executors类中提供了四种线程池，有对应的静态工厂来生成，然后">
 <meta name="keywords" content="随笔,java,线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线程池">
 <meta property="og:url" content="https://heronking.gitee.io/archives/de7c53fe.html">
 <meta property="og:site_name" content="这是个刚搭好的博客">
-<meta property="og:description" content="当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。 于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，避免大量线程的创建和销毁带来的开销。 Executors类中提供了四种线程池，有对应的静态工厂来生成，然后实现Exe">
+<meta property="og:description" content="当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。 于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，降低大量线程的创建和销毁的开销，提高响应速度。 Executors类中提供了四种线程池，有对应的静态工厂来生成，然后">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-05T10:28:57.592Z">
+<meta property="og:updated_time" content="2020-04-13T13:34:53.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程池">
-<meta name="twitter:description" content="当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。 于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，避免大量线程的创建和销毁带来的开销。 Executors类中提供了四种线程池，有对应的静态工厂来生成，然后实现Exe">
+<meta name="twitter:description" content="当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。 于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，降低大量线程的创建和销毁的开销，提高响应速度。 Executors类中提供了四种线程池，有对应的静态工厂来生成，然后">
   
     <link rel="alternative" href="/atom.xml" title="这是个刚搭好的博客" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。</p>
-<p>于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，避免大量线程的创建和销毁带来的开销。</p>
+<p>于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来<strong>统一管理调配线程</strong>。线程池可以避免大量的线程强占资源，<strong>降低大量线程的创建和销毁的开销</strong>，<strong>提高响应速度</strong>。</p>
 <p>Executors类中提供了四种线程池，有对应的静态工厂来生成，然后实现ExecutorService接口来执行任务。</p>
 <p>四种常用的线程池：</p>
 <a id="more"></a>
@@ -260,18 +260,33 @@
 <h4 id="自定义线程池"><a href="#自定义线程池" class="headerlink" title="自定义线程池"></a>自定义线程池</h4><p>阿里巴巴文档有说明：</p>
 <blockquote>
 <p>线程池不允许使用Executors去创建，而是通过ThreadPoolExecutor的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p>
+<p>使用线程池的好处是减少在创建和销毁线程上所消耗的时间以及系统资源开销，解决资源不足的问题。如果不使用线程池，有可能会造成系统创建大量同类线程而导致消耗完内存或者“过度切换”的问题。</p>
 </blockquote>
 <p>构造方法：</p>
 <p><code>public ThreadPoolExecutor(intcorePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue&lt;Runnable&gt;workQueue, RejectedExecutionHandler handler)</code></p>
 <p>参数说明：</p>
 <ul>
-<li><strong>corePoolSize</strong>：运行任务的核心线程数，如果当前线程数等于核心线程数，则多余的任务会放到等待队列。</li>
+<li><strong>corePoolSize</strong>：运行任务的核心线程数，如果当前线程数等于核心线程数，则多余的任务会放到等待队列。也就是<strong>最小并发线程数</strong></li>
 <li><strong>maximumPoolSize</strong>：最大线程数。这里有一个机制，当等待队列中任务满，且当前任务数&lt;最大线程数，则会新开一个线程。</li>
-<li><strong>keepAliveTime</strong>：线程所允许的空闲时间</li>
+<li><strong>keepAliveTime</strong>：线程所允许的空闲时间，空闲超过这个时间后，线程会被回收销毁</li>
 <li><strong>unit</strong>：线程池维护线程所允许的空闲时间的单位（NANOSECONDS、MICROSECONDS、MILLISECONDS、SECONDS等）</li>
 <li><strong>workQueue</strong>：等待队列</li>
-<li><strong>handler</strong>：对拒绝任务的处理策略。当缓存队列满，且当前线程数达到了最大线程数(maxmumPoolSize)，则会采取拒绝策略。</li>
+<li><strong>handler</strong>：对拒绝任务的处理策略。当缓存队列满，且当前线程数达到了最大线程数，则会采取拒绝策略。拒绝策略如下：<ul>
+<li><strong><code>ThreadPoolExecutor.AbortPolicy</code></strong>：直接抛出 <code>RejectedExecutionException</code>来拒绝新任务的处理。</li>
+<li><strong><code>ThreadPoolExecutor.CallerRunsPolicy</code></strong>：调用执行自己的线程运行任务，也就是直接在调用<code>execute</code>方法的线程中<strong>运行被拒绝的任务</strong>，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。另外，这个策略喜欢增加队列容量。</li>
+<li><strong><code>ThreadPoolExecutor.DiscardPolicy</code>：</strong> 不处理新任务，直接丢弃掉。</li>
+<li><strong><code>ThreadPoolExecutor.DiscardOldestPolicy</code>：</strong> 此策略将丢弃最早的未处理的任务请求。</li>
 </ul>
+</li>
+</ul>
+<h4 id="线程池大小确定"><a href="#线程池大小确定" class="headerlink" title="线程池大小确定"></a>线程池大小确定</h4><p>对于线程池的corePoolSize确定是一件很重要的事。如果线程池太小，当同时有大量任务需要处理时，可能会在队列中堆积大量的任务。如果太大的话，又可能会出现大量线程同时竞争CPU，会产生大量的<strong>上下文切换</strong>，增加线程的执行时间，影响效率。</p>
+<p>那么，有以下公式：</p>
+<ul>
+<li><strong>CPU密集型任务</strong>：大小设置为<strong>N+1</strong>，N为CPU核心数。+1的原因是，如果线程因为一些原因，比如缺页中断，导致暂停，CPU就会空闲，这个时候多出来的线程就可以执行了。</li>
+<li><strong>I/O密集型任务</strong>：大小设置为<strong>2N</strong>，执行此类任务时，系统会使用大部分时间来处理I/O交互，此时的CPU处于空闲状态，可以让出来执行其他任务。因此，可以多提交一些线程。</li>
+</ul>
+<h5 id="两种任务如何判断？"><a href="#两种任务如何判断？" class="headerlink" title="两种任务如何判断？"></a>两种任务如何判断？</h5><p>CPU密集型主要是利用CPU计算的任务，比如对大量数据进行排序、搜索之类的。</p>
+<p>I/O密集型主要是网络读取、文件读取之类的，此时耗费的时间主要用于等待I/O操作完成。</p>
 
       
 
@@ -401,7 +416,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#提交线程到线程池中的方法"><span class="toc-number">1.</span> <span class="toc-text">提交线程到线程池中的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四种线程池的使用"><span class="toc-number">2.</span> <span class="toc-text">四种线程池的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#固定长度线程池"><span class="toc-number">2.1.</span> <span class="toc-text">固定长度线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#单线程化线程池"><span class="toc-number">2.2.</span> <span class="toc-text">单线程化线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可缓存线程池"><span class="toc-number">2.3.</span> <span class="toc-text">可缓存线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#周期性线程池"><span class="toc-number">2.4.</span> <span class="toc-text">周期性线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取结果"><span class="toc-number">2.5.</span> <span class="toc-text">获取结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四种线程池的弊端"><span class="toc-number">2.6.</span> <span class="toc-text">四种线程池的弊端</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义线程池"><span class="toc-number">3.</span> <span class="toc-text">自定义线程池</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#提交线程到线程池中的方法"><span class="toc-number">1.</span> <span class="toc-text">提交线程到线程池中的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四种线程池的使用"><span class="toc-number">2.</span> <span class="toc-text">四种线程池的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#固定长度线程池"><span class="toc-number">2.1.</span> <span class="toc-text">固定长度线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#单线程化线程池"><span class="toc-number">2.2.</span> <span class="toc-text">单线程化线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#可缓存线程池"><span class="toc-number">2.3.</span> <span class="toc-text">可缓存线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#周期性线程池"><span class="toc-number">2.4.</span> <span class="toc-text">周期性线程池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取结果"><span class="toc-number">2.5.</span> <span class="toc-text">获取结果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四种线程池的弊端"><span class="toc-number">2.6.</span> <span class="toc-text">四种线程池的弊端</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义线程池"><span class="toc-number">3.</span> <span class="toc-text">自定义线程池</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#线程池大小确定"><span class="toc-number">4.</span> <span class="toc-text">线程池大小确定</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#两种任务如何判断？"><span class="toc-number">4.1.</span> <span class="toc-text">两种任务如何判断？</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -551,11 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">记</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -580,6 +595,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">

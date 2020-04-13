@@ -154,6 +154,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-设计模式-工厂模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/archives/54788f73.html">工厂模式</a>
+    </h1>
+  
+
+        
+        <a href="/archives/54788f73.html" class="archive-article-date">
+  	<time datetime="2020-04-07T11:33:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>工厂模式是一种创建型模式，使用工厂模式创建对象不会对客户端暴露创建逻辑，而是提供一个共同的接口来指向新创建的对象。</p>
+<blockquote>
+<p>在基类中定义创建方法的接口，让子类决定实例化哪一个类。工厂方法让一个类的实例化延迟到子类中进行。</p>
+</blockquote>
+<p>而在java中创建的对象的方式主要是：</p>
+<ul>
+<li>使用<strong>new关键字</strong>直接创建</li>
+<li>通过反射机制</li>
+<li>使用 <code>clone()</code> 方法</li>
+<li>通过工厂类</li>
+</ul>
+<p>工厂模式细分为三种：<strong>静态工厂模式、工厂方法模式、抽象工厂模式</strong>，它们都是工厂模式的一种实现。</p>
+        
+          <a class="article-more-a" href="/archives/54788f73.html#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/archives/54788f73.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-题解-重建二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -258,7 +349,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>当并发请求数量大而线程执行时间短的时候，使用常规的线程，就会出现频繁地创建和销毁。这样效率是极低的，服务器啥也不干就光在这创建销毁了，更别说还可能出现资源竞争。</p>
-<p>于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来统一管理调配线程。线程池可以避免大量的线程强占资源，避免大量线程的创建和销毁带来的开销。</p>
+<p>于是java中就引进了线程池，顾名思义，就是创建一个属于线程的池子，来<strong>统一管理调配线程</strong>。线程池可以避免大量的线程强占资源，<strong>降低大量线程的创建和销毁的开销</strong>，<strong>提高响应速度</strong>。</p>
 <p>Executors类中提供了四种线程池，有对应的静态工厂来生成，然后实现ExecutorService接口来执行任务。</p>
 <p>四种常用的线程池：</p>
         
@@ -920,87 +1011,6 @@
 
 
   
-    <article id="post-MySQL事务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/archives/f91535f.html">MySQL事务</a>
-    </h1>
-  
-
-        
-        <a href="/archives/f91535f.html" class="archive-article-date">
-  	<time datetime="2020-03-21T06:59:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>事务处理技术包括数据库回复技术和并发控制技术。这个两个机制是DBMS的重要组成部分。</p>
-<h4 id="事务的基本概念"><a href="#事务的基本概念" class="headerlink" title="事务的基本概念"></a>事务的基本概念</h4><p>事务是用户定义的一个操作序列。这些操作<strong>要么都成功完成、要么都失败</strong>，他们是一个不可分割的工作单位。</p>
-        
-          <a class="article-more-a" href="/archives/f91535f.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/archives/f91535f.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1125,11 +1135,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">记</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+                <a href="javascript:void(0)" class="js-tag color2">记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1154,6 +1164,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
